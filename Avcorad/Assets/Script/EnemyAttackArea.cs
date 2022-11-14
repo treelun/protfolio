@@ -24,7 +24,7 @@ public class EnemyAttackArea : MonoBehaviour
         enemyController = GetComponentInParent<EnemyController>();
     }
 
-    private void OnTriggerStay(Collider other)
+/*    private void OnTriggerStay(Collider other)
     {
         if (other.transform.tag == "Player")
         {
@@ -39,7 +39,7 @@ public class EnemyAttackArea : MonoBehaviour
             }
 
         }
-    }
+    }*/
 
 
     IEnumerator Attack()

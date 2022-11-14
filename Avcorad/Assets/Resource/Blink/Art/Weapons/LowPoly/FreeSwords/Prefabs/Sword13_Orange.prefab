@@ -11,13 +11,11 @@ GameObject:
   - component: {fileID: 4069032608350865191}
   - component: {fileID: 1141592188437858434}
   - component: {fileID: 2896719758783413320}
-  - component: {fileID: 4164052702334258557}
   - component: {fileID: 4164052702334258552}
-  - component: {fileID: 4164052702334258501}
-  - component: {fileID: 4164052702334258555}
+  - component: {fileID: 1238571887844544393}
   m_Layer: 6
   m_Name: Sword13_Orange
-  m_TagString: Untagged
+  m_TagString: item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,6 +34,7 @@ Transform:
   m_Children:
   - {fileID: 7264048330032552731}
   - {fileID: 3031371231423101811}
+  - {fileID: 3599210152507300736}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -89,19 +88,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4164052702334258557
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3689515951906905501}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.23, y: 1.63, z: 0.1}
-  m_Center: {x: 0.018302757, y: 1.14, z: 0.00022166768}
 --- !u!82 &4164052702334258552
 AudioSource:
   m_ObjectHideFlags: 0
@@ -198,7 +184,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4164052702334258501
+--- !u!114 &1238571887844544393
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -207,25 +193,93 @@ MonoBehaviour:
   m_GameObject: {fileID: 3689515951906905501}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8da778c2671c36e4ab38b5d88b43dc7a, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e7265749af7bc4438865974c5c5b514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: 6e66dc7ff711aa2478cb3b9bbdabe3b6, type: 2}
---- !u!114 &4164052702334258555
-MonoBehaviour:
+  weaponType: 0
+  hitparticle: {fileID: 3031371231423101773}
+  swingparticle: {fileID: 3599210152507300743}
+--- !u!1001 &1238571887541271927
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4069032608350865191}
+    m_Modifications:
+    - target: {fileID: 2360655870356088562, guid: 57a776ff377f3c44e8403e2067a4d41f,
+        type: 3}
+      propertyPath: m_Name
+      value: CFXR4 Sword Trail FIRE (360 Spiral)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360655870356088567, guid: 57a776ff377f3c44e8403e2067a4d41f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360655870356088567, guid: 57a776ff377f3c44e8403e2067a4d41f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.12820163
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360655870356088567, guid: 57a776ff377f3c44e8403e2067a4d41f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.2924158
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360655870356088567, guid: 57a776ff377f3c44e8403e2067a4d41f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.182253
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360655870356088567, guid: 57a776ff377f3c44e8403e2067a4d41f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.6473707
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360655870356088567, guid: 57a776ff377f3c44e8403e2067a4d41f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.19090055
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360655870356088567, guid: 57a776ff377f3c44e8403e2067a4d41f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.64371175
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360655870356088567, guid: 57a776ff377f3c44e8403e2067a4d41f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.36069834
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360655870356088567, guid: 57a776ff377f3c44e8403e2067a4d41f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360655870356088567, guid: 57a776ff377f3c44e8403e2067a4d41f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360655870356088567, guid: 57a776ff377f3c44e8403e2067a4d41f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 57a776ff377f3c44e8403e2067a4d41f, type: 3}
+--- !u!4 &3599210152507300736 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2360655870356088567, guid: 57a776ff377f3c44e8403e2067a4d41f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1238571887541271927}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3689515951906905501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28bdbf3b6467e8346b01686094cffaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AttackArea: {fileID: 4164052702334258557}
-  particleSystem: {fileID: 3031371231423101773}
-  isHit: 0
+--- !u!198 &3599210152507300743 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2360655870356088560, guid: 57a776ff377f3c44e8403e2067a4d41f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1238571887541271927}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4164052700773244397
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -318,6 +372,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CFXR4 Sword Trail PLAIN (360 Thin Spiral)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703250321131892299, guid: 2b987d41506d172419fa18578f6ac380,
+        type: 3}
+      propertyPath: CustomDataModule.vector0_2.scalar
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703250321131892299, guid: 2b987d41506d172419fa18578f6ac380,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703250321131892299, guid: 2b987d41506d172419fa18578f6ac380,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime0
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703250321131892299, guid: 2b987d41506d172419fa18578f6ac380,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.b
+      value: 0.26747355
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703250321131892299, guid: 2b987d41506d172419fa18578f6ac380,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.g
+      value: 0.45763236
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703250321131892299, guid: 2b987d41506d172419fa18578f6ac380,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.r
+      value: 0.9245283
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703250321131892299, guid: 2b987d41506d172419fa18578f6ac380,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703250321131892299, guid: 2b987d41506d172419fa18578f6ac380,
+        type: 3}
+      propertyPath: CustomDataModule.vector0_1.maxCurve.m_Curve.Array.data[1].value
+      value: -0.5180368
       objectReference: {fileID: 0}
     - target: {fileID: 6703250321131892300, guid: 2b987d41506d172419fa18578f6ac380,
         type: 3}

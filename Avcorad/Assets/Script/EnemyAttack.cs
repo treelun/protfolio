@@ -11,7 +11,7 @@ public class EnemyAttack : MonoBehaviour
         {
             PlayerMove player = other.GetComponent<PlayerMove>();
             
-            player.DamageCharacter(attackDamage);
+            //player.DamageCharacter(attackDamage);
             
             Debug.Log("플레이어 공격~!" + attackDamage);
         }

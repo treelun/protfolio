@@ -7,8 +7,8 @@ public class CameraController : MonoBehaviour
 {
     float CameraRotateX;
 
-    float rotateMaximum = 45f;
-    float rotateMinimum = -45f;
+    float rotateMaximum = 30f;
+    float rotateMinimum = -30f;
 
 
 

@@ -4,36 +4,62 @@ using UnityEngine;
 
 public class LivingEntity : MonoBehaviour, ILivingEntity
 {
+    protected Animator animator;
+    protected Rigidbody rigid;
     public float Hp { get; set; }
     public float Sta { get; set; }
-    public float speed { get; set; }
+    public float moveSpeed { get; set; }
 
-    public void Attack(ILivingEntity _livingEntity)
+    public float rotateSpeed { get; set; }
+
+    public bool isDead { get; set; }
+    public bool isDodge { get; set; }
+
+
+
+    private void Start()
     {
-        //공격하는 함수
+        animator = GetComponent<Animator>();
+        rigid = GetComponent<Rigidbody>();
     }
 
-    public void Die()
+    public virtual void Attack()
+    {
+        //공격하는 함수 virtual을 사용하여 상속받는 클래스에서 재정의
+    }
+
+    public void Dead()
     {
         if (Hp < float.Epsilon)
         {
             Debug.Log("캐릭터 사망");
+            isDead = true;
+            
         }
     }
 
-    public virtual void Hit(float _Damaged)
+    public virtual void Hit(float _AttackForce)
     {
-        Hp -= _Damaged;
+        
     }
 
-    public void Init()
+    public void Init(float _Hp, float _Sta, float _Speed, float _rotateSpeed)
     {
-        //변수 설정
+        Hp = _Hp;
+        Sta = _Sta;
+        moveSpeed = _Speed;
+        rotateSpeed = _rotateSpeed;
     }
 
-    public void Move()
+    public virtual void Move()
     {
         //움직임 함수
+    }
+
+    //캐릭터가 생성(활성화)될때 가지고 있을 값
+    protected virtual void OnEnable()
+    {
+        isDead = false;
     }
 
 }
