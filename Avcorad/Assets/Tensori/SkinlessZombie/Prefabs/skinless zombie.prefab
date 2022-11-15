@@ -151,7 +151,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2254f9684215f58468106485699fcea4, type: 2}
+  - {fileID: 2100000, guid: 3fd9aca8ebfc2794f8767106ae0d0cdb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -295,7 +295,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f202c4251032f3646a3ca9d10ddfe6bb, type: 2}
+  - {fileID: 2100000, guid: 120fea42c17029246955c11529aa9678, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -439,7 +439,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f202c4251032f3646a3ca9d10ddfe6bb, type: 2}
+  - {fileID: 2100000, guid: 120fea42c17029246955c11529aa9678, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -609,7 +609,6 @@ GameObject:
   m_Component:
   - component: {fileID: 363264237667080991}
   - component: {fileID: 6046854574889894245}
-  - component: {fileID: 4850532169630706798}
   m_Layer: 0
   m_Name: skinless zombie
   m_TagString: Untagged
@@ -661,41 +660,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!205 &4850532169630706798
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1027175079354532261}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: -0.0011093915, y: 0.90601546, z: 0.022543907}
-  m_Size: 1.9749426
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.25
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 9037096139816757062}
-    - renderer: {fileID: 7271144555557408967}
-  - screenRelativeHeight: 0.125
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 812553003524583414}
-    - renderer: {fileID: 2147571100911051869}
-  - screenRelativeHeight: 0.0625
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 5460493292086466763}
-    - renderer: {fileID: 6866617128736291975}
-  - screenRelativeHeight: 0.01
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 1348612578185417354}
-    - renderer: {fileID: 681558319412702924}
-  m_Enabled: 1
 --- !u!1 &1162833647545388874
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,7 +744,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2254f9684215f58468106485699fcea4, type: 2}
+  - {fileID: 2100000, guid: 3fd9aca8ebfc2794f8767106ae0d0cdb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1295,7 +1259,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f202c4251032f3646a3ca9d10ddfe6bb, type: 2}
+  - {fileID: 2100000, guid: 120fea42c17029246955c11529aa9678, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1918,7 +1882,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f202c4251032f3646a3ca9d10ddfe6bb, type: 2}
+  - {fileID: 2100000, guid: 120fea42c17029246955c11529aa9678, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2537,7 +2501,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2254f9684215f58468106485699fcea4, type: 2}
+  - {fileID: 2100000, guid: 3fd9aca8ebfc2794f8767106ae0d0cdb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2854,7 +2818,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2254f9684215f58468106485699fcea4, type: 2}
+  - {fileID: 2100000, guid: 3fd9aca8ebfc2794f8767106ae0d0cdb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
