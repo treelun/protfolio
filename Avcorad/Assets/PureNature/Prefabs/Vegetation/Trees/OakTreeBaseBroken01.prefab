@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8862084867623521883}
   - component: {fileID: 3498676830197948711}
   - component: {fileID: 4735455285669252454}
+  - component: {fileID: 2495405712818726798}
   m_Layer: 0
   m_Name: OakTreeBaseBroken01
   m_TagString: Untagged
@@ -30,6 +31,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -53,10 +55,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -81,6 +85,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &3498676830197948711
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -92,7 +97,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6167761924182036307, guid: 2f00c470ce31e9d4aabbbb8dfca0205e, type: 3}
 --- !u!205 &4735455285669252454
@@ -114,3 +119,17 @@ LODGroup:
     renderers:
     - renderer: {fileID: 8862084867623521883}
   m_Enabled: 1
+--- !u!136 &2495405712818726798
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7060675872100921230}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.04
+  m_Height: 2.75
+  m_Direction: 1
+  m_Center: {x: -0.03, y: 0.74, z: -0.19}

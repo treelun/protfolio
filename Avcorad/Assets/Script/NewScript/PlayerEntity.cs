@@ -144,6 +144,7 @@ public class PlayerEntity : LivingEntity
     {
         if (collision.transform.tag == "Ground")
         {
+            Debug.Log("플레이어 땅위에 있음");
             isJump = false;
         }
     }
