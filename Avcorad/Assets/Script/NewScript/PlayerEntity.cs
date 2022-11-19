@@ -67,9 +67,7 @@ public class PlayerEntity : LivingEntity
     {
         if (Input.GetKeyDown(KeyCode.LeftShift) && !isDodge && !isDead && !isJump)
         {
-            
             animator.SetTrigger("dodge");
-            StartCoroutine(SetDodge());
         }
     }
     public void Jump()
@@ -132,10 +130,10 @@ public class PlayerEntity : LivingEntity
         isDodge = true;
         gameObject.layer = 7;
         Debug.Log("코루틴 실행... isDodge : " + isDodge);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         isDodge = false;
         Debug.Log("코루틴 실행중... isDodge : " + isDodge);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         gameObject.layer = 6;
         Debug.Log("코루틴 실행중...플레이어 레이어 변경");
     }
@@ -164,5 +162,16 @@ public class PlayerEntity : LivingEntity
     {
         isAttack = false;
         trailRenderer.enabled = false;
+    }
+
+    public void DodgeStart()
+    {
+        isDodge = true;
+        gameObject.layer = 7;
+    }
+    public void DodgeEnd()
+    {
+        isDodge = false;
+        gameObject.layer = 6;
     }
 }

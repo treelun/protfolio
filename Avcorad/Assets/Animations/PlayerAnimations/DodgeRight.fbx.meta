@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 38a1828cc4ef689449f16e16534d53e7
+guid: b6d49d8e2f9a0634487189b3a31e123b
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Standing Dive Forward
+    second: DodgeRight
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -36,13 +36,13 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Standing Dive Forward
+      name: DodgeRight
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
       lastFrame: 49
       wrapMode: 0
-      orientationOffsetY: -90
+      orientationOffsetY: 270
       level: 0
       cycleOffset: 0
       loop: 0
@@ -59,7 +59,21 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.07568967
+        functionName: DodgeStart
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.9083488
+        functionName: DodgeEnd
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
