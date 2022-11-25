@@ -14,23 +14,23 @@ public class Player : MonoBehaviour
         //Attack상태일때 클릭시 공격이 나가는 함수를 적용
         switch (playerData.Mystate)
         {
-            case PlayerEntity.State.Attack:
+            case LivingEntity.State.Attack:
                 if (Input.GetMouseButtonDown(0))
                 {
-                    playerData.Mystate = PlayerEntity.State.Attack;
+                    playerData.Mystate = LivingEntity.State.Attack;
                     playerData.Attack();
                 }
                 break;
-            case PlayerEntity.State.Move:
+            case LivingEntity.State.Move:
                 playerData.Move();
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) && playerData.curWeapon != null)
                 {
-                    playerData.Mystate = PlayerEntity.State.Attack;
+                    playerData.Mystate = LivingEntity.State.Attack;
                     playerData.Attack();
                 }
                 else if (Input.GetKey(KeyCode.LeftShift))
                 {
-                    playerData.Mystate = PlayerEntity.State.Dodge;
+                    playerData.Mystate = LivingEntity.State.Dodge;
                     playerData.dodge();
                 }
                 else if (Input.GetButtonDown("Jump"))
@@ -38,24 +38,28 @@ public class Player : MonoBehaviour
                     playerData.Jump();
                 }
                 break;
-            case PlayerEntity.State.Interaction:
+            case LivingEntity.State.Interaction:
                 if (Input.GetKey(KeyCode.Escape))
                 {
-                    playerData.Mystate = PlayerEntity.State.Move;
+                    playerData.Mystate = LivingEntity.State.Move;
                 }
+                break;
+            case LivingEntity.State.Death:
+
                 break;
             default:
                 break;
         }
         Debug.Log(playerData.Mystate);
-        playerData.Dead();
+        playerData.Death();
     }
     private void FixedUpdate()
     {
-        
         playerData.playerLevelup();
+        //GameManager.Instance.inventory.EquipWeapon();
         //Debug.Log("플레이어 Hp : " + playerData.Hp);
         //attack(),Move(),dodge(),Jump(),F(interaction)상호작용키
+        Debug.Log(playerData.curWeapon);
     }
     void GetItem()
     {

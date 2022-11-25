@@ -7,16 +7,16 @@ public class InventorySlot : MonoBehaviour
 {
     [SerializeField] Image image;
 
-    private Item _item;
-    public Item item
+    private ItemInfo _iteminfo;
+    public ItemInfo iteminfo
     {
-        get { return _item; }
+        get { return _iteminfo; }
         set
         {
-            _item = value;
-            if (_item != null)
+            _iteminfo = value;
+            if (_iteminfo != null)
             {
-                image.sprite = item.itemImage;
+                image.sprite = iteminfo.item.itemImage;
                 image.color = new Color(1, 1, 1, 1);
             }
             else

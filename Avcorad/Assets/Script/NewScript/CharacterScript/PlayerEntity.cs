@@ -5,12 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerEntity : LivingEntity
 {
-    public enum State { Move = 0, Attack,  Dodge, Dead, Interaction }
-    public State Mystate;
-
-
-    public Weapon curWeapon;
-    public Weapon newWeapon;
+    public ItemInfo curWeapon { get; set; }
     Vector3 movement;
 
 
@@ -20,43 +15,84 @@ public class PlayerEntity : LivingEntity
     float curHp;
     public float maxSta;
     float curSta;
+
     public float playerAttackForce;
+    public float playerAttackSpeed;
     public float playerMoveSpeed;
-    public float roSpeed;
+    
+    public float _rotateSpeed;
     public float jumpForce;
     public float currentExp;
     public float requiredExp;
+    public int playerLevel;
     public int levelupPoint;
-    float attackSpeed;
 
+    public string itemName;
     //플레이어의 상태 변수
-    bool isLevelup;
     bool isJump;
+    
+    public void LevelUp()
+    {
+        levelupPoint = 5;
+    }
+    
+    public void SetEquipAttackEntity(ItemInfo _curWeapon) {
+        //무기 이름 바꾸기
+        //무기 공격력 바꾸기
+        //무기 공격속도 바꾸기
+        //itemName = _curWeapon.item.objectName;
+        playerAttackForce += _curWeapon.item.AttackForce;
+        playerAttackSpeed += _curWeapon.item.AttackSpeed;
+    }
+    public void SetNotEquipAttackEntity(ItemInfo _curWeapon)
+    {
+        //itemName = "";
+        playerAttackForce -= _curWeapon.item.AttackForce;
+        playerAttackSpeed -= _curWeapon.item.AttackSpeed;
+    }
+
+    public void InitPlayerStat(string _BtnName)
+    {
+        //버튼의 이름이 같고 레벨업 포인트가 0보다 크면
+        if (_BtnName == "StrBtn" && levelupPoint > 0)
+        {
+            levelupPoint--;
+            str++;
+            playerAttackForce += 1f;
+        }
+        else if (_BtnName == "AgiBtn" && levelupPoint > 0)
+        {
+            levelupPoint--;
+            agi++;
+            playerMoveSpeed += 0.1f;
+            playerAttackSpeed += 0.02f;
+        }
+        else if (_BtnName == "HealthBtn" && levelupPoint > 0)
+        {
+            levelupPoint--;
+            Health++;
+            maxHp += 10f;
+            maxSta += 5f;
+        }
+    }
 
     public void UpdatePlayerData()
     {
         //무기를 먹거나 스탯을 올릴때
-        if (isLevelup)
-        {
-            levelupPoint = 5;
-            requiredExp *= 1.5f;
-            isLevelup = false;
-        }
     }
     public override void Attack()
     {
         base.Attack();
 
         animator.SetTrigger("ComboAttack");
-        animator.SetFloat("SetAttackSpeed", attackSpeed / 2);
+        animator.SetFloat("SetAttackSpeed", playerAttackSpeed);
     }
     public override void Hit(float _AttackForce)
     {
         //쳐맞음
         base.Hit(_AttackForce);
-        curHp -= _AttackForce;
+        //맞았을때의 피격 이펙트(애니메이션이나 반짝임)
         
-        animator.SetTrigger("hit");
     }
     public void dodge()
     {
@@ -84,7 +120,7 @@ public class PlayerEntity : LivingEntity
         
         movement = transform.TransformDirection(movement);
 
-        transform.Rotate(0f, Input.GetAxis("Mouse X") * roSpeed, 0f, Space.World);
+        transform.Rotate(0f, Input.GetAxis("Mouse X") * _rotateSpeed, 0f, Space.World);
         transform.position += movement * moveSpeed * Time.deltaTime;
        
         //방향에따른 이동 애니메이션 재생을위해
@@ -102,12 +138,13 @@ public class PlayerEntity : LivingEntity
     protected override void OnEnable()
     {
         base.OnEnable();
-        curHp = maxHp;
-        curSta = maxSta;
+        //최대체력,최대스태미너를 현재체력과 스태미너로 설정
+        //LivingEntity의 HP와 Sta값을 현재 HP,Sta값으로 설정
+        //속도 설정
+        Init(maxHp, maxSta, playerMoveSpeed, _rotateSpeed, playerAttackForce, playerAttackSpeed);
+        //필요경험치 설정
         requiredExp = 100;
-        playerAttackForce = curWeapon.AttackForce;
-        Init(curHp, curSta, playerMoveSpeed, roSpeed);
-        attackSpeed = curWeapon.AttackSpeed;
+        playerLevel = 1;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -123,22 +160,12 @@ public class PlayerEntity : LivingEntity
     {
         if (currentExp >= requiredExp)
         {
-            isLevelup = true;
-            UpdatePlayerData();
             currentExp = 0;
+            levelupPoint = 5;
+            requiredExp *= 1.5f;
+            playerLevel++;
         }
     }
-    public void GetWeapon(Weapon _weapon)
-    {
-        newWeapon = _weapon;
-    }
-    public void SetWeapon()
-    {
-        //현재의 Weapon을 바꿔줌
-        curWeapon = newWeapon;
-        Debug.Log(curWeapon);
-    }
-
 
     public void AttackStart()
     {

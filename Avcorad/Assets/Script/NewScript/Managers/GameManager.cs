@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     public Player mainPlayer;
     public Inventory inventory;
     public Status status;
+    public EquipWeapon equipWeapon;
 
     private void Update()
     {

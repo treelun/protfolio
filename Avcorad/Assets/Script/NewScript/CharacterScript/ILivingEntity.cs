@@ -12,6 +12,8 @@ public interface ILivingEntity
 
     float AttackForce { get; set; }
 
+    float AttackSpeed { get; set; }
+
 
     //맞는 함수
     void Hit(float _Damaged);
@@ -20,9 +22,9 @@ public interface ILivingEntity
     void Attack();
 
     //죽는 함수
-    void Dead();
+    void Death();
     //움직이는 함수
     void Move();
     //data를 변경할 함수
-    void Init(float _Hp, float _Sta, float _Speed, float _rotateSpeed);
+    void Init(float _Hp, float _Sta, float _Speed, float _rotateSpeed, float _AttackForce, float _AttackSpeed);
 }

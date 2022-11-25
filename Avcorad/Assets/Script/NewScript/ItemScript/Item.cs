@@ -16,4 +16,8 @@ public class Item : ScriptableObject
     public int quantity;
 
     public bool stackable;
+
+    public float AttackForce;
+
+    public float AttackSpeed;
 }

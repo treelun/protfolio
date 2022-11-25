@@ -13,11 +13,9 @@ GameObject:
   - component: {fileID: 740535890266683569}
   - component: {fileID: 7165411099840514490}
   - component: {fileID: 6695777602775471899}
-  - component: {fileID: -7069506145948073484}
-  - component: {fileID: -1309579550349019417}
-  - component: {fileID: -9034680790529249286}
+  - component: {fileID: 7443657533527672788}
   m_Layer: 0
-  m_Name: Sword3_Blue
+  m_Name: SteelSword
   m_TagString: item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,8 +29,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244705470252996964}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.135}
-  m_LocalScale: {x: 0.5000009, y: 0.50000036, z: 0.5000012}
+  m_LocalPosition: {x: 0, y: 0, z: 466.6161}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -40,7 +38,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.508, y: 1.297}
+  m_AnchoredPosition: {x: 118.76409, y: 2.6616263}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!33 &3288223929853086843
@@ -115,7 +113,7 @@ CapsuleCollider:
   m_Height: 2.4061685
   m_Direction: 1
   m_Center: {x: 0.0023888275, y: 0.7798517, z: 0.00000012665987}
---- !u!114 &-7069506145948073484
+--- !u!114 &7443657533527672788
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,48 +122,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1244705470252996964}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8d605297a3d2244cbc3776396517ca7, type: 3}
+  m_Script: {fileID: 11500000, guid: 80c770ba184e73343829b40fc8fc3a4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!225 &-1309579550349019417
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244705470252996964}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
---- !u!114 &-9034680790529249286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244705470252996964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 2145537563, guid: 45a744d3ac819ad4eafed15a4b70188b, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  item: {fileID: 11400000, guid: af6165717d13bae4897bc895fe518cc9, type: 2}

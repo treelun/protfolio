@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Interaction : MonoBehaviour
 {
-    Item item;
-    Weapon newWepon;
+    ItemInfo item;
     private void OnTriggerStay(Collider other)
     {
         if (other.transform.tag == "NPC" || other.tag == "item")
@@ -15,20 +14,20 @@ public class Interaction : MonoBehaviour
             if (Input.GetKey(KeyCode.F))
             {
                 Debug.Log("상호작용");
-                GameManager.Instance.mainPlayer.playerData.Mystate = PlayerEntity.State.Interaction;
+                GameManager.Instance.mainPlayer.playerData.Mystate = PlayerEntity.State.Interaction;    //아이템획득시 상호작용 상태로 변경
 
+                //아이템의 타입이 weapon이면
                 if (other.gameObject.GetComponent<ItemInfo>().item.itemType == Item.ItemType.Weapon)
                 {
-                    item = other.gameObject.GetComponent<ItemInfo>().item;
-                    //newWepon = other.gameObject.GetComponent<Weapon>();
-                    GameManager.Instance.inventory.AddItem(item);
-                    //GameManager.Instance.mainPlayer.playerData.GetWeapon(newWepon);
-                    other.gameObject.SetActive(false);
+                    //Weapon scriptableObject를 가져옴
+                    item = other.gameObject.GetComponent<ItemInfo>();
+                    GameManager.Instance.inventory.AddItem(item); //인벤토리에 추가
+                    other.gameObject.SetActive(false); //먹은아이템 비활성화
                     StartCoroutine(Setstate());
                 }
                 else if (other.gameObject.GetComponent<Item>().itemType == Item.ItemType.Potions)
                 {
-                    item = other.gameObject.GetComponent<Potion>();
+                    //item = other.gameObject.GetComponent<Potion>();
                     GameManager.Instance.inventory.AddItem(item);
                     Debug.Log("포션획득");
                     other.gameObject.SetActive(false);

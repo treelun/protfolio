@@ -9,10 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b35f90b4614c5b4483dfc591bb3e0a3, type: 3}
-  m_Name: zombieKnight
+  m_Script: {fileID: 11500000, guid: 5597f934dbafb8149aa14f7f6f777578, type: 3}
+  m_Name: Heart
   m_EditorClassIdentifier: 
-  AttackPower: 0
-  startingHp: 100
-  startingMp: 0
-  startingStamina: 0
+  itemType: 1
+  itemImage: {fileID: 21300000, guid: cfad8ef0b5f68ac46bd02b3156b377a4, type: 3}
+  objectName: "\uCCB4\uB825\uBB3C\uC57D"
+  quantity: 0
+  stackable: 0
+  AttackForce: 0
+  AttackSpeed: 0

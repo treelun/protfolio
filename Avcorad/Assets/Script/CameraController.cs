@@ -11,7 +11,6 @@ public class CameraController : MonoBehaviour
     float rotateMinimum = -30f;
 
 
-
     void Update()
     {
         CameraRotateX -= Input.GetAxis("Mouse Y");

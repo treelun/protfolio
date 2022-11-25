@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Item/Weapon")]
+//[CreateAssetMenu(menuName = "Item/Weapon")]
 public class Weapon : Item
 {
 /*    public enum WeaponType { Sword13_Yellow, Sword2_Green, Sword3_Blue, Sword12_Red, Sword7_Blue }
     public WeaponType weaponType;
 */
-    public float AttackForce;
-    public float AttackSpeed;
+/*    public float AttackForce;
+    public float AttackSpeed;*/
 
 /*    public void useItem()
     {
