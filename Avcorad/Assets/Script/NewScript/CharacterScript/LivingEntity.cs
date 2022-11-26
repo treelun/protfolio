@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LivingEntity : MonoBehaviour, ILivingEntity
 {
-    public enum State { Move = 0, Attack, Dodge, Death, Interaction }
+    public enum State { Move = 0, Attack, Dodge, Death, Interaction, UseUi}
     public State Mystate;
 
     protected Animator animator;

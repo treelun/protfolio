@@ -29,7 +29,7 @@ public class PlayerEntity : LivingEntity
 
     public string itemName;
     //플레이어의 상태 변수
-    bool isJump;
+    public bool isJump;
     
     public void LevelUp()
     {
@@ -40,13 +40,13 @@ public class PlayerEntity : LivingEntity
         //무기 이름 바꾸기
         //무기 공격력 바꾸기
         //무기 공격속도 바꾸기
-        //itemName = _curWeapon.item.objectName;
+        itemName = _curWeapon.item.objectName;
         playerAttackForce += _curWeapon.item.AttackForce;
         playerAttackSpeed += _curWeapon.item.AttackSpeed;
     }
     public void SetNotEquipAttackEntity(ItemInfo _curWeapon)
     {
-        //itemName = "";
+        itemName = "";
         playerAttackForce -= _curWeapon.item.AttackForce;
         playerAttackSpeed -= _curWeapon.item.AttackSpeed;
     }
@@ -86,6 +86,7 @@ public class PlayerEntity : LivingEntity
 
         animator.SetTrigger("ComboAttack");
         animator.SetFloat("SetAttackSpeed", playerAttackSpeed);
+        Mystate = State.Attack;
     }
     public override void Hit(float _AttackForce)
     {
@@ -97,16 +98,18 @@ public class PlayerEntity : LivingEntity
     public void dodge()
     {
         animator.SetTrigger("dodge");
+        animator.SetFloat("MoveSpeed", playerMoveSpeed / 6);
+        Sta -= 10f;
     }
     public void Jump()
     {
         if (!isJump)
         {
             rigid.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isJump = true;
             animator.SetTrigger("JumpTrigger");
 
-            //player.startingStamina -= attackStamina + 10f;
+            Sta -= 30f;
+            isJump = true;
         }
     }
 
@@ -122,7 +125,8 @@ public class PlayerEntity : LivingEntity
 
         transform.Rotate(0f, Input.GetAxis("Mouse X") * _rotateSpeed, 0f, Space.World);
         transform.position += movement * moveSpeed * Time.deltaTime;
-       
+
+        animator.SetFloat("MoveSpeed", playerMoveSpeed / 6);
         //방향에따른 이동 애니메이션 재생을위해
         if (deltaX != 0)
         {
@@ -151,7 +155,6 @@ public class PlayerEntity : LivingEntity
     {
         if (collision.transform.tag == "Ground")
         {
-            Debug.Log("플레이어 땅위에 있음");
             isJump = false;
         }
     }
@@ -161,7 +164,7 @@ public class PlayerEntity : LivingEntity
         if (currentExp >= requiredExp)
         {
             currentExp = 0;
-            levelupPoint = 5;
+            levelupPoint += 5;
             requiredExp *= 1.5f;
             playerLevel++;
         }
@@ -169,12 +172,21 @@ public class PlayerEntity : LivingEntity
 
     public void AttackStart()
     {
-        //Mystate = State.Attack;
+        Mystate = State.Attack;
         //공격시작시 이펙트와 콜라이더활성화
+        Sta -= 20f;
     }
     public void StateEnd()
     {
-        Mystate = State.Move;
+        
+        if (Mystate == State.UseUi)
+        {
+            Mystate = State.UseUi;
+        }
+        else
+        {
+            Mystate = State.Move;
+        }
     }
 
     public void DodgeStart()
@@ -186,5 +198,13 @@ public class PlayerEntity : LivingEntity
     {
         Mystate = State.Move;
         gameObject.layer = 6;
+    }
+
+    public void RegenSta()
+    {
+        if (Sta < maxSta)
+        {
+            Sta += maxSta * 0.002f;
+        }
     }
 }

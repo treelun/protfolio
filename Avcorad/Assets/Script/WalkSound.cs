@@ -14,10 +14,8 @@ public class WalkSound : MonoBehaviour
     {
         if (other.transform.tag == "Ground")
         {
-            Debug.Log("πﬂ ∂•ø° ¥Í¿Ω");
             if (!audioSource.isPlaying)
             {
-                audioSource.Play();
             }
             
         }

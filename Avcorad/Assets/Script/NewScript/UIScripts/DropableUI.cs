@@ -55,7 +55,6 @@ public class DropableUI : MonoBehaviour, IPointerEnterHandler, IDropHandler, IPo
 
                         for (int i = 0; i < GameManager.Instance.equipWeapon._WeaponPrefab.Count; i++)
                         {
-                            Debug.Log("무기실행");
                             if (GameManager.Instance.equipWeapon._WeaponPrefab[i].GetComponent<ItemInfo>().item == item.item)
                             {
                                 GameManager.Instance.equipWeapon._WeaponPrefab[i].SetActive(true);

@@ -133,14 +133,20 @@ public class UIManager : MonoBehaviour
     /// <summary> 팝업을 열고 링크드리스트의 상단에 추가 </summary>
     private void OpenPopup(PopupUI Popup)
     {
+        GameManager.Instance.mainPlayer.playerData.Mystate = LivingEntity.State.UseUi;
         _activePopupLlist.AddFirst(Popup);
         Popup.gameObject.SetActive(true);
         RefreshAllPopupDepth();
+        if (GameManager.Instance.mainPlayer.playerData.Mystate == LivingEntity.State.Attack)
+        {
+            GameManager.Instance.mainPlayer.playerData.Mystate = LivingEntity.State.UseUi;
+        }
     }
 
     /// <summary> 팝업을 닫고 링크드리스트에서 제거 </summary>
     private void ClosePopup(PopupUI Popup)
     {
+        GameManager.Instance.mainPlayer.playerData.Mystate = LivingEntity.State.Move;
         _activePopupLlist.Remove(Popup);
         Popup.gameObject.SetActive(false);
         RefreshAllPopupDepth();

@@ -7,6 +7,11 @@ public class Status : MonoBehaviour
 {
     public string BtnName;
 
+    [SerializeField] TextMeshProUGUI StrStat;
+    [SerializeField] TextMeshProUGUI AgiStat;
+    [SerializeField] TextMeshProUGUI HealthStat;
+    [SerializeField] TextMeshProUGUI StatusPoint;
+
     [SerializeField] TextMeshProUGUI AttackPower;
     [SerializeField] TextMeshProUGUI AttackSpeed;
     [SerializeField] TextMeshProUGUI Health;
@@ -14,6 +19,11 @@ public class Status : MonoBehaviour
     [SerializeField] TextMeshProUGUI MoveSpeed;
     private void Update()
     {
+        StrStat.text = GameManager.Instance.mainPlayer.playerData.str.ToString("f0");
+        AgiStat.text = GameManager.Instance.mainPlayer.playerData.agi.ToString("f0");
+        HealthStat.text = GameManager.Instance.mainPlayer.playerData.Health.ToString("f0");
+        StatusPoint.text = GameManager.Instance.mainPlayer.playerData.levelupPoint.ToString("f0");
+
         AttackPower.text = "" + GameManager.Instance.mainPlayer.playerData.playerAttackForce.ToString("F1");
         AttackSpeed.text = "" + GameManager.Instance.mainPlayer.playerData.playerAttackSpeed.ToString("F1");
         Health.text = "" + GameManager.Instance.mainPlayer.playerData.maxHp;

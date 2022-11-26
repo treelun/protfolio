@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
 {
     public PlayerEntity playerData;
     //ILivingEntity livingEntity;
+
+    float delta;
     private void Update()
     {
         //상태패턴을 이용하여 공격과 회피중 이동을 멈추고, 연속공격을 위해
@@ -15,25 +17,24 @@ public class Player : MonoBehaviour
         switch (playerData.Mystate)
         {
             case LivingEntity.State.Attack:
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) && playerData.Sta > 0 && playerData.curWeapon != null)
                 {
-                    playerData.Mystate = LivingEntity.State.Attack;
                     playerData.Attack();
                 }
                 break;
             case LivingEntity.State.Move:
                 playerData.Move();
-                if (Input.GetMouseButtonDown(0) && playerData.curWeapon != null)
+                playerData.RegenSta();
+                if (Input.GetMouseButtonDown(0) && playerData.curWeapon != null && playerData.Sta > 0 && !playerData.isJump)
                 {
-                    playerData.Mystate = LivingEntity.State.Attack;
                     playerData.Attack();
                 }
-                else if (Input.GetKey(KeyCode.LeftShift))
+                else if (Input.GetKey(KeyCode.LeftShift) && playerData.Sta > 0 && !playerData.isJump)
                 {
                     playerData.Mystate = LivingEntity.State.Dodge;
                     playerData.dodge();
                 }
-                else if (Input.GetButtonDown("Jump"))
+                else if (Input.GetButtonDown("Jump") && playerData.Sta > 0)
                 {
                     playerData.Jump();
                 }
@@ -47,31 +48,28 @@ public class Player : MonoBehaviour
             case LivingEntity.State.Death:
 
                 break;
+            case LivingEntity.State.UseUi:
+                playerData.RegenSta();
+                break;
             default:
                 break;
         }
         Debug.Log(playerData.Mystate);
+
+        
         playerData.Death();
     }
     private void FixedUpdate()
     {
-        playerData.playerLevelup();
-        //GameManager.Instance.inventory.EquipWeapon();
-        //Debug.Log("플레이어 Hp : " + playerData.Hp);
         //attack(),Move(),dodge(),Jump(),F(interaction)상호작용키
-        Debug.Log(playerData.curWeapon);
+        playerData.playerLevelup();
+        delta += Time.deltaTime;
+        if (delta > 5)
+        {
+            playerData.currentExp += 50;
+            delta = 0;
+        }
     }
-    void GetItem()
-    {
-
-    }
-
-/*    void useItem(Item _item)
-    {
-        //아이템 사용
-        item = _item;
-        //item.useItem();
-    }*/
 
     private void Init()
     {
