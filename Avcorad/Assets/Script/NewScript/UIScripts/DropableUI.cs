@@ -50,6 +50,8 @@ public class DropableUI : MonoBehaviour, IPointerEnterHandler, IDropHandler, IPo
                 {
                     if (eventData.pointerDrag.GetComponent<Image>().sprite == item.item.itemImage && item.item.itemType == Item.ItemType.Weapon)
                     {
+                        Debug.Log("½ÇÇà");
+
                         GameManager.Instance.mainPlayer.playerData.curWeapon = item;
                         GameManager.Instance.mainPlayer.playerData.SetEquipAttackEntity(item);
 
@@ -60,7 +62,6 @@ public class DropableUI : MonoBehaviour, IPointerEnterHandler, IDropHandler, IPo
                                 GameManager.Instance.equipWeapon._WeaponPrefab[i].SetActive(true);
                             }
                         }
-                        
                     }
                     else if (item.item.itemType == Item.ItemType.Potions)
                     {
@@ -68,6 +69,7 @@ public class DropableUI : MonoBehaviour, IPointerEnterHandler, IDropHandler, IPo
                     }
                 }
             }
+
         }
         else
         {

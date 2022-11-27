@@ -11,6 +11,7 @@ public class Status : MonoBehaviour
     [SerializeField] TextMeshProUGUI AgiStat;
     [SerializeField] TextMeshProUGUI HealthStat;
     [SerializeField] TextMeshProUGUI StatusPoint;
+    [SerializeField] TextMeshProUGUI LevelText;
 
     [SerializeField] TextMeshProUGUI AttackPower;
     [SerializeField] TextMeshProUGUI AttackSpeed;
@@ -23,6 +24,7 @@ public class Status : MonoBehaviour
         AgiStat.text = GameManager.Instance.mainPlayer.playerData.agi.ToString("f0");
         HealthStat.text = GameManager.Instance.mainPlayer.playerData.Health.ToString("f0");
         StatusPoint.text = GameManager.Instance.mainPlayer.playerData.levelupPoint.ToString("f0");
+        LevelText.text = "Lv. " + GameManager.Instance.mainPlayer.playerData.playerLevel;
 
         AttackPower.text = "" + GameManager.Instance.mainPlayer.playerData.playerAttackForce.ToString("F1");
         AttackSpeed.text = "" + GameManager.Instance.mainPlayer.playerData.playerAttackSpeed.ToString("F1");

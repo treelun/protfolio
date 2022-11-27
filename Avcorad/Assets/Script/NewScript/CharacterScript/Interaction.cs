@@ -5,35 +5,28 @@ using UnityEngine;
 public class Interaction : MonoBehaviour
 {
     ItemInfo item;
+    public GameObject InterationText;
     private void OnTriggerStay(Collider other)
     {
         if (other.transform.tag == "NPC" || other.tag == "item")
         {
             Debug.Log("F키를 누르세요");
+            InterationText.SetActive(true);
             //NPC와 상호작용 대화창 열림 & 아이템 획득 인벤토리에 추가
             if (Input.GetKey(KeyCode.F))
             {
                 Debug.Log("상호작용");
                 GameManager.Instance.mainPlayer.playerData.Mystate = PlayerEntity.State.Interaction;    //아이템획득시 상호작용 상태로 변경
 
-                //아이템의 타입이 weapon이면
-                if (other.gameObject.GetComponent<ItemInfo>().item.itemType == Item.ItemType.Weapon)
+                //item = other.gameObject.GetComponent<ItemInfo>();
+                if (other.TryGetComponent<ItemInfo>(out var item))
                 {
-                    //Weapon scriptableObject를 가져옴
-                    item = other.gameObject.GetComponent<ItemInfo>();
                     GameManager.Instance.inventory.AddItem(item); //인벤토리에 추가
                     other.gameObject.SetActive(false); //먹은아이템 비활성화
+                    InterationText.SetActive(false);
                     StartCoroutine(Setstate());
                 }
-                else if (other.gameObject.GetComponent<Item>().itemType == Item.ItemType.Potions)
-                {
-                    //item = other.gameObject.GetComponent<Potion>();
-                    GameManager.Instance.inventory.AddItem(item);
-                    Debug.Log("포션획득");
-                    other.gameObject.SetActive(false);
-                    StartCoroutine(Setstate());
-                }
-                
+
             }
         }
 
@@ -55,7 +48,10 @@ public class Interaction : MonoBehaviour
 
         }*/
     }
-
+    void OnTriggerExit()
+    {
+        InterationText.SetActive(false);
+    }
     IEnumerator Setstate()
     {
         yield return new WaitForSeconds(0.1f);
