@@ -39,7 +39,7 @@ public class QuickSlot : MonoBehaviour
         }
     }
 
-    public void useItem(int number)
+/*    public void useItem(int number)
     {
         for (int j = 0; j < GameManager.Instance.inventory.inventory.Count; j++)
         {
@@ -53,7 +53,7 @@ public class QuickSlot : MonoBehaviour
             }
         }
 
-    }
+    }*/
 
     void ActionBtnClick(int btnIndex)
     {

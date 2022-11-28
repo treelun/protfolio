@@ -19,3 +19,4 @@ MonoBehaviour:
   stackable: 0
   AttackForce: 30
   AttackSpeed: 1
+  isEquip: 1

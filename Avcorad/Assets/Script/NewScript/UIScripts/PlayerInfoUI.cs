@@ -24,6 +24,6 @@ public class PlayerInfoUI : MonoBehaviour
         TextHpBar.text = GameManager.Instance.mainPlayer.playerData.Hp.ToString("F0") + "/" + GameManager.Instance.mainPlayer.playerData.maxHp;
         TextStaBar.text = GameManager.Instance.mainPlayer.playerData.Sta.ToString("F0") + "/" + GameManager.Instance.mainPlayer.playerData.maxSta;
         TextLevel.text = "Lv. " + GameManager.Instance.mainPlayer.playerData.playerLevel;
-        Coin.text = "Coin : " + GameManager.Instance.inventory.coin;
+        Coin.text = "Coin : " + 11;
     }
 }

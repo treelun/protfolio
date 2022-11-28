@@ -20,4 +20,6 @@ public class Item : ScriptableObject
     public float AttackForce;
 
     public float AttackSpeed;
+
+    public bool isEquip;
 }

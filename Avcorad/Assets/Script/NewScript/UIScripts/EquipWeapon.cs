@@ -14,19 +14,6 @@ public class EquipWeapon : MonoBehaviour
         SlotAddWeapon();
     }
 
-    public void ActiveWeapon(bool _active)
-    {
-        for (int i = 0; i < _WeaponPrefab.Count && i < GameManager.Instance.inventory.inventory.Count; i++)
-        {
-            if (_WeaponPrefab[i].GetComponent<ItemInfo>().item == GameManager.Instance.inventory.inventory[i].item)
-            {
-                _WeaponPrefab[i].SetActive(_active);
-                
-            }
-        }
-        
-    }
-
     public void SlotAddWeapon()
     {
         for (int i = 0; i < WeaponPrefab.Count && i < _WeaponPrefab.Count; i++)

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerEntity : LivingEntity
 {
-    public ItemInfo curWeapon { get; set; }
+    public Weapon curWeapon { get; set; }
     Vector3 movement;
 
 
@@ -35,13 +35,13 @@ public class PlayerEntity : LivingEntity
         levelupPoint = 5;
     }
     
-    public void SetEquipAttackEntity(ItemInfo _curWeapon) {
+    public void SetEquipAttackEntity(Weapon _curWeapon) {
         //무기 이름 바꾸기
         //무기 공격력 바꾸기
         //무기 공격속도 바꾸기
-        itemName = _curWeapon.item.objectName;
-        playerAttackForce += _curWeapon.item.AttackForce;
-        playerAttackSpeed += _curWeapon.item.AttackSpeed;
+        itemName = _curWeapon.itemName;
+        playerAttackForce += _curWeapon.WeaponAttackForce;
+        playerAttackSpeed += _curWeapon.WeaponAttackSpeed;
     }
     public void SetNotEquipAttackEntity(ItemInfo _curWeapon)
     {
