@@ -2,45 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//[CreateAssetMenu(menuName = "Item/Weapon")]
-public class Weapon : Item
+
+public class Weapon : MonoBehaviour, Iitem
 {
-/*    public enum WeaponType { Sword13_Yellow, Sword2_Green, Sword3_Blue, Sword12_Red, Sword7_Blue }
-    public WeaponType weaponType;
-*/
-/*    public float AttackForce;
-    public float AttackSpeed;*/
+    public float WeaponAttackForce { get; set; }
 
-/*    public void useItem()
+    public float WeaponAttackSpeed { get; set; }
+
+    public Iitem.Type type { get ; set ; }
+    public Sprite itemImage { get ; set ; }
+    public string itemName { get ; set ; }
+    public bool isSetEquip { get ; set ; }
+
+    public virtual void Init()
     {
-        Debug.Log("사용");
-        //플레이어의 무기데이터 업데이트
-        if (weaponType == WeaponType.Sword13_Yellow)
+        type = Iitem.Type.Weapon;
+        
+    }
+    public virtual void useItem()
+    {
+        if (type == Iitem.Type.Weapon)
         {
-            AttackForce = 20;
-            AttackSpeed = 3f;
+            GameManager.Instance.mainPlayer.playerData.playerAttackForce += WeaponAttackForce;
+            GameManager.Instance.mainPlayer.playerData.playerAttackSpeed += WeaponAttackSpeed;
+            GameManager.Instance.mainPlayer.playerData.itemName = itemName;
+            Debug.Log("this is Weapon useItem");
         }
-        else if (weaponType == WeaponType.Sword2_Green)
-        {
-            AttackForce = 10;
-            AttackSpeed = 2f;
-        }
-        else if (weaponType == WeaponType.Sword3_Blue)
-        {
-            AttackForce = 30;
-            AttackSpeed = 4f;
-        }
-        else if (weaponType == WeaponType.Sword12_Red)
-        {
-            AttackForce = 40;
-            AttackSpeed = 5f;
-        }
-        else if (weaponType == WeaponType.Sword7_Blue)
-        {
-            AttackForce = 50;
-            AttackSpeed = 6f;
-        }
+    }
 
-    }*/
+    public virtual void unuseItem()
+    {
+        if (type == Iitem.Type.Weapon)
+        {
+            GameManager.Instance.mainPlayer.playerData.playerAttackForce -= WeaponAttackForce;
+            GameManager.Instance.mainPlayer.playerData.playerAttackSpeed -= WeaponAttackSpeed;
+            GameManager.Instance.mainPlayer.playerData.itemName = null;
+            Debug.Log("this is Weapon unuseItem");
+        }
+    }
+
 
 }

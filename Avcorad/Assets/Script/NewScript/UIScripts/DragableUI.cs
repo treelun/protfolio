@@ -34,30 +34,6 @@ public class DragableUI : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDrag
         canvasGroup.alpha = 0.6f; // 현재 드래그중인 오브젝트의 alpha값을 설정해 살짝 투명하게 해줌
         canvasGroup.blocksRaycasts = false;
 
-        //무기빼기 드래그직전의 부모가 equipslot인 경우
-        if (previousParent.name == "EquipSlot")
-        {
-            //인벤토리list안에서
-            foreach (var item in GameManager.Instance.inventory.inventory)
-            {
-                //드래그하는 오브젝트의 이미지와 list안의 이미지를 비교
-                if (eventData.pointerDrag.GetComponent<Image>().sprite == item.item.itemImage)
-                {
-                    //같으면 curWeapon=null해주고 아이템의 정보를 빼줌
-                    GameManager.Instance.mainPlayer.playerData.curWeapon = null;
-                    GameManager.Instance.mainPlayer.playerData.SetNotEquipAttackEntity(item);
-                    for (int i = 0; i < GameManager.Instance.equipWeapon._WeaponPrefab.Count; i++)
-                    {
-                        if (GameManager.Instance.equipWeapon._WeaponPrefab[i].GetComponent<ItemInfo>().item == item.item)
-                        {
-                            GameManager.Instance.equipWeapon._WeaponPrefab[i].SetActive(false);
-                        }
-                    }
-                }
-
-            }
-            Debug.Log("무기뻄");
-        }
     }
     /// <summary>
     /// 현재 오브젝트를 드래그 중일 때 매 프레임 호출

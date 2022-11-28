@@ -14,9 +14,9 @@ public class WeaponInfoUI : MonoBehaviour
     {
         if (GameManager.Instance.mainPlayer.playerData.curWeapon != null)
         {
-            WeaponName.text = "무기 이름 : " + GameManager.Instance.mainPlayer.playerData.curWeapon.item.objectName;
-            WeaponAttackForce.text = "무기 공격력 : " + GameManager.Instance.mainPlayer.playerData.curWeapon.item.AttackForce;
-            WeaponAttackSpeed.text = "무기 공격속도 : " + GameManager.Instance.mainPlayer.playerData.curWeapon.item.AttackSpeed;
+            WeaponName.text = "무기 이름 : " + GameManager.Instance.mainPlayer.playerData.curWeapon.itemName;
+            WeaponAttackForce.text = "무기 공격력 : " + GameManager.Instance.mainPlayer.playerData.curWeapon.WeaponAttackForce;
+            WeaponAttackSpeed.text = "무기 공격속도 : " + GameManager.Instance.mainPlayer.playerData.curWeapon.WeaponAttackSpeed;
         }
         else
         {

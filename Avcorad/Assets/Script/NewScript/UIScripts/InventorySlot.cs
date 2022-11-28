@@ -2,27 +2,118 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using UnityEngine.EventSystems;
 
-public class InventorySlot : MonoBehaviour
+public class InventorySlot : MonoBehaviour 
 {
-    [SerializeField] Image image;
+    public GameObject itemimage;
+    public int itemcount;
+    public Iitem item;
+    public GameObject EquipSlot;
 
-    private ItemInfo _iteminfo;
-    public ItemInfo iteminfo
+    [SerializeField]
+    private TextMeshProUGUI textCount;
+
+    [SerializeField]
+    private GameObject CountImage;
+    
+    public GameObject onClickBtn;
+
+    /// <summary>
+    /// 슬롯의 이미지 alpha값(투명도) 변경
+    /// </summary>
+    private void SetColor(float _alpha)
     {
-        get { return _iteminfo; }
-        set
+        Color color = itemimage.GetComponent<Image>().color;
+        color.a = _alpha;
+        itemimage.GetComponent<Image>().color = color;
+    }
+
+    /// <summary>
+    /// 아이템 획득
+    /// </summary>
+    public void AddItem(Iitem _item, int _count = 1)
+    {
+        item = _item;
+        Debug.Log(_item);
+        //item.Init();
+        itemcount = _count;
+        itemimage.GetComponent<Image>().sprite = _item.itemImage;
+        
+        Debug.Log(_item.itemImage);
+        if (item.type != Iitem.Type.Weapon)
         {
-            _iteminfo = value;
-            if (_iteminfo != null)
+            CountImage.SetActive(true);
+            textCount.text = itemcount.ToString();
+        }
+        else
+        {
+            textCount.text = "0";
+            CountImage.SetActive(false);
+        }
+
+        SetColor(1f);
+    }
+
+    /// <summary>
+    /// 아이템 갯수 조정
+    /// </summary>
+    public void SetSlotcount(int _Count)
+    {
+        itemcount += _Count;
+        textCount.text = itemcount.ToString();
+
+        //아이템이 없으면 슬롯을 초기화
+        if (itemcount <= 0)
+        {
+            ClearSlot();
+        }
+    }
+
+    /// <summary>
+    /// 슬롯 초기화
+    /// </summary>
+    private void ClearSlot()
+    {
+        item = null;
+        itemcount = 0;
+        itemimage.GetComponent<Image>().sprite = null;
+        SetColor(0);
+
+        textCount.text = "0";
+        CountImage.SetActive(false);
+    }
+
+    //장착버튼
+    public void EquipBtn()
+    {
+        if (item != null)
+        {
+            if (item.type == Iitem.Type.Weapon && EquipSlot.transform.childCount == 0)
             {
-                image.sprite = iteminfo.item.itemImage;
-                image.color = new Color(1, 1, 1, 1);
+                itemimage.transform.SetParent(EquipSlot.transform);
+                itemimage.GetComponent<RectTransform>().position = EquipSlot.GetComponent<RectTransform>().position;
+                item.useItem();
+                
             }
-            else
+            onClickBtn.SetActive(false);
+        }
+    }
+
+    //해제버튼
+    public void ClearBtn()
+    {
+        Debug.Log(item);
+        if (item != null)
+        {
+            if (item.type == Iitem.Type.Weapon && transform.childCount == 0)
             {
-                image.color = new Color(1, 1, 1, 0);
+                itemimage.transform.SetParent(this.transform);
+                itemimage.GetComponent<RectTransform>().position = this.transform.GetComponent<RectTransform>().position;
+                item.unuseItem();
             }
+            onClickBtn.SetActive(false);
         }
     }
 }

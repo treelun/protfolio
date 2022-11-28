@@ -43,33 +43,6 @@ public class DropableUI : MonoBehaviour, IPointerEnterHandler, IDropHandler, IPo
             //드래그 하고 있는 대상의 부모를 현재 오브젝트로 설정하고, 위치를 현재 오브젝트 위치와 동일하게 설정
             eventData.pointerDrag.transform.SetParent(transform);
             eventData.pointerDrag.GetComponent<RectTransform>().position = rect.position;
-
-            foreach (var item in GameManager.Instance.inventory.inventory)
-            {
-                if (eventData.pointerDrag.transform.parent.name == "EquipSlot")
-                {
-                    if (eventData.pointerDrag.GetComponent<Image>().sprite == item.item.itemImage && item.item.itemType == Item.ItemType.Weapon)
-                    {
-                        Debug.Log("실행");
-
-                        GameManager.Instance.mainPlayer.playerData.curWeapon = item;
-                        GameManager.Instance.mainPlayer.playerData.SetEquipAttackEntity(item);
-
-                        for (int i = 0; i < GameManager.Instance.equipWeapon._WeaponPrefab.Count; i++)
-                        {
-                            if (GameManager.Instance.equipWeapon._WeaponPrefab[i].GetComponent<ItemInfo>().item == item.item)
-                            {
-                                GameManager.Instance.equipWeapon._WeaponPrefab[i].SetActive(true);
-                            }
-                        }
-                    }
-                    else if (item.item.itemType == Item.ItemType.Potions)
-                    {
-                        dragableUI.returnToParent();
-                    }
-                }
-            }
-
         }
         else
         {

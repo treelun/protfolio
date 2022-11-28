@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Interaction : MonoBehaviour
 {
-    ItemInfo item;
     public GameObject InterationText;
     private void OnTriggerStay(Collider other)
     {
@@ -19,9 +18,9 @@ public class Interaction : MonoBehaviour
                 GameManager.Instance.mainPlayer.playerData.Mystate = PlayerEntity.State.Interaction;    //아이템획득시 상호작용 상태로 변경
 
                 //item = other.gameObject.GetComponent<ItemInfo>();
-                if (other.TryGetComponent<ItemInfo>(out var item))
+                if (other.TryGetComponent<Iitem>(out var item))
                 {
-                    GameManager.Instance.inventory.AddItem(item); //인벤토리에 추가
+                    GameManager.Instance.inventory.AcquireItem(item); //인벤토리에 추가
                     other.gameObject.SetActive(false); //먹은아이템 비활성화
                     InterationText.SetActive(false);
                     StartCoroutine(Setstate());
