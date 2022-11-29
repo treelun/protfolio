@@ -569,11 +569,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c28aea74140883f42b88dcbcb58f426e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemimage: {fileID: 2115329780307407031}
+  itemimageSlot: {fileID: 2115329780307407031}
   itemcount: 0
   EquipSlot: {fileID: 0}
   textCount: {fileID: 139905566452962284}
-  CanelBtn: {fileID: 482247555785357108}
   CountImage: {fileID: 8729444081098709518}
   onClickBtn: {fileID: 1579323073789875032}
 --- !u!1 &7012399002030996894

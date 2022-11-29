@@ -43,6 +43,7 @@ public class Inventory : MonoBehaviour
         {
             if (slots[i].item == null)
             {
+                Debug.Log("¹«±â È¹µæ");
                 slots[i].AddItem(_item, _count);
                 return;
             }

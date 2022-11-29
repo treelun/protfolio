@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 public class InventorySlot : MonoBehaviour 
 {
-    public GameObject itemimage;
+    public GameObject itemimageSlot;
     public int itemcount;
     public Iitem item;
     public GameObject EquipSlot;
@@ -25,9 +25,9 @@ public class InventorySlot : MonoBehaviour
     /// </summary>
     private void SetColor(float _alpha)
     {
-        Color color = itemimage.GetComponent<Image>().color;
+        Color color = itemimageSlot.GetComponent<Image>().color;
         color.a = _alpha;
-        itemimage.GetComponent<Image>().color = color;
+        itemimageSlot.GetComponent<Image>().color = color;
     }
 
     /// <summary>
@@ -39,7 +39,7 @@ public class InventorySlot : MonoBehaviour
         Debug.Log(_item);
         //item.Init();
         itemcount = _count;
-        itemimage.GetComponent<Image>().sprite = _item.itemImage;
+        itemimageSlot.GetComponent<Image>().sprite = _item.itemImage;
         
         Debug.Log(_item.itemImage);
         if (item.type != Iitem.Type.Weapon)
@@ -78,7 +78,7 @@ public class InventorySlot : MonoBehaviour
     {
         item = null;
         itemcount = 0;
-        itemimage.GetComponent<Image>().sprite = null;
+        itemimageSlot.GetComponent<Image>().sprite = null;
         SetColor(0);
 
         textCount.text = "0";
@@ -92,8 +92,8 @@ public class InventorySlot : MonoBehaviour
         {
             if (item.type == Iitem.Type.Weapon && EquipSlot.transform.childCount == 0)
             {
-                itemimage.transform.SetParent(EquipSlot.transform);
-                itemimage.GetComponent<RectTransform>().position = EquipSlot.GetComponent<RectTransform>().position;
+                itemimageSlot.transform.SetParent(EquipSlot.transform);
+                itemimageSlot.GetComponent<RectTransform>().position = EquipSlot.GetComponent<RectTransform>().position;
                 item.useItem();
                 
             }
@@ -109,8 +109,8 @@ public class InventorySlot : MonoBehaviour
         {
             if (item.type == Iitem.Type.Weapon && transform.childCount == 0)
             {
-                itemimage.transform.SetParent(this.transform);
-                itemimage.GetComponent<RectTransform>().position = this.transform.GetComponent<RectTransform>().position;
+                itemimageSlot.transform.SetParent(this.transform);
+                itemimageSlot.GetComponent<RectTransform>().position = this.transform.GetComponent<RectTransform>().position;
                 item.unuseItem();
             }
             onClickBtn.SetActive(false);

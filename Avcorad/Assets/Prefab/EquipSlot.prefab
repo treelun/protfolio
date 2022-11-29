@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 782476399753258838}
   - component: {fileID: 782476399753258836}
   - component: {fileID: 782476399753258839}
-  - component: {fileID: 782476399753258827}
-  - component: {fileID: 782476399753258826}
   m_Layer: 5
   m_Name: EquipSlot
   m_TagString: Untagged
@@ -27,7 +25,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 782476399753258833}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.00002861023}
   m_LocalScale: {x: 4.9999995, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
@@ -78,30 +76,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &782476399753258827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782476399753258833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cce4241314eb5d84d8f77db7baae9a0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &782476399753258826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782476399753258833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59a5836cac910a745acf9f8b19d1d511, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WeaponName: {fileID: 0}
-  WeaponAttackForce: {fileID: 0}
-  WeaponAttackSpeed: {fileID: 0}

@@ -4,30 +4,27 @@ using UnityEngine;
 
 public class PlayerEntity : LivingEntity
 {
+   
     public Weapon curWeapon { get; set; }
+    public GameObject WeaponSlot;
     Vector3 movement;
 
 
     //캐릭터의 정보들 에디터에서 관리하기위해 public 선언
-
+    [Header("PlayerStatus")]
     public float maxHp;
-    float curHp;
     public float maxSta;
-    float curSta;
-
-    public float playerAttackForce;
-    public float playerAttackSpeed;
-    public float playerMoveSpeed;
-    
-    public float _rotateSpeed;
-    public float jumpForce;
-    public float currentExp;
-    public float requiredExp;
-    public int playerLevel;
-    public int levelupPoint;
-
+    [Space]
+    [HideInInspector]
+    public float playerAttackForce, playerAttackSpeed, playerMoveSpeed, _rotateSpeed, jumpForce,
+        currentExp, requiredExp;
+    [Space]
+    [HideInInspector]
+    public int playerLevel, levelupPoint;
+    [HideInInspector]
     public string itemName;
     //플레이어의 상태 변수
+    [HideInInspector]
     public bool isJump;
     
     public void LevelUp()

@@ -14,6 +14,7 @@ public class Weapon : MonoBehaviour, Iitem
     public string itemName { get ; set ; }
     public bool isSetEquip { get ; set ; }
 
+
     public virtual void Init()
     {
         type = Iitem.Type.Weapon;
@@ -23,10 +24,18 @@ public class Weapon : MonoBehaviour, Iitem
     {
         if (type == Iitem.Type.Weapon)
         {
+            GameManager.Instance.mainPlayer.playerData.curWeapon = this;
+
             GameManager.Instance.mainPlayer.playerData.playerAttackForce += WeaponAttackForce;
             GameManager.Instance.mainPlayer.playerData.playerAttackSpeed += WeaponAttackSpeed;
             GameManager.Instance.mainPlayer.playerData.itemName = itemName;
             Debug.Log("this is Weapon useItem");
+
+            gameObject.transform.SetParent(GameManager.Instance.mainPlayer.playerData.WeaponSlot.transform);
+            this.GetComponent<RectTransform>().position = GameManager.Instance.mainPlayer.playerData.WeaponSlot.transform.position;
+            this.GetComponent<RectTransform>().rotation = GameManager.Instance.mainPlayer.playerData.WeaponSlot.transform.rotation;
+
+            gameObject.SetActive(true);
         }
     }
 
@@ -34,10 +43,12 @@ public class Weapon : MonoBehaviour, Iitem
     {
         if (type == Iitem.Type.Weapon)
         {
+            GameManager.Instance.mainPlayer.playerData.curWeapon = null;
             GameManager.Instance.mainPlayer.playerData.playerAttackForce -= WeaponAttackForce;
             GameManager.Instance.mainPlayer.playerData.playerAttackSpeed -= WeaponAttackSpeed;
             GameManager.Instance.mainPlayer.playerData.itemName = null;
             Debug.Log("this is Weapon unuseItem");
+            gameObject.SetActive(false);
         }
     }
 

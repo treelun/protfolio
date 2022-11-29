@@ -39,6 +39,7 @@ public class UIManager : MonoBehaviour
     public PopupUI _inventoryPopup;
     public PopupUI _skillPopUp;
     public PopupUI _characterInfoPopup;
+    public PopupUI _pausePopup;
 
     //인스펙터창에서 키코드에 있는 코드값들을 가져와서 보여줌 직접 설정할수있음
     [Space]
@@ -64,18 +65,13 @@ public class UIManager : MonoBehaviour
         //ESC를 누르면
         if (Input.GetKeyDown(_escapeKey))
         {
-            //활성화된 팝업창의 리스트의 갯수가 0이 아닐때
-            if (_activePopupLlist.Count > 0)
-            {
-                //리스트의 첫번째의 창을 닫는다.
-                ClosePopup(_activePopupLlist.First.Value);
-            }
+            Time.timeScale = 0f;
         }
 
         ToggleKeyDownAction(_inventoryKey, _inventoryPopup);
         ToggleKeyDownAction(_skillKey, _skillPopUp);
         ToggleKeyDownAction(_charInfoKey, _characterInfoPopup);
-
+        ToggleKeyDownAction(_escapeKey, _pausePopup);
     }
 
     void Init()
@@ -83,7 +79,7 @@ public class UIManager : MonoBehaviour
         //리스트 초기화
         _allPopupList = new List<PopupUI>()
         {
-            _inventoryPopup, _skillPopUp,_characterInfoPopup
+            _inventoryPopup, _skillPopUp,_characterInfoPopup,_pausePopup
         };
 
         //모든 팝업에 이벤트 등록
@@ -149,6 +145,7 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.mainPlayer.playerData.Mystate = LivingEntity.State.Move;
         _activePopupLlist.Remove(Popup);
         Popup.gameObject.SetActive(false);
+        Time.timeScale = 1f;
         RefreshAllPopupDepth();
     }
 
