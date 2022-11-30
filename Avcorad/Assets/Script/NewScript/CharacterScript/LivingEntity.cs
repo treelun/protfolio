@@ -7,7 +7,7 @@ public class LivingEntity : MonoBehaviour, ILivingEntity
     public enum State { Move = 0, Attack, Dodge, Death, Interaction, UseUi}
     public State Mystate;
 
-    protected Animator animator;
+    public Animator animator;
     protected Rigidbody rigid;
     public float Hp { get; set; }
     public float Sta { get; set; }

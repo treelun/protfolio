@@ -1,62 +1,114 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class QuickSlot : MonoBehaviour
 {
+
+    public Button[] quickSlot;
     [SerializeField]
-    private List<Button> buttons;
-    [Space]
-    public KeyCode slot1 = KeyCode.Alpha1;
-    public KeyCode slot2 = KeyCode.Alpha2;
-    public KeyCode slot3 = KeyCode.Alpha3;
-    public KeyCode slot4 = KeyCode.Alpha4;
-    public KeyCode slot5 = KeyCode.Alpha5;
+    private Transform Btn_parent;
+
+    [SerializeField] private ISkill skill;
+
+    private int selectedSlot;
+    private float delta;
+    private void Start()
+    {
+        quickSlot = Btn_parent.GetComponentsInChildren<Button>();
+        selectedSlot = 0;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(slot1))
+        TryInputNumber();
+    }
+
+    void TryInputNumber()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            ActionBtnClick(0);
+            SlotChange(0);
         }
-        else if (Input.GetKeyDown(slot2))
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            ActionBtnClick(1);
+            SlotChange(1);
         }
-        else if (Input.GetKeyDown(slot3))
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            ActionBtnClick(2);
+            SlotChange(2);
         }
-        else if (Input.GetKeyDown(slot4))
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            ActionBtnClick(3);
+            SlotChange(3);
         }
-        else if (Input.GetKeyDown(slot5))
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            ActionBtnClick(4);
+            SlotChange(4);
         }
     }
 
-/*    public void useItem(int number)
+    void SlotChange(int _num)
     {
-        for (int j = 0; j < GameManager.Instance.inventory.inventory.Count; j++)
+        SelectedSlot(_num);
+    }
+
+    void SelectedSlot(int _num) {
+
+        //선택된 슬롯
+        selectedSlot = _num;
+        //선택된 슬롯으로 이미지 이동
+
+        for (int i = 0; i < GameManager.Instance.inventory.slots.Length; i++)
         {
-            if (buttons[number].transform.childCount != 0)
+            //Debug.Log(GameManager.Instance.inventory.slots[i].item.itemImage);
+            if (quickSlot[selectedSlot].transform.childCount != 0 && GameManager.Instance.inventory.slots[i].item != null)
             {
-                Debug.Log(number + "번재의 자식 오브젝트 : " + buttons[number].transform.GetChild(0));
-                if (buttons[number].transform.GetChild(0).GetComponent<Image>().sprite == GameManager.Instance.inventory.inventory[j].item.itemImage)
+                if (quickSlot[selectedSlot].transform.GetChild(0).GetComponent<Image>().sprite == GameManager.Instance.inventory.slots[i].item.itemImage && GameManager.Instance.inventory.slots[i].itemcount > 0)
                 {
-                    Debug.Log("{0} 슬롯의 아이템 사용" + number);
+                    GameManager.Instance.inventory.slots[i].item.useItem();
+                    GameManager.Instance.inventory.slots[i].SetSlotcount(-1);
+                }
+                else
+                {
+                    Debug.Log("사용 안됨");
+                }
+
+            }
+
+        }
+        for (int i = 0; i < GameManager.Instance.skillList.skill.Length; i++)
+        {
+            if (quickSlot[selectedSlot].transform.childCount != 0 && GameManager.Instance.skillList.skill[i] != null)
+            {
+                if (quickSlot[selectedSlot].transform.GetChild(0).GetComponent<ISkill>() == GameManager.Instance.skillList.skill[i])
+                {
+                    GameManager.Instance.skillList.skill[i].useSkill();
+                }
+                else
+                {
+                    Debug.Log("사용 안됨");
                 }
             }
+
+            
         }
-
-    }*/
-
-    void ActionBtnClick(int btnIndex)
+        
+        /*        else if (quickSlot[selectedSlot].skill != null)
+                {
+                    delta += Time.deltaTime;
+                    if (delta > quickSlot[selectedSlot].skill.coolTime)
+                    {
+                        quickSlot[selectedSlot].skill.useSkill();
+                    }
+                }*/
+    }
+    
+    void Execute()
     {
-        buttons[btnIndex].onClick.Invoke();
+       //== GameManager.Instance.inventory.slots[i].item.itemImage
     }
 }

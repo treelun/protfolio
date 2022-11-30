@@ -16,4 +16,8 @@ public class Potion : MonoBehaviour, Iitem
     {
         type = Iitem.Type.potion;
     }
+    public virtual void useItem()
+    {
+        Debug.Log("회복되었습니다");
+    }
 }

@@ -29,6 +29,10 @@ public class UIManager : MonoBehaviour
 
             DontDestroyOnLoad(this.gameObject);
         }
+        else if (transform.parent != null && transform.root != null)
+        {
+            DontDestroyOnLoad(this.transform.root.gameObject);
+        }
         else
         {
             Destroy(this.gameObject);

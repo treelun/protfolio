@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
     private static GameManager instance;
 
     public static GameManager Instance
     {
         get
         {
-            if (null == instance)
+            if (instance == null)
             {
                 return null;
             }
@@ -25,25 +26,19 @@ public class GameManager : MonoBehaviour
 
             DontDestroyOnLoad(this.gameObject);
         }
+        else if (transform.parent != null && transform.root != null)
+        {
+            DontDestroyOnLoad(this.transform.root.gameObject);
+        }
         else
         {
             Destroy(this.gameObject);
         }
     }
 
-
     public Player mainPlayer;
     public Inventory inventory;
     public Status status;
     public EquipWeapon equipWeapon;
-
-    private void Update()
-    {
-        
-    }
-
-    void Init()
-    {
-        
-    }
+    public SkillList skillList;
 }
