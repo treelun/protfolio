@@ -40,11 +40,11 @@ public class PlayerEntity : LivingEntity
         playerAttackForce += _curWeapon.WeaponAttackForce;
         playerAttackSpeed += _curWeapon.WeaponAttackSpeed;
     }
-    public void SetNotEquipAttackEntity(ItemInfo _curWeapon)
+    public void SetNotEquipAttackEntity(Weapon _curWeapon)
     {
         itemName = "";
-        playerAttackForce -= _curWeapon.item.AttackForce;
-        playerAttackSpeed -= _curWeapon.item.AttackSpeed;
+        playerAttackForce -= _curWeapon.WeaponAttackForce;
+        playerAttackSpeed -= _curWeapon.WeaponAttackSpeed;
     }
 
     public void InitPlayerStat(string _BtnName)

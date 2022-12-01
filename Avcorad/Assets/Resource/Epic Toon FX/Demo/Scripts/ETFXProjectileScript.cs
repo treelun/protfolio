@@ -33,20 +33,20 @@ namespace EpicToonFX
 			
             RaycastHit hit;
 			
-            float radius; // Sets the radius of the collision detection
+            float radius; // Sets the radius of the collision detection 충돌 감지할 반경
             if (transform.GetComponent<SphereCollider>())
                 radius = transform.GetComponent<SphereCollider>().radius;
             else
                 radius = colliderRadius;
 
-            Vector3 direction = transform.GetComponent<Rigidbody>().velocity; // Gets the direction of the projectile, used for collision detection
+            Vector3 direction = transform.GetComponent<Rigidbody>().velocity; // Gets the direction of the projectile, used for collision detection 투사체의 방향을 얻는다, 충돌감지를 사용하기위해서
             if (transform.GetComponent<Rigidbody>().useGravity)
-                direction += Physics.gravity * Time.deltaTime; // Accounts for gravity if enabled
+                direction += Physics.gravity * Time.deltaTime; // Accounts for gravity if enabled 
             direction = direction.normalized;
 
             float detectionDistance = transform.GetComponent<Rigidbody>().velocity.magnitude * Time.deltaTime; // Distance of collision detection for this frame
 
-            if (Physics.SphereCast(transform.position, radius, direction, out hit, detectionDistance)) // Checks if collision will happen
+            if (Physics.SphereCast(transform.position, radius, direction, out hit, detectionDistance)) // Checks if collision will happen 충돌이되면 일어나는 일들
             {
                 transform.position = hit.point + (hit.normal * collideOffset); // Move projectile to point of collision
 
@@ -65,6 +65,7 @@ namespace EpicToonFX
                     }
                 }
 
+                Debug.Log("" + hit.transform.name);
                 Destroy(projectileParticle, 3f); // Removes particle effect after delay
                 Destroy(impactP, 3.5f); // Removes impact effect after delay
                 Destroy(gameObject); // Removes the projectile

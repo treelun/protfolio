@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
             case LivingEntity.State.Move:
                 playerData.Move();
                 playerData.RegenSta();
+                Cursor.lockState = CursorLockMode.Locked;
                 if (Input.GetMouseButtonDown(0) && playerData.curWeapon != null && playerData.Sta > 0 && !playerData.isJump)
                 {
                     playerData.Attack();
@@ -50,6 +51,7 @@ public class Player : MonoBehaviour
                 break;
             case LivingEntity.State.UseUi:
                 playerData.RegenSta();
+                Cursor.lockState = CursorLockMode.None;
                 break;
             default:
                 break;
