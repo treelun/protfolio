@@ -3,6 +3,7 @@ public interface ILivingEntity
 {
     float Hp { get; set; }
     float Sta { get; set; }
+    float Mp { get; set; }
     float moveSpeed { get; set; }
 
     float str { get; set; }
@@ -26,5 +27,5 @@ public interface ILivingEntity
     //움직이는 함수
     void Move();
     //data를 변경할 함수
-    void Init(float _Hp, float _Sta, float _Speed, float _rotateSpeed, float _AttackForce, float _AttackSpeed);
+    void Init(float _Hp, float _Sta,float _Mp, float _Speed, float _rotateSpeed, float _AttackForce, float _AttackSpeed);
 }

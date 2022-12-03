@@ -10,6 +10,8 @@ public interface ISkill
 
     public float coolTime { get; set; }
 
+    public int needLevel { get; set; }
+
     public void Init();
 
     public void useSkill();

@@ -484,7 +484,6 @@ GameObject:
   - component: {fileID: 8649367245270480060}
   - component: {fileID: 3343925166581816778}
   - component: {fileID: 6944843228607125946}
-  - component: {fileID: 6830657668765539504}
   - component: {fileID: 219759232317728908}
   - component: {fileID: 1815840355}
   m_Layer: 5
@@ -554,18 +553,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6830657668765539504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2115329780307407031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8d605297a3d2244cbc3776396517ca7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!225 &219759232317728908
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1266,7 +1253,6 @@ GameObject:
   - component: {fileID: 6998628744581424788}
   - component: {fileID: 6998628744581424790}
   - component: {fileID: 6998628744581424789}
-  - component: {fileID: 2968957594404390768}
   - component: {fileID: 7196621626533940400}
   m_Layer: 5
   m_Name: InventorySlot
@@ -1334,18 +1320,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2968957594404390768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6998628744581424795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cce4241314eb5d84d8f77db7baae9a0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7196621626533940400
 MonoBehaviour:
   m_ObjectHideFlags: 0

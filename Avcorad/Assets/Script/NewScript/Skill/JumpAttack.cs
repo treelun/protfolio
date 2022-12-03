@@ -1,24 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MoreMountains.Feedbacks;
 
-public class JumpAttack : MonoBehaviour, ISkill
+public class JumpAttack : Skill
 {
-    public float SkillDamage { get  ; set  ; }
-    public float needMp { get  ; set  ; }
-    public float coolTime { get  ; set  ; }
+    public GameObject projectiles;
 
-    public void Init()
+    public Transform spawnPosition;
+
+    private void Start()
     {
+        Init();
+    }
+
+    public override void Init()
+    {
+        base.Init();
         SkillDamage = 40f;
         needMp = 10f;
-        coolTime = 10f;
+        coolTime = 1f;
+        needLevel = 5;
     }
 
-    public void useSkill()
+    public override void useSkill()
     {
-        GameManager.Instance.mainPlayer.playerData.animator.SetTrigger("JumpAttack");
+        
+        if (!isUse)
+        {
+            GameManager.Instance.mainPlayer.playerData.Mystate = LivingEntity.State.Attack;
+            GameManager.Instance.mainPlayer.playerData.animator.SetTrigger("JumpAttack");
+            StartCoroutine(useSkillCoroutine());
+            GameManager.Instance.mainPlayer.playerData.Mp -= needMp;
+            Debug.Log("점프어택 실행합니다.");
+        }
+        base.useSkill();
     }
 
+    IEnumerator useSkillCoroutine()
+    {
 
+        isUse = true;
+        yield return new WaitForSeconds(2f);
+        isUse = false;
+
+    }
 }

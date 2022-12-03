@@ -11,6 +11,8 @@ public class LivingEntity : MonoBehaviour, ILivingEntity
     protected Rigidbody rigid;
     public float Hp { get; set; }
     public float Sta { get; set; }
+
+    public float Mp { get; set; }
     public float moveSpeed { get; set; }
     public float str { get; set; }
 
@@ -60,10 +62,11 @@ public class LivingEntity : MonoBehaviour, ILivingEntity
         }
     }
 
-    public void Init(float _Hp, float _Sta, float _MoveSpeed, float _rotateSpeed, float _AttackForce, float _AttackSpeed)
+    public void Init(float _Hp, float _Sta,float _Mp, float _MoveSpeed, float _rotateSpeed, float _AttackForce, float _AttackSpeed)
     {
         Hp = _Hp;
         Sta = _Sta;
+        Mp = _Mp;
         moveSpeed = _MoveSpeed;
         rotateSpeed = _rotateSpeed;
         AttackForce = _AttackForce;

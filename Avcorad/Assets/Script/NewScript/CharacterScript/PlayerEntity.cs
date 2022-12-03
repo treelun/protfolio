@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MoreMountains.Feedbacks;
 
 public class PlayerEntity : LivingEntity
 {
-   
+
     public Weapon curWeapon { get; set; }
     public GameObject WeaponSlot;
     Vector3 movement;
@@ -12,8 +13,9 @@ public class PlayerEntity : LivingEntity
 
     //캐릭터의 정보들 에디터에서 관리하기위해 public 선언
     [Header("PlayerStatus")]
-    public float maxHp;
+    public float maxHp; 
     public float maxSta;
+    public float maxMp;
     [Space]
     [HideInInspector]
     public float playerAttackForce, playerAttackSpeed, playerMoveSpeed, _rotateSpeed, jumpForce,
@@ -26,12 +28,21 @@ public class PlayerEntity : LivingEntity
     //플레이어의 상태 변수
     [HideInInspector]
     public bool isJump;
-    
+
+
+    [Header("Feedbacks")]
+    [SerializeField]
+    /// a feedback to be played when the jump happens
+    private MMFeedbacks JumpFeedbacks;
+    [SerializeField]
+    /// a feedback to be played when the cube lands
+    private MMFeedbacks LandingFeedbacks;
+
     public void LevelUp()
     {
         levelupPoint = 5;
     }
-    
+
     public void SetEquipAttackEntity(Weapon _curWeapon) {
         //무기 이름 바꾸기
         //무기 공격력 바꾸기
@@ -69,6 +80,8 @@ public class PlayerEntity : LivingEntity
             Health++;
             maxHp += 10f;
             maxSta += 5f;
+            Hp = maxHp;
+            Sta = maxSta;
         }
     }
 
@@ -89,7 +102,7 @@ public class PlayerEntity : LivingEntity
         //쳐맞음
         base.Hit(_AttackForce);
         //맞았을때의 피격 이펙트(애니메이션이나 반짝임)
-        
+
     }
     public void dodge()
     {
@@ -111,12 +124,12 @@ public class PlayerEntity : LivingEntity
 
     public override void Move()
     {
-       
+
         //움직임 함수
         float deltaX = Input.GetAxis("Horizontal");
         float deltaZ = Input.GetAxis("Vertical");
         movement = new Vector3(deltaX, 0f, deltaZ).normalized;
-        
+
         movement = transform.TransformDirection(movement);
 
         transform.Rotate(0f, Input.GetAxis("Mouse X") * _rotateSpeed, 0f, Space.World);
@@ -141,7 +154,7 @@ public class PlayerEntity : LivingEntity
         //최대체력,최대스태미너를 현재체력과 스태미너로 설정
         //LivingEntity의 HP와 Sta값을 현재 HP,Sta값으로 설정
         //속도 설정
-        Init(maxHp, maxSta, playerMoveSpeed, _rotateSpeed, playerAttackForce, playerAttackSpeed);
+        Init(maxHp, maxSta,maxMp, playerMoveSpeed, _rotateSpeed, playerAttackForce, playerAttackSpeed);
         //필요경험치 설정
         requiredExp = 100;
         playerLevel = 1;
@@ -161,7 +174,7 @@ public class PlayerEntity : LivingEntity
         {
             currentExp = 0;
             levelupPoint += 5;
-            requiredExp *= 1.5f;
+            requiredExp *= 1.2f;
             playerLevel++;
         }
     }
@@ -174,7 +187,7 @@ public class PlayerEntity : LivingEntity
     }
     public void StateEnd()
     {
-        
+
         if (Mystate == State.UseUi)
         {
             Mystate = State.UseUi;
@@ -202,5 +215,15 @@ public class PlayerEntity : LivingEntity
         {
             Sta += maxSta * 0.002f;
         }
+    }
+
+    public void JumpAttackStart()
+    {
+        JumpFeedbacks?.PlayFeedbacks();
+    }
+    public void JumpAttackEnd()
+    {
+    LandingFeedbacks?.PlayFeedbacks();
+        
     }
 }

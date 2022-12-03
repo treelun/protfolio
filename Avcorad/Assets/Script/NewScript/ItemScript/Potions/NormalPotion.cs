@@ -13,5 +13,11 @@ public class NormalPotion : Potion
         isSetEquip = false;
         itemImage = GetComponent<Image>().sprite;
         Debug.Log(recoveryAmount);
+        Healing = 10;
+    }
+    public override void useItem()
+    {
+        base.useItem();
+        GameManager.Instance.mainPlayer.playerData.Hp += Healing;
     }
 }

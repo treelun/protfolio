@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using MoreMountains.Feedbacks;
 
 public class SkillSlot : MonoBehaviour
 {
@@ -14,7 +16,7 @@ public class SkillSlot : MonoBehaviour
 
     [SerializeField]
     private QuickSlot QuickSlot;
-    private ISkill skill;
+    private Skill skill;
 
     [SerializeField]
     private GameObject SelectBtns;
@@ -22,6 +24,16 @@ public class SkillSlot : MonoBehaviour
 
     [HideInInspector]
     public int selectedSlot;
+
+    [SerializeField]
+    private TextMeshProUGUI errorText;
+    [SerializeField]
+    private Image textBackGround;
+
+    [SerializeField]
+    /// a feedback to be played when the cube lands
+    private MMFeedbacks TextFeedbacks;
+
     private void Awake()
     {
         canvas = FindObjectOfType<Canvas>().transform;
@@ -34,28 +46,25 @@ public class SkillSlot : MonoBehaviour
         btn3.onClick.AddListener(() => SetQuickSlot(2));
         btn4.onClick.AddListener(() => SetQuickSlot(3));
         btn5.onClick.AddListener(() => SetQuickSlot(4));
-        skill = itemimageSlot.GetComponent<ISkill>();
+        skill = itemimageSlot.GetComponent<Skill>();
+        textBackGround.enabled = false;
     }
-    /// <summary>
-    /// 슬롯의 이미지 alpha값(투명도) 변경
-    /// </summary>
-    private void SetColor(float _alpha)
-    {
-        Color color = itemimageSlot.GetComponent<Image>().color;
-        color.a = _alpha;
-        itemimageSlot.GetComponent<Image>().color = color;
-    }
-
     //장착버튼
     public void EquipBtn()
     {
         Debug.Log(skill);
-        if (skill != null)
+        if (skill != null && GameManager.Instance.mainPlayer.playerData.playerLevel >= skill.needLevel)
         {
             Debug.Log("스킬 장착");
             SelectBtns.SetActive(true);
             SelectBtns.transform.SetParent(canvas);
             SelectBtns.transform.SetAsLastSibling();
+        }
+        else if (GameManager.Instance.mainPlayer.playerData.playerLevel < skill.needLevel)
+        {
+            StartCoroutine(textTimer());
+            errorText.text = "레벨이 부족합니다. " + skill.needLevel + "레벨을 달성해 주세요";
+            onClickBtn.SetActive(false);
         }
         else
         {
@@ -93,5 +102,14 @@ public class SkillSlot : MonoBehaviour
             itemimageSlot.GetComponent<RectTransform>().position = QuickSlot.quickSlot[selectedSlot].GetComponent<RectTransform>().position;
         }
         onClickBtn.SetActive(false);
+    }
+
+    IEnumerator textTimer()
+    {
+        textBackGround.enabled = true;
+        TextFeedbacks?.PlayFeedbacks();
+        yield return new WaitForSeconds(1f);
+        textBackGround.enabled = false;
+        
     }
 }

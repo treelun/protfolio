@@ -12,6 +12,8 @@ public class Potion : MonoBehaviour, Iitem
     public string itemName { get  ; set  ; }
     public bool isSetEquip { get  ; set  ; }
 
+    public float Healing;
+
     public virtual void Init()
     {
         type = Iitem.Type.potion;

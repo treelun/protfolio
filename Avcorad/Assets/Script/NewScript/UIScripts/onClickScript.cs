@@ -9,7 +9,6 @@ public class onClickScript : MonoBehaviour , IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-            onClickBtn.SetActive(true);
+         onClickBtn.SetActive(true);
     }
-
 }

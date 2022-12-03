@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
+using MoreMountains.Feedbacks;
 
 public class QuickSlot : MonoBehaviour
 {
@@ -11,18 +13,32 @@ public class QuickSlot : MonoBehaviour
     [SerializeField]
     private Transform Btn_parent;
 
-    [SerializeField] private ISkill skill;
-
     private int selectedSlot;
-    private float delta;
+
+    [SerializeField]
+    /// a feedback to be played when the cube lands
+    private MMFeedbacks QuickSlotFeedbacks;
+    [SerializeField]
+    /// a feedback to be played when the cube lands
+    private MMFeedbacks QuickSlotFeedbacks1;
+    [SerializeField]
+    /// a feedback to be played when the cube lands
+    private MMFeedbacks QuickSlotFeedbacks2;
+    [SerializeField]
+    /// a feedback to be played when the cube lands
+    private MMFeedbacks QuickSlotFeedbacks3;
+    [SerializeField]
+    /// a feedback to be played when the cube lands
+    private MMFeedbacks QuickSlotFeedbacks4;
+
+    bool isUseBtn;
+
     private void Start()
     {
         quickSlot = Btn_parent.GetComponentsInChildren<Button>();
         selectedSlot = 0;
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         TryInputNumber();
     }
@@ -31,23 +47,56 @@ public class QuickSlot : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            SlotChange(0);
+            isUseBtn = true;
+            if (isUseBtn)
+            {
+                SlotChange(0);
+                QuickSlotFeedbacks?.PlayFeedbacks();
+                isUseBtn = false;
+            }
+            
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            SlotChange(1);
+            isUseBtn = true;
+            if (isUseBtn)
+            {
+                SlotChange(1);
+                QuickSlotFeedbacks1?.PlayFeedbacks();
+                isUseBtn = false;
+            }
+            
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            SlotChange(2);
+            isUseBtn = true;
+            if (isUseBtn)
+            {
+                SlotChange(2);
+                QuickSlotFeedbacks2?.PlayFeedbacks();
+                isUseBtn = false;
+            }
+            
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            SlotChange(3);
+            isUseBtn = true;
+            if (isUseBtn)
+            {
+                SlotChange(3);
+                QuickSlotFeedbacks1?.PlayFeedbacks();
+                isUseBtn = false;
+            }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            SlotChange(4);
+            isUseBtn = true;
+            if (isUseBtn)
+            {
+                SlotChange(4);
+                QuickSlotFeedbacks1?.PlayFeedbacks();
+                isUseBtn = false;
+            }
         }
     }
 
@@ -58,6 +107,7 @@ public class QuickSlot : MonoBehaviour
 
     void SelectedSlot(int _num) {
 
+        
         //선택된 슬롯
         selectedSlot = _num;
         //선택된 슬롯으로 이미지 이동
@@ -72,10 +122,6 @@ public class QuickSlot : MonoBehaviour
                     GameManager.Instance.inventory.slots[i].item.useItem();
                     GameManager.Instance.inventory.slots[i].SetSlotcount(-1);
                 }
-                else
-                {
-                    Debug.Log("사용 안됨");
-                }
 
             }
 
@@ -84,31 +130,14 @@ public class QuickSlot : MonoBehaviour
         {
             if (quickSlot[selectedSlot].transform.childCount != 0 && GameManager.Instance.skillList.skill[i] != null)
             {
-                if (quickSlot[selectedSlot].transform.GetChild(0).GetComponent<ISkill>() == GameManager.Instance.skillList.skill[i])
+                if (quickSlot[selectedSlot].transform.GetChild(0).GetComponent<Skill>() == GameManager.Instance.skillList.skill[i]
+                    && GameManager.Instance.mainPlayer.playerData.Mp > GameManager.Instance.skillList.skill[i].needMp)
                 {
                     GameManager.Instance.skillList.skill[i].useSkill();
                 }
-                else
-                {
-                    Debug.Log("사용 안됨");
-                }
             }
-
-            
         }
         
-        /*        else if (quickSlot[selectedSlot].skill != null)
-                {
-                    delta += Time.deltaTime;
-                    if (delta > quickSlot[selectedSlot].skill.coolTime)
-                    {
-                        quickSlot[selectedSlot].skill.useSkill();
-                    }
-                }*/
     }
-    
-    void Execute()
-    {
-       //== GameManager.Instance.inventory.slots[i].item.itemImage
-    }
+
 }

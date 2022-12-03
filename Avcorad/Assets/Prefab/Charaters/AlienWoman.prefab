@@ -139,6 +139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4684879644186690}
   - component: {fileID: 6264656662741385784}
+  - component: {fileID: 5436423845449803542}
   m_Layer: 0
   m_Name: AlienWoman
   m_TagString: Untagged
@@ -185,6 +186,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &5436423845449803542
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818375794864784120}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.004
+  m_Height: 0.06
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.03, z: 0}
 --- !u!1 &1307013988007826194
 GameObject:
   m_ObjectHideFlags: 0

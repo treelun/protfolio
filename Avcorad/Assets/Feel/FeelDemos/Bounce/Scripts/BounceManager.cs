@@ -59,12 +59,12 @@ namespace MoreMountains.Feel
 			{
 				if (FeedbackAnimator.isActiveAndEnabled)
 				{
-					FeedbackAnimator.SetTrigger("Jump");
+					FeedbackAnimator.SetTrigger("JumpAttack");
 				}
-				if (NoFeedbackAnimator.isActiveAndEnabled)
+/*				if (NoFeedbackAnimator.isActiveAndEnabled)
 				{
 					NoFeedbackAnimator.SetTrigger("Jump");
-				}
+				}*/
 				_lastJumpStartedAt = Time.time;
 			}            
 		}

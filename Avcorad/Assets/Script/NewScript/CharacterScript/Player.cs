@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 
@@ -10,6 +11,8 @@ public class Player : MonoBehaviour
     //ILivingEntity livingEntity;
 
     float delta;
+
+    public Image dot;
     private void Update()
     {
         //상태패턴을 이용하여 공격과 회피중 이동을 멈추고, 연속공격을 위해
@@ -25,6 +28,7 @@ public class Player : MonoBehaviour
             case LivingEntity.State.Move:
                 playerData.Move();
                 playerData.RegenSta();
+                dot.enabled = true;
                 Cursor.lockState = CursorLockMode.Locked;
                 if (Input.GetMouseButtonDown(0) && playerData.curWeapon != null && playerData.Sta > 0 && !playerData.isJump)
                 {
@@ -51,6 +55,7 @@ public class Player : MonoBehaviour
                 break;
             case LivingEntity.State.UseUi:
                 playerData.RegenSta();
+                dot.enabled = false;
                 Cursor.lockState = CursorLockMode.None;
                 break;
             default:
@@ -66,9 +71,9 @@ public class Player : MonoBehaviour
         //attack(),Move(),dodge(),Jump(),F(interaction)상호작용키
         playerData.playerLevelup();
         delta += Time.deltaTime;
-        if (delta > 5)
+        if (delta > 1)
         {
-            playerData.currentExp += 50;
+            playerData.currentExp += 5000;
             delta = 0;
         }
     }

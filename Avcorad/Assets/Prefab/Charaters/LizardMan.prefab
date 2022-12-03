@@ -747,6 +747,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3051867808784063772}
   - component: {fileID: 8987572210927126374}
+  - component: {fileID: 4012772015464187008}
   m_Layer: 0
   m_Name: LizardMan
   m_TagString: Untagged
@@ -791,6 +792,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &4012772015464187008
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2382889323171563430}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.003
+  m_Height: 0.027
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.013, z: 0}
 --- !u!1 &2510141596223644925
 GameObject:
   m_ObjectHideFlags: 0

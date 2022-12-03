@@ -122,7 +122,8 @@ public class InventorySlot : MonoBehaviour
                 itemimageSlot.transform.SetParent(EquipSlot.transform);
                 itemimageSlot.GetComponent<RectTransform>().position = EquipSlot.GetComponent<RectTransform>().position;
                 item.useItem();
-                
+                onClickBtn.SetActive(false);
+
             }
             if (item.type != Iitem.Type.Weapon)
             {
@@ -132,10 +133,6 @@ public class InventorySlot : MonoBehaviour
                 SelectBtns.transform.SetAsLastSibling();
             }
             
-        }
-        else
-        {
-            onClickBtn.SetActive(false);
         }
 
     }

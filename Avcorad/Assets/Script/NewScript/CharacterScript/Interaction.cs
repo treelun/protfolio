@@ -20,7 +20,7 @@ public class Interaction : MonoBehaviour
                 //item = other.gameObject.GetComponent<ItemInfo>();
                 if (other.TryGetComponent<Iitem>(out var item))
                 {
-                    Debug.Log(item);
+                    Debug.Log(item.itemName);
                     GameManager.Instance.inventory.AcquireItem(item); //인벤토리에 추가
                     other.gameObject.SetActive(false); //먹은아이템 비활성화
                     InterationText.SetActive(false);
