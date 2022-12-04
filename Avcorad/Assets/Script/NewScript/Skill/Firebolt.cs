@@ -10,6 +10,7 @@ public class Firebolt : Skill
 
     public Transform spawnPosition;
 
+    public Transform rayPosition;
     public float speed = 1000;
 
     private void Start()
@@ -29,7 +30,7 @@ public class Firebolt : Skill
     public override void useSkill()
     {
         
-        if (Physics.Raycast(spawnPosition.position, spawnPosition.forward, out hit, 50f) && !isUse) //Finds the point where you click with the mouse
+        if (Physics.Raycast(rayPosition.position, rayPosition.forward, out hit, 50f) && !isUse) //Finds the point where you click with the mouse
         {
             if (hit.transform.tag != "Ground")
             {

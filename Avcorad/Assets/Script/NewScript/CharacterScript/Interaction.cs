@@ -9,14 +9,13 @@ public class Interaction : MonoBehaviour
     {
         if (other.transform.tag == "NPC" || other.tag == "item")
         {
-            Debug.Log("F키를 누르세요");
             InterationText.SetActive(true);
             //NPC와 상호작용 대화창 열림 & 아이템 획득 인벤토리에 추가
             if (Input.GetKey(KeyCode.F))
             {
                 Debug.Log("상호작용");
                 GameManager.Instance.mainPlayer.playerData.Mystate = PlayerEntity.State.Interaction;    //아이템획득시 상호작용 상태로 변경
-
+                InterationText.SetActive(false);
                 //item = other.gameObject.GetComponent<ItemInfo>();
                 if (other.TryGetComponent<Iitem>(out var item))
                 {
@@ -26,7 +25,12 @@ public class Interaction : MonoBehaviour
                     InterationText.SetActive(false);
                     StartCoroutine(Setstate());
                 }
-
+                else if (other.TryGetComponent<NpcText>(out var npc))
+                {
+                    InterationText.SetActive(false);
+                    other.GetComponent<NpcText>().NpcTextBackGround.gameObject.SetActive(true);
+                    other.GetComponent<NpcText>().ShowText(0);
+                }
             }
         }
 

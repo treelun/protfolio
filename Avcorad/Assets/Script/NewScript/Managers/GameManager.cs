@@ -41,4 +41,5 @@ public class GameManager : MonoBehaviour
     public Status status;
     public EquipWeapon equipWeapon;
     public SkillList skillList;
+    public QuickSlot quickSlot;
 }

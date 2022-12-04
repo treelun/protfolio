@@ -13,6 +13,8 @@ public class DecadeExplosion : Skill
 
     public Transform spawnPosition;
 
+    public Transform rayPosition;
+
     public float speed = 1000;
 
     [SerializeField]
@@ -35,7 +37,7 @@ public class DecadeExplosion : Skill
     public override void useSkill()
     {
         
-        if (Physics.Raycast(spawnPosition.position, spawnPosition.forward, out hit, 100f) && !isUse) //Finds the point where you click with the mouse
+        if (Physics.Raycast(rayPosition.position, rayPosition.forward, out hit, 100f) && !isUse) //Finds the point where you click with the mouse
         {
             if (hit.transform.tag != "Ground")
             {

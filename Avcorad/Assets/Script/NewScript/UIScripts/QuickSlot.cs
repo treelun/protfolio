@@ -31,6 +31,12 @@ public class QuickSlot : MonoBehaviour
     /// a feedback to be played when the cube lands
     private MMFeedbacks QuickSlotFeedbacks4;
 
+    [SerializeField]
+    private TextMeshProUGUI EquiperrorText;
+    [SerializeField]
+    private Image EquiptextBackGround;
+
+
     bool isUseBtn;
 
     private void Start()
@@ -84,7 +90,7 @@ public class QuickSlot : MonoBehaviour
             if (isUseBtn)
             {
                 SlotChange(3);
-                QuickSlotFeedbacks1?.PlayFeedbacks();
+                QuickSlotFeedbacks3?.PlayFeedbacks();
                 isUseBtn = false;
             }
         }
@@ -94,7 +100,7 @@ public class QuickSlot : MonoBehaviour
             if (isUseBtn)
             {
                 SlotChange(4);
-                QuickSlotFeedbacks1?.PlayFeedbacks();
+                QuickSlotFeedbacks4?.PlayFeedbacks();
                 isUseBtn = false;
             }
         }

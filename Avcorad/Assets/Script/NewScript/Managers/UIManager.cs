@@ -66,12 +66,6 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        //ESC를 누르면
-        if (Input.GetKeyDown(_escapeKey))
-        {
-            Time.timeScale = 0f;
-        }
-
         ToggleKeyDownAction(_inventoryKey, _inventoryPopup);
         ToggleKeyDownAction(_skillKey, _skillPopUp);
         ToggleKeyDownAction(_charInfoKey, _characterInfoPopup);
@@ -149,7 +143,6 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.mainPlayer.playerData.Mystate = LivingEntity.State.Move;
         _activePopupLlist.Remove(Popup);
         Popup.gameObject.SetActive(false);
-        Time.timeScale = 1f;
         RefreshAllPopupDepth();
     }
 

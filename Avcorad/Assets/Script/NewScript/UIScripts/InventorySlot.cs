@@ -8,6 +8,7 @@ public class InventorySlot : MonoBehaviour
 {
     private Transform canvas;
     public GameObject itemimageSlot;
+
     [HideInInspector]
     public int itemcount;
     public Iitem item;

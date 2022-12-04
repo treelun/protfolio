@@ -185,41 +185,7 @@ MonoBehaviour:
     alignWindowToBar: 1
     windowMode: 0
   _sceneHistory:
-  - name: DOTweenPath
-    path: Assets/Plugins/Demigiant/DOTweenPro Examples/DOTweenPath.unity
-  - name: DOTweenAnimation_Basics
-    path: Assets/Plugins/Demigiant/DOTweenPro Examples/DOTweenAnimation_Basics.unity
-  - name: DOTweenAnimation_Advanced
-    path: Assets/Plugins/Demigiant/DOTweenPro Examples/DOTweenAnimation_Advanced.unity
   - name: play
     path: Assets/Scenes/play.unity
-  - name: etfx_lightning
-    path: Assets/Resource/Epic Toon FX/Demo/Scenes/etfx_lightning.unity
-  - name: FeelBounce
-    path: Assets/Feel/FeelDemos/Bounce/FeelBounce.unity
-  - name: FeelBlob
-    path: Assets/Feel/FeelDemos/Blob/FeelBlob.unity
-  - name: etfx_maindemo
-    path: Assets/Resource/Epic Toon FX/Demo/Scenes/etfx_maindemo.unity
-  - name: etfx_swordcombat2
-    path: Assets/Resource/Epic Toon FX/Demo/Scenes/etfx_swordcombat2.unity
-  - name: etfx_powerups
-    path: Assets/Resource/Epic Toon FX/Demo/Scenes/etfx_powerups.unity
-  - name: etfx_missiles
-    path: Assets/Resource/Epic Toon FX/Demo/Scenes/etfx_missiles.unity
-  - name: etfx_magic3
-    path: Assets/Resource/Epic Toon FX/Demo/Scenes/etfx_magic3.unity
-  - name: etfx_magic2
-    path: Assets/Resource/Epic Toon FX/Demo/Scenes/etfx_magic2.unity
-  - name: etfx_decals2
-    path: Assets/Resource/Epic Toon FX/Demo/Scenes/etfx_decals2.unity
-  - name: etfx_decals
-    path: Assets/Resource/Epic Toon FX/Demo/Scenes/etfx_decals.unity
-  - name: etfx_healing
-    path: Assets/Resource/Epic Toon FX/Demo/Scenes/etfx_healing.unity
-  - name: etfx_flares
-    path: Assets/Resource/Epic Toon FX/Demo/Scenes/etfx_flares.unity
-  - name: etfx_fireworks
-    path: Assets/Resource/Epic Toon FX/Demo/Scenes/etfx_fireworks.unity
-  - name: etfx_fire
-    path: Assets/Resource/Epic Toon FX/Demo/Scenes/etfx_fire.unity
+  - name: Villager Example Scene
+    path: Assets/Resource/Kevin Iglesias/Villager Animations/Villager Example Scene.unity

@@ -34,6 +34,9 @@ public class SkillSlot : MonoBehaviour
     /// a feedback to be played when the cube lands
     private MMFeedbacks TextFeedbacks;
 
+    [SerializeField]
+    private Image LockImage;
+
     private void Awake()
     {
         canvas = FindObjectOfType<Canvas>().transform;
@@ -47,7 +50,13 @@ public class SkillSlot : MonoBehaviour
         btn4.onClick.AddListener(() => SetQuickSlot(3));
         btn5.onClick.AddListener(() => SetQuickSlot(4));
         skill = itemimageSlot.GetComponent<Skill>();
-        textBackGround.enabled = false;
+    }
+    private void Update()
+    {
+        if (GameManager.Instance.mainPlayer.playerData.playerLevel >= skill.needLevel)
+        {
+            LockImage.gameObject.SetActive(false);
+        }
     }
     //장착버튼
     public void EquipBtn()
@@ -62,14 +71,12 @@ public class SkillSlot : MonoBehaviour
         }
         else if (GameManager.Instance.mainPlayer.playerData.playerLevel < skill.needLevel)
         {
-            StartCoroutine(textTimer());
             errorText.text = "레벨이 부족합니다. " + skill.needLevel + "레벨을 달성해 주세요";
+            StartCoroutine(textTimer());
             onClickBtn.SetActive(false);
+            
         }
-        else
-        {
-            onClickBtn.SetActive(false);
-        }
+
        
     }
     public void ReturnToPosition()
@@ -101,15 +108,22 @@ public class SkillSlot : MonoBehaviour
             itemimageSlot.transform.SetParent(QuickSlot.quickSlot[selectedSlot].transform);
             itemimageSlot.GetComponent<RectTransform>().position = QuickSlot.quickSlot[selectedSlot].GetComponent<RectTransform>().position;
         }
+        else
+        {
+            Debug.Log("슬롯이 등록되어 있습니다. 다른 슬롯을 선택해 주세요");
+
+            errorText.text = "슬롯이 등록되어 있습니다. 다른 슬롯을 선택해 주세요";
+            StartCoroutine(textTimer());
+        }
         onClickBtn.SetActive(false);
     }
 
     IEnumerator textTimer()
     {
-        textBackGround.enabled = true;
+        //textBackGround.enabled = true;
         TextFeedbacks?.PlayFeedbacks();
         yield return new WaitForSeconds(1f);
-        textBackGround.enabled = false;
-        
+        //textBackGround.enabled = false;
+        textBackGround.gameObject.SetActive(false);
     }
 }

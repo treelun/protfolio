@@ -1,0 +1,915 @@
+fileFormatVersion: 2
+guid: 9d008deb2e601434d8feaec9a346a1b0
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      74: -203655887218126122
+    second: T-Pose (1)@Standing Idle
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: T-Pose (1)@Standing Idle
+      takeName: mixamo.com
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 180
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: AZRI:Hips
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:LeftUpLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:RightUpLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:Spine1
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:LeftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:RightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:LeftToeBase
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:RightToeBase
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:LeftHandThumb1
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:LeftHandThumb2
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:LeftHandThumb3
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:LeftHandIndex1
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:LeftHandIndex2
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:LeftHandIndex3
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:LeftHandMiddle1
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:LeftHandMiddle2
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:LeftHandMiddle3
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:LeftHandRing1
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:LeftHandRing2
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:LeftHandRing3
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:LeftHandPinky1
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:LeftHandPinky2
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:LeftHandPinky3
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:RightHandThumb1
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:RightHandThumb2
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:RightHandThumb3
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:RightHandIndex1
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:RightHandIndex2
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:RightHandIndex3
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:RightHandMiddle1
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:RightHandMiddle2
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:RightHandMiddle3
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:RightHandRing1
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:RightHandRing2
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:RightHandRing3
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:RightHandPinky1
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:RightHandPinky2
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:RightHandPinky3
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AZRI:Spine2
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: elf@T-Pose (1)(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:hair_geo
+      parentName: elf@T-Pose (1)(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:l_eye_geo
+      parentName: elf@T-Pose (1)(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:body_geo
+      parentName: elf@T-Pose (1)(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:head_geo
+      parentName: elf@T-Pose (1)(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:r_eye_geo
+      parentName: elf@T-Pose (1)(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:poncho_geo
+      parentName: elf@T-Pose (1)(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:Hips
+      parentName: elf@T-Pose (1)(Clone)
+      position: {x: 0.0000483401, y: 1.051422, z: -0.010645393}
+      rotation: {x: 0.000009664212, y: 0.000017613751, z: -0.00054463546, w: 0.9999999}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:LeftUpLeg
+      parentName: AZRI:Hips
+      position: {x: -0.08864567, y: -0.04425354, z: 0.008437876}
+      rotation: {x: -0.00060974614, y: 0.0022633804, z: 0.9999792, w: 0.006017304}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:LeftLeg
+      parentName: AZRI:LeftUpLeg
+      position: {x: 9.310774e-12, y: 0.4755178, z: 0.000000002018205}
+      rotation: {x: -0.034582365, y: 0.00007586677, z: 0.013588134, w: 0.9993095}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:LeftFoot
+      parentName: AZRI:LeftLeg
+      position: {x: -2.123751e-10, y: 0.44005027, z: 5.0654373e-11}
+      rotation: {x: 0.46698266, y: 0.027457932, z: -0.0050446824, w: 0.8838257}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:LeftToeBase
+      parentName: AZRI:LeftFoot
+      position: {x: 2.3174697e-10, y: 0.13450454, z: -0.00000000377113}
+      rotation: {x: 0.35011074, y: 0.004735496, z: -0.0017699796, w: 0.9366947}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:LeftToe_End
+      parentName: AZRI:LeftToeBase
+      position: {x: 6.102114e-12, y: 0.0538009, z: -1.5879721e-11}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:RightUpLeg
+      parentName: AZRI:Hips
+      position: {x: 0.08864567, y: -0.04425354, z: 0.011583794}
+      rotation: {x: 0.0006280672, y: 0.0051225177, z: 0.9999616, w: -0.0070855245}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:RightLeg
+      parentName: AZRI:RightUpLeg
+      position: {x: 1.083606e-11, y: 0.47582522, z: 0.0000000010701952}
+      rotation: {x: -0.044130288, y: -0.0000691122, z: -0.013536809, w: 0.9989341}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:RightFoot
+      parentName: AZRI:RightLeg
+      position: {x: 1.381794e-10, y: 0.43999037, z: -2.506718e-10}
+      rotation: {x: 0.47576565, y: -0.02716055, z: 0.0046517765, w: 0.8791404}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:RightToeBase
+      parentName: AZRI:RightFoot
+      position: {x: 5.7391307e-11, y: 0.13563989, z: -0.0000000013506588}
+      rotation: {x: 0.34687015, y: -0.0048415614, z: 0.0017905753, w: 0.937899}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:RightToe_End
+      parentName: AZRI:RightToeBase
+      position: {x: 1.1681194e-10, y: 0.054212052, z: -1.2415336e-12}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:Spine
+      parentName: AZRI:Hips
+      position: {x: -0, y: 0.0798687, z: -0.011695645}
+      rotation: {x: -0.072646976, y: -0.000057128433, z: 0.0005419174, w: 0.9973576}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:Spine1
+      parentName: AZRI:Spine
+      position: {x: -0, y: 0.094173685, z: -3.8808032e-10}
+      rotation: {x: 9.430402e-26, y: -1.4101627e-13, z: 6.6874566e-13, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:Spine2
+      parentName: AZRI:Spine1
+      position: {x: -0, y: 0.107627265, z: 4.9791293e-10}
+      rotation: {x: 0, y: 1.009742e-28, z: -6.310888e-29, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:LeftShoulder
+      parentName: AZRI:Spine2
+      position: {x: -0.064653814, y: 0.09211874, z: -0.0038847749}
+      rotation: {x: 0.55560386, y: -0.42686966, z: 0.5820081, w: 0.41273865}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:LeftArm
+      parentName: AZRI:LeftShoulder
+      position: {x: 3.4947562e-10, y: 0.14445549, z: -0.000000002078499}
+      rotation: {x: -0.14887835, y: -0.00025333225, z: -0.021153977, w: 0.9886292}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:LeftForeArm
+      parentName: AZRI:LeftArm
+      position: {x: 2.5370198e-10, y: 0.17390995, z: -0.0000000023223796}
+      rotation: {x: -0.00000024970268, y: 0.0035840163, z: -0.000000062597, w: 0.99999356}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:LeftHand
+      parentName: AZRI:LeftForeArm
+      position: {x: 5.7851435e-10, y: 0.21558394, z: 0.0000000015276634}
+      rotation: {x: 0.012798666, y: -0.08047652, z: 0.07910441, w: 0.9935302}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:LeftHandThumb1
+      parentName: AZRI:LeftHand
+      position: {x: 0.017626422, y: 0.02223531, z: 0.016973604}
+      rotation: {x: 0.09085074, y: 0.049408488, z: -0.31974462, w: 0.9418431}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:LeftHandThumb2
+      parentName: AZRI:LeftHandThumb1
+      position: {x: 0.0053941165, y: 0.025895026, z: 7.1222855e-10}
+      rotation: {x: -0.0002500368, y: -0.0024954244, z: -0.105258405, w: 0.99444175}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:LeftHandThumb3
+      parentName: AZRI:LeftHandThumb2
+      position: {x: -0.00015328165, y: 0.027605623, z: 1.225601e-11}
+      rotation: {x: -0.0014829744, y: 0.013204963, z: -0.10608743, w: 0.99426806}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:LeftHandThumb4
+      parentName: AZRI:LeftHandThumb3
+      position: {x: -0.0052408352, y: 0.023643894, z: -3.3494088e-10}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:LeftHandIndex1
+      parentName: AZRI:LeftHand
+      position: {x: 0.029449066, y: 0.07409909, z: 0.002036497}
+      rotation: {x: -0.019013183, y: 0.0016672949, z: -0.077674545, w: 0.9967961}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:LeftHandIndex2
+      parentName: AZRI:LeftHandIndex1
+      position: {x: 0.00000893041, y: 0.026314039, z: 0.0000000018032517}
+      rotation: {x: 0.00000027374762, y: -0.00000010396855, z: -0.00043010717, w: 0.99999994}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:LeftHandIndex3
+      parentName: AZRI:LeftHandIndex2
+      position: {x: -0.000012944303, y: 0.025083665, z: -0.0000000026392684}
+      rotation: {x: -0.00000021498282, y: 0.0000017134666, z: 0.00034971538, w: 0.99999994}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:LeftHandIndex4
+      parentName: AZRI:LeftHandIndex3
+      position: {x: 0.000004015124, y: 0.022074597, z: -4.630678e-11}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:LeftHandMiddle1
+      parentName: AZRI:LeftHand
+      position: {x: 0.011483364, y: 0.0730735, z: -0.0028246997}
+      rotation: {x: -0.0192025, y: -0.0007625494, z: -0.07785774, w: 0.99677926}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:LeftHandMiddle2
+      parentName: AZRI:LeftHandMiddle1
+      position: {x: -0.0000038351263, y: 0.033683904, z: -8.0438395e-10}
+      rotation: {x: -0.00000018421817, y: -0.000011667499, z: -0.0002613068, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:LeftHandMiddle3
+      parentName: AZRI:LeftHandMiddle2
+      position: {x: -0.000019580495, y: 0.031178704, z: 2.807917e-10}
+      rotation: {x: -0.0000003312184, y: -0.000009044696, z: 0.0007389187, w: 0.99999976}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:LeftHandMiddle4
+      parentName: AZRI:LeftHandMiddle3
+      position: {x: 0.00002341455, y: 0.027501876, z: 3.2349348e-10}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:LeftHandRing1
+      parentName: AZRI:LeftHand
+      position: {x: -0.011003111, y: 0.07635933, z: 0.000029456563}
+      rotation: {x: -0.01925139, y: -0.0013863023, z: -0.07787197, w: 0.9967765}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:LeftHandRing2
+      parentName: AZRI:LeftHandRing1
+      position: {x: -0.0000047485373, y: 0.029211491, z: 7.986918e-10}
+      rotation: {x: 0.00000047423507, y: 0.000001043063, z: 0.000050425504, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:LeftHandRing3
+      parentName: AZRI:LeftHandRing2
+      position: {x: -0.0000021479077, y: 0.028409725, z: -2.7214908e-10}
+      rotation: {x: 0.00000018852805, y: -0.000003531632, z: 0.00017520785, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:LeftHandRing4
+      parentName: AZRI:LeftHandRing3
+      position: {x: 0.0000068961463, y: 0.02500902, z: -6.4359185e-10}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:LeftHandPinky1
+      parentName: AZRI:LeftHand
+      position: {x: -0.02992932, y: 0.06515118, z: 0.0006842827}
+      rotation: {x: -0.018924989, y: 0.0028006078, z: -0.078108326, w: 0.9967613}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:LeftHandPinky2
+      parentName: AZRI:LeftHandPinky1
+      position: {x: -0.000014474455, y: 0.028913831, z: -2.981345e-10}
+      rotation: {x: -0.00000023113135, y: -0.0000003133769, z: 0.0004976094, w: 0.9999999}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:LeftHandPinky3
+      parentName: AZRI:LeftHandPinky2
+      position: {x: 0.000012845089, y: 0.025422623, z: 3.5753514e-10}
+      rotation: {x: 0.00000027384223, y: -0.0000056626814, z: -0.00021225211, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:LeftHandPinky4
+      parentName: AZRI:LeftHandPinky3
+      position: {x: 0.0000016296515, y: 0.023115592, z: -0.0000000023836144}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:Neck
+      parentName: AZRI:Spine2
+      position: {x: -0, y: 0.12108054, z: -0.000000009053869}
+      rotation: {x: 0.07263725, y: -1.0615082e-19, z: 1.2815324e-19, w: 0.99735844}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:Head
+      parentName: AZRI:Neck
+      position: {x: -0, y: 0.07968795, z: 0.02322227}
+      rotation: {x: 0, y: -0, z: -1.33482885e-36, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:HeadTop_End
+      parentName: AZRI:Head
+      position: {x: -0, y: 0.17216018, z: 0.050170053}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:RightShoulder
+      parentName: AZRI:Spine2
+      position: {x: 0.064653814, y: 0.092220895, z: -0.0045823865}
+      rotation: {x: -0.55193233, y: -0.4290778, z: 0.58488786, w: -0.41130176}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:RightArm
+      parentName: AZRI:RightShoulder
+      position: {x: -3.2663033e-10, y: 0.14445549, z: -0.000000002082152}
+      rotation: {x: -0.14805096, y: 0.00116385, z: 0.026328739, w: 0.98862857}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:RightForeArm
+      parentName: AZRI:RightArm
+      position: {x: 4.5476564e-10, y: 0.17398944, z: 0.0000000032538372}
+      rotation: {x: 0.0000002879658, y: -0.0031763653, z: -0.0000002093012, w: 0.999995}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:RightHand
+      parentName: AZRI:RightForeArm
+      position: {x: 8.530734e-10, y: 0.21545966, z: 0.000000004741956}
+      rotation: {x: -0.08664806, y: 0.9908142, z: -0.01306553, w: -0.102998555}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:RightHandThumb1
+      parentName: AZRI:RightHand
+      position: {x: -0.017506288, y: 0.022180071, z: 0.018007588}
+      rotation: {x: -0.077338114, y: -0.034701128, z: -0.34469256, w: 0.9348806}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:RightHandThumb2
+      parentName: AZRI:RightHandThumb1
+      position: {x: -0.0042483504, y: 0.026466595, z: -1.9962441e-10}
+      rotation: {x: -0.00021758366, y: 0.003411823, z: 0.095261626, w: 0.9954464}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:RightHandThumb3
+      parentName: AZRI:RightHandThumb2
+      position: {x: 0.0008548989, y: 0.026989857, z: -5.0106463e-10}
+      rotation: {x: 0.00016564957, y: 0.0018944534, z: 0.055668082, w: 0.99844754}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:RightHandThumb4
+      parentName: AZRI:RightHandThumb3
+      position: {x: 0.003393458, y: 0.023554675, z: 5.713988e-10}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:RightHandIndex1
+      parentName: AZRI:RightHand
+      position: {x: -0.03119606, y: 0.07222008, z: 0.0019014479}
+      rotation: {x: -0.021766165, y: -0.0022157605, z: 0.0858808, w: 0.9960652}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:RightHandIndex2
+      parentName: AZRI:RightHandIndex1
+      position: {x: 0.00005454577, y: 0.027430104, z: -9.195609e-10}
+      rotation: {x: 0.00000016440485, y: 0.000015420255, z: 0.00021551589, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:RightHandIndex3
+      parentName: AZRI:RightHandIndex2
+      position: {x: 0.00006414827, y: 0.026269564, z: -3.9835427e-10}
+      rotation: {x: -0.00000016053012, y: 0.00015314441, z: -0.003758687, w: 0.99999297}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:RightHandIndex4
+      parentName: AZRI:RightHandIndex3
+      position: {x: -0.00011869521, y: 0.023420455, z: 0.0000000010859732}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:RightHandPinky1
+      parentName: AZRI:RightHand
+      position: {x: 0.03184665, y: 0.068772, z: 0.0017732013}
+      rotation: {x: -0.022086164, y: 0.0015334184, z: 0.08451354, w: 0.99617636}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:RightHandPinky2
+      parentName: AZRI:RightHandPinky1
+      position: {x: -0.000015623482, y: 0.027953502, z: -2.3408175e-10}
+      rotation: {x: 0.00000034819968, y: -0.0000047134636, z: 0.0002861172, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:RightHandPinky3
+      parentName: AZRI:RightHandPinky2
+      position: {x: -0.00000029355513, y: 0.024018291, z: -0.0000000013140902}
+      rotation: {x: -0.00000018075953, y: 0.000008253684, z: 0.00039340553, w: 0.99999994}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:RightHandPinky4
+      parentName: AZRI:RightHandPinky3
+      position: {x: 0.00001591714, y: 0.020337064, z: 4.6191828e-10}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:RightHandMiddle1
+      parentName: AZRI:RightHand
+      position: {x: -0.012218275, y: 0.07118046, z: -0.0031623272}
+      rotation: {x: -0.021929467, y: -0.0002929032, z: 0.0852169, w: 0.99612105}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:RightHandMiddle2
+      parentName: AZRI:RightHandMiddle1
+      position: {x: 0.000025354517, y: 0.032967165, z: 4.0137949e-10}
+      rotation: {x: 0.00000045012814, y: 0.000021040707, z: 0.0005128536, w: 0.9999999}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:RightHandMiddle3
+      parentName: AZRI:RightHandMiddle2
+      position: {x: 0.000056883786, y: 0.031950958, z: -0.0000000017435655}
+      rotation: {x: 0.000000094590405, y: 0.00003779702, z: -0.0022863748, w: 0.9999974}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:RightHandMiddle4
+      parentName: AZRI:RightHandMiddle3
+      position: {x: -0.000082238184, y: 0.02940401, z: -0.0000000016195474}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:RightHandRing1
+      parentName: AZRI:RightHand
+      position: {x: 0.011567679, y: 0.07741901, z: -0.0004245087}
+      rotation: {x: -0.022033555, y: 0.00091095106, z: 0.08444058, w: 0.99618447}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:RightHandRing2
+      parentName: AZRI:RightHandRing1
+      position: {x: -0.0000224577, y: 0.029470455, z: 0.0000000012539229}
+      rotation: {x: -0.00000049437705, y: 0.000014820067, z: -0.00041838022, w: 0.99999994}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:RightHandRing3
+      parentName: AZRI:RightHandRing2
+      position: {x: -0.000043814118, y: 0.027795581, z: -4.778036e-10}
+      rotation: {x: -0.00000021233363, y: 0.000047254936, z: 0.0022121225, w: 0.99999756}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AZRI:RightHandRing4
+      parentName: AZRI:RightHandRing3
+      position: {x: 0.000066271445, y: 0.023231212, z: 0.0000000010035939}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 450ff10aa0c3e8f42965b3d712992d18,
+    type: 3}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 2
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
