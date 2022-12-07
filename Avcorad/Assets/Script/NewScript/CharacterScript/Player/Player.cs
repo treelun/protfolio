@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
 {
     public PlayerEntity playerData;
     //ILivingEntity livingEntity;
-
+    public GameObject InteractionText;
     float delta;
 
     public Image dot;
@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
                 break;
             case LivingEntity.State.Interaction:
                 Cursor.lockState = CursorLockMode.None;
+                InteractionText.SetActive(false);
                 if (Input.GetKey(KeyCode.Escape))
                 {
                     playerData.Mystate = LivingEntity.State.Move;
