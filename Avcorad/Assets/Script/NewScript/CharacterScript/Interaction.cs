@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class Interaction : MonoBehaviour
 {
-    
+
+
     private void OnTriggerStay(Collider other)
     {
         if (other.transform.tag == "NPC" || other.tag == "item")

@@ -29,8 +29,9 @@ public class Player : MonoBehaviour
                 playerData.Move();
                 playerData.RegenSta();
                 dot.enabled = true;
-                Time.timeScale = 1f;
+                Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
+                Time.timeScale = 1f;
                 if (Input.GetMouseButtonDown(0) && playerData.curWeapon != null && playerData.Sta > 0 && !playerData.isJump)
                 {
                     playerData.Attack();
@@ -46,8 +47,8 @@ public class Player : MonoBehaviour
                 }
                 break;
             case LivingEntity.State.Interaction:
-                Cursor.lockState = CursorLockMode.None;
                 InteractionText.SetActive(false);
+                dot.enabled = false;
                 if (Input.GetKey(KeyCode.Escape))
                 {
                     playerData.Mystate = LivingEntity.State.Move;
@@ -58,9 +59,9 @@ public class Player : MonoBehaviour
                 break;
             case LivingEntity.State.UseUi:
                 playerData.RegenSta();
-                Time.timeScale = 0f;
                 dot.enabled = false;
-                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.Confined;
                 break;
             default:
                 break;

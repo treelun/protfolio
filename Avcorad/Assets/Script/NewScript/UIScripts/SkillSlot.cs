@@ -7,7 +7,7 @@ using MoreMountains.Feedbacks;
 
 public class SkillSlot : MonoBehaviour
 {
-    private Transform canvas;
+    public Transform canvas;
     public GameObject itemimageSlot;
 
 
@@ -37,10 +37,6 @@ public class SkillSlot : MonoBehaviour
     [SerializeField]
     private Image LockImage;
 
-    private void Awake()
-    {
-        canvas = FindObjectOfType<Canvas>().transform;
-    }
     private void Start()
     {
         selectedSlot = -1;
