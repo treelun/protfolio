@@ -66,9 +66,6 @@ public class Player : MonoBehaviour
             default:
                 break;
         }
-        Debug.Log(playerData.Mystate);
-
-        
         playerData.Death();
     }
     private void FixedUpdate()

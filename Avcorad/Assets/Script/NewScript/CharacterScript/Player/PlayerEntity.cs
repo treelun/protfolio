@@ -43,6 +43,18 @@ public class PlayerEntity : LivingEntity
         levelupPoint = 5;
     }
 
+    public override void Init()
+    {
+        base.Init();
+        Hp = maxHp;
+        Sta = maxSta;
+        Mp = maxMp;
+        moveSpeed = playerMoveSpeed;
+        rotateSpeed = _rotateSpeed;
+        AttackForce = playerAttackForce;
+        AttackSpeed = playerAttackSpeed;
+    }
+
     public void SetEquipAttackEntity(Weapon _curWeapon) {
         //무기 이름 바꾸기
         //무기 공격력 바꾸기
@@ -102,7 +114,6 @@ public class PlayerEntity : LivingEntity
         //쳐맞음
         base.Hit(_AttackForce);
         //맞았을때의 피격 이펙트(애니메이션이나 반짝임)
-
     }
     public void dodge()
     {
@@ -124,7 +135,6 @@ public class PlayerEntity : LivingEntity
 
     public override void Move()
     {
-
         //움직임 함수
         float deltaX = Input.GetAxis("Horizontal");
         float deltaZ = Input.GetAxis("Vertical");
@@ -154,7 +164,7 @@ public class PlayerEntity : LivingEntity
         //최대체력,최대스태미너를 현재체력과 스태미너로 설정
         //LivingEntity의 HP와 Sta값을 현재 HP,Sta값으로 설정
         //속도 설정
-        Init(maxHp, maxSta,maxMp, playerMoveSpeed, _rotateSpeed, playerAttackForce, playerAttackSpeed);
+        Init();
         //필요경험치 설정
         requiredExp = 100;
         playerLevel = 1;
@@ -187,7 +197,6 @@ public class PlayerEntity : LivingEntity
     }
     public void StateEnd()
     {
-
         if (Mystate == State.UseUi)
         {
             Mystate = State.UseUi;
@@ -223,7 +232,6 @@ public class PlayerEntity : LivingEntity
     }
     public void JumpAttackEnd()
     {
-    LandingFeedbacks?.PlayFeedbacks();
-        
+        LandingFeedbacks?.PlayFeedbacks();
     }
 }

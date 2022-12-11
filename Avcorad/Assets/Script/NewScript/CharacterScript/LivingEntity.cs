@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class LivingEntity : MonoBehaviour, ILivingEntity
 {
-    public enum State { Move = 0, Attack, Dodge, Death, Interaction, UseUi}
+    public enum State { Move = 0, Attack, Dodge, Death, Interaction, UseUi,
+        Tracking}
     public State Mystate;
 
     public Animator animator;
@@ -62,15 +63,9 @@ public class LivingEntity : MonoBehaviour, ILivingEntity
         }
     }
 
-    public void Init(float _Hp, float _Sta,float _Mp, float _MoveSpeed, float _rotateSpeed, float _AttackForce, float _AttackSpeed)
+    public virtual void Init()
     {
-        Hp = _Hp;
-        Sta = _Sta;
-        Mp = _Mp;
-        moveSpeed = _MoveSpeed;
-        rotateSpeed = _rotateSpeed;
-        AttackForce = _AttackForce;
-        AttackSpeed = _AttackSpeed;
+        //ºÎ¸ð°¡ Init();
     }
 
     public virtual void Move()
