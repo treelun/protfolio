@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: b87a1b9eb9aa38e40b778d38546fc63d
+guid: 8afce37ed2085a94fb9ad603249b85ad
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
       74: 4263507802071888517
-    second: Zombie Attack@Fast Run
+    second: Zombie Attack 1
   - first:
       74: 3137324855924899373
     second: Rig|knight_attack_2_heavy_weapon
@@ -77,7 +77,7 @@ ModelImporter:
     second: Rig|two_weapon_tornado
   - first:
       74: -203655887218126122
-    second: Run
+    second: Attack
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -122,7 +122,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Zombie Attack@Fast Run
+      name: Zombie Attack 1
       takeName: Rig|default
       internalID: 0
       firstFrame: 0
@@ -135,10 +135,10 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
-      loopBlendOrientation: 1
-      loopBlendPositionY: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
       loopBlendPositionXZ: 0
-      keepOriginalOrientation: 1
+      keepOriginalOrientation: 0
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
@@ -818,11 +818,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Run
+      name: Attack
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 16
+      lastFrame: 79
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

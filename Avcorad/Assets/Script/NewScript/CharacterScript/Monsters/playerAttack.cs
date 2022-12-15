@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckInPlayer : MonoBehaviour
+public class playerAttack : MonoBehaviour
 {
     KnightZombie zombie;
     private void Start()
@@ -13,18 +13,15 @@ public class CheckInPlayer : MonoBehaviour
     {
         if (other.transform.tag == "Player")
         {
-            zombie.target = other.transform;
-            zombie.state = LivingEntity.State.Tracking;
-            
+            zombie.state = LivingEntity.State.Attack;
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.transform.tag == "Player")
         {
-            zombie.target = null;
-            zombie.state = LivingEntity.State.Move;
+            zombie.state = LivingEntity.State.Tracking;
         }
     }
-
 }
