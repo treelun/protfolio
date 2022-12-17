@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class playerAttack : MonoBehaviour
 {
-    KnightZombie zombie;
+    MonsterEntity enemy;
     private void Start()
     {
-        zombie = FindObjectOfType<KnightZombie>();
+        enemy = FindObjectOfType<MonsterEntity>();
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Player")
         {
-            zombie.state = LivingEntity.State.Attack;
+            enemy.state = LivingEntity.State.Attack;
         }
     }
 
@@ -21,7 +21,7 @@ public class playerAttack : MonoBehaviour
     {
         if (other.transform.tag == "Player")
         {
-            zombie.state = LivingEntity.State.Tracking;
+            enemy.state = LivingEntity.State.Tracking;
         }
     }
 }

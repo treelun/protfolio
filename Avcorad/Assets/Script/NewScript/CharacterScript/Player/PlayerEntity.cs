@@ -109,6 +109,7 @@ public class PlayerEntity : LivingEntity
         animator.SetFloat("SetAttackSpeed", playerAttackSpeed);
         Mystate = State.Attack;
     }
+
     public override void Hit(float _AttackForce)
     {
         //쳐맞음
@@ -193,7 +194,8 @@ public class PlayerEntity : LivingEntity
     {
         Mystate = State.Attack;
         //공격시작시 이펙트와 콜라이더활성화
-        Sta -= 20f;
+        
+        Sta -= 15f;
     }
     public void StateEnd()
     {
@@ -204,7 +206,16 @@ public class PlayerEntity : LivingEntity
         else
         {
             Mystate = State.Move;
+            
         }
+    }
+    public void AttackCollider()
+    {
+        curWeapon.capsulecollider.enabled = true;
+    }
+    public void EndCollider()
+    {
+        curWeapon.capsulecollider.enabled = false;
     }
 
     public void DodgeStart()

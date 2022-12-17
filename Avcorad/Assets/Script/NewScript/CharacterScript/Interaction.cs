@@ -21,6 +21,10 @@ public class Interaction : MonoBehaviour
                 {
                     Debug.Log(item.itemName);
                     GameManager.Instance.inventory.AcquireItem(item); //인벤토리에 추가
+                    if (item.type == Iitem.Type.Weapon)
+                    {
+                        other.GetComponent<Weapon>().capsulecollider.enabled = false;
+                    }
                     other.gameObject.SetActive(false); //먹은아이템 비활성화
                     StartCoroutine(Setstate());
                 }

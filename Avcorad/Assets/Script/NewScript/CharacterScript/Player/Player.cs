@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
                 }
                 break;
             case LivingEntity.State.Death:
-
+                playerData.Death();
                 break;
             case LivingEntity.State.UseUi:
                 playerData.RegenSta();
@@ -66,7 +66,10 @@ public class Player : MonoBehaviour
             default:
                 break;
         }
-        playerData.Death();
+        if (playerData.Hp <= float.Epsilon)
+        {
+            playerData.Mystate = LivingEntity.State.Death;
+        }
     }
     private void FixedUpdate()
     {

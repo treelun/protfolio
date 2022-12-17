@@ -4,26 +4,31 @@ using UnityEngine;
 
 public class CheckInPlayer : MonoBehaviour
 {
-    KnightZombie zombie;
+    MonsterEntity enemy;
     private void Start()
     {
-        zombie = FindObjectOfType<KnightZombie>();
+        enemy = FindObjectOfType<MonsterEntity>();
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == "Player")
+        if (other.transform.tag == "Player" &&
+            enemy.state != LivingEntity.State.Death)
         {
-            zombie.target = other.transform;
-            zombie.state = LivingEntity.State.Tracking;
-            
+            enemy.target = other.transform;
+            enemy.state = LivingEntity.State.Tracking;
+        }
+        else if (enemy.state == LivingEntity.State.Death)
+        {
+            enemy.target = null;
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.transform.tag == "Player")
+        if (other.transform.tag == "Player" &&
+            enemy.state != LivingEntity.State.Death)
         {
-            zombie.target = null;
-            zombie.state = LivingEntity.State.Move;
+            enemy.target = null;
+            enemy.state = LivingEntity.State.Move;
         }
     }
 

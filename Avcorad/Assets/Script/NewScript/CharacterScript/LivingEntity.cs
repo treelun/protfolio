@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MoreMountains.Feedbacks;
 
 public class LivingEntity : MonoBehaviour, ILivingEntity
 {
@@ -29,6 +30,9 @@ public class LivingEntity : MonoBehaviour, ILivingEntity
     public bool isDead { get; set; }
     public bool isDodge { get; set; }
 
+    [SerializeField]
+    /// a feedback to be played when the cube lands
+    private MMFeedbacks Flicker;
 
 
     private void Start()
@@ -44,23 +48,18 @@ public class LivingEntity : MonoBehaviour, ILivingEntity
 
     public void Death()
     {
-        if (Hp <= float.Epsilon)
-        {
-            Debug.Log("Ä³¸¯ÅÍ »ç¸Á");
-            isDead = true;
-            animator.SetTrigger("Death");
-            StartCoroutine(Deathcharator());
-            Mystate = State.Death;
-        }
+       
+        Debug.Log("Ä³¸¯ÅÍ »ç¸Á");
+        isDead = true;
+        animator.SetTrigger("Death");
+        StartCoroutine(Deathcharator());
+        
     }
 
     public virtual void Hit(float _AttackForce)
     {
         Hp -= _AttackForce;
-        if (Hp > 0)
-        {
-            animator.SetTrigger("hit");
-        }
+        Flicker?.PlayFeedbacks();
     }
 
     public virtual void Init()
@@ -84,5 +83,4 @@ public class LivingEntity : MonoBehaviour, ILivingEntity
         yield return new WaitForSeconds(10f);
         gameObject.SetActive(false);
     }
-
 }
