@@ -7,6 +7,8 @@ public class SpawnPoint : MonoBehaviour
     [SerializeField] GameObject enemyPrefab;
     GameObject enemy;
 
+    [SerializeField] ItemBox itembox;
+
 
     // Update is called once per frame
     void Update()
@@ -22,6 +24,13 @@ public class SpawnPoint : MonoBehaviour
     {
         enemy 
          = Instantiate(enemyPrefab, transform.position, transform.rotation);
+
+        if(!enemy.TryGetComponent<MonsterEntity>(out var monsterEntity))
+        {
+            return;
+        }
+
+        monsterEntity.itembox = this.itembox;
     }
 
 

@@ -26,7 +26,10 @@ public class MonsterEntity : LivingEntity
                     StopCoroutine(EnemyWalk());
                     StopCoroutine(StartTraking());
                     Death();
+
+                    DropItemAndExp();
                     target = null;
+                    AttackBox.enabled = false;
                     capsuleCollider.enabled = false;
                     playerCheckCollier.enabled = false;
                     break;
@@ -47,15 +50,22 @@ public class MonsterEntity : LivingEntity
     [SerializeField] private float _Damage;
     [SerializeField] private float _Hp;
     [SerializeField] private float _AttackSpeed;
+    [SerializeField] private float _Exp;
 
     protected GameObject dropObject;
+
+
 
     public Transform target;
 
     public CapsuleCollider capsuleCollider;
     public SphereCollider playerCheckCollier;
+    public BoxCollider AttackBox;
+
+    public ItemBox itembox;
 
     int turnType;
+
 
     public override void Init()
     {
@@ -63,12 +73,15 @@ public class MonsterEntity : LivingEntity
         AttackForce = _Damage;
         AttackSpeed = _AttackSpeed;
         Hp = _Hp;
+        EnemyExp = _Exp;
+        
     }
     protected override void OnEnable()
     {
         base.OnEnable();
         Init();
-        state = State.Move;
+        
+        state = State.Death;
     }
 
     public override void Attack()
@@ -80,12 +93,21 @@ public class MonsterEntity : LivingEntity
 
     }
 
-    //죽음(죽는 animation)
     //아이템, 경험치 drop(아이템드랍은 인터넷 참조 예상으로는 죽으면 > 비활성화된 아이템 프리펩 true로 바꾸고,
     //먹으면 비활성화, position은 몬스터의 위치로)
+    void DropItemAndExp()
+    {
+        GameManager.Instance.mainPlayer.playerData.currentExp += EnemyExp;
+        for (int i = 0; i < itembox.GetListCount(); i++)
+        {
+            itembox.GetObject(i).transform.position = transform.position;
+            itembox.GetObject(i).SetActive(true);
+        }
 
-    //맞음(반짝이면서 hp감소)
-    //일반적인 로밍
+       
+        //오브젝트 풀링으로 아이템 드롭 구현
+    }
+
     IEnumerator EnemyWalk()
     {
         while (true)
@@ -131,4 +153,15 @@ public class MonsterEntity : LivingEntity
         }
 
     }
+
+    public void StartAttack()
+    {
+        AttackBox.enabled = true;
+    }
+    public void EndAttack()
+    {
+        AttackBox.enabled = false;
+    }
+
+
 }

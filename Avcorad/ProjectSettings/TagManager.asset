@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - item
   - NPC
+  - Missile
+  - EnemyAttackBox
   layers:
   - Default
   - TransparentFX

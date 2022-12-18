@@ -27,6 +27,8 @@ public class LivingEntity : MonoBehaviour, ILivingEntity
 
     public float AttackSpeed { get; set; }
 
+    public float EnemyExp { get; set; }
+
     public bool isDead { get; set; }
     public bool isDodge { get; set; }
 

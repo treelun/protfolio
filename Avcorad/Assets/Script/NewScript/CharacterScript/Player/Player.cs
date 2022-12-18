@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-
 public class Player : MonoBehaviour
 {
     public PlayerEntity playerData;
@@ -29,9 +27,9 @@ public class Player : MonoBehaviour
                 playerData.Move();
                 playerData.RegenSta();
                 dot.enabled = true;
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Locked;
-                Time.timeScale = 1f;
+                //Cursor.visible = false;
+                //Cursor.lockState = CursorLockMode.Locked;
+                //Time.timeScale = 1f;
                 if (Input.GetMouseButtonDown(0) && playerData.curWeapon != null && playerData.Sta > 0 && !playerData.isJump)
                 {
                     playerData.Attack();
@@ -60,8 +58,9 @@ public class Player : MonoBehaviour
             case LivingEntity.State.UseUi:
                 playerData.RegenSta();
                 dot.enabled = false;
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.Confined;
+                //Time.timeScale = 0;
+                //Cursor.visible = true;
+                //Cursor.lockState = CursorLockMode.Confined;
                 break;
             default:
                 break;
@@ -70,17 +69,18 @@ public class Player : MonoBehaviour
         {
             playerData.Mystate = LivingEntity.State.Death;
         }
+        transform.Rotate(0f, Input.GetAxis("Mouse X") * playerData._rotateSpeed, 0f, Space.World);
     }
     private void FixedUpdate()
     {
         //attack(),Move(),dodge(),Jump(),F(interaction)상호작용키
         playerData.playerLevelup();
-        delta += Time.deltaTime;
+/*        delta += Time.deltaTime;
         if (delta > 1)
         {
             playerData.currentExp += 1000;
             delta = 0;
-        }
+        }*/
     }
 
     private void Init()
@@ -88,4 +88,13 @@ public class Player : MonoBehaviour
         //정보변경, 무었을 변경할까?...음....
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.tag == "EnemyAttackBox")
+        {
+            //playerData.Hit(other.GetComponentInParent<MonsterEntity>().AttackForce);
+            playerData.Hit(0.1f);
+            Debug.Log("Hit the Player");
+        }
+    }
 }

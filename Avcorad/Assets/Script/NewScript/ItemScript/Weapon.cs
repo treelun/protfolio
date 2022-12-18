@@ -66,5 +66,4 @@ public class Weapon : MonoBehaviour, Iitem
         }
     }
 
-
 }

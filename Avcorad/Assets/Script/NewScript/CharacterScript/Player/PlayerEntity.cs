@@ -143,7 +143,7 @@ public class PlayerEntity : LivingEntity
 
         movement = transform.TransformDirection(movement);
 
-        transform.Rotate(0f, Input.GetAxis("Mouse X") * _rotateSpeed, 0f, Space.World);
+        
         transform.position += movement * moveSpeed * Time.deltaTime;
 
         animator.SetFloat("MoveSpeed", playerMoveSpeed / 6);
@@ -195,7 +195,7 @@ public class PlayerEntity : LivingEntity
         Mystate = State.Attack;
         //공격시작시 이펙트와 콜라이더활성화
         
-        Sta -= 15f;
+        //Sta -= 15f;
     }
     public void StateEnd()
     {

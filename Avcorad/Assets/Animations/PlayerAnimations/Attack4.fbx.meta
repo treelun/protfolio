@@ -70,14 +70,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.9485597
-        functionName: StateEnd
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.4596617
+      - time: 0.42211902
         functionName: AttackCollider
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -86,6 +79,13 @@ ModelImporter:
         messageOptions: 0
       - time: 0.580825
         functionName: EndCollider
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.9485597
+        functionName: StateEnd
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
