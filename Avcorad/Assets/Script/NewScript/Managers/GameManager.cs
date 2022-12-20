@@ -42,4 +42,5 @@ public class GameManager : MonoBehaviour
     public EquipWeapon equipWeapon;
     public SkillList skillList;
     public QuickSlot quickSlot;
+    public ItemBox itembox;
 }

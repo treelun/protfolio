@@ -18,14 +18,14 @@ public class Inventory : MonoBehaviour
     public void AcquireItem(Iitem _item, int _count = 1)
     {
         _item.Init();
-        Debug.Log(_item.type);
+        //Debug.Log(_item.type);
         if (Iitem.Type.Weapon != _item.type)
         {
             for (int i = 0; i < slots.Length; i++)
             {
                 if (slots[i].item != null)
                 {
-                    Debug.Log(slots[i].item.itemName);
+                    //Debug.Log(slots[i].item.itemName);
                     if (slots[i].item.itemName == _item.itemName)
                     {
                         slots[i].SetSlotcount(_count);

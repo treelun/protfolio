@@ -63,12 +63,12 @@ public class InventorySlot : MonoBehaviour
     public void AddItem(Iitem _item, int _count = 1)
     {
         item = _item;
-        Debug.Log(_item);
+        //Debug.Log(_item);
         //item.Init();
         itemcount = _count;
         itemimageSlot.GetComponent<Image>().sprite = _item.itemImage;
         
-        Debug.Log(_item.itemImage);
+        //Debug.Log(_item.itemImage);
         if (item.type != Iitem.Type.Weapon)
         {
             CountImage.SetActive(true);

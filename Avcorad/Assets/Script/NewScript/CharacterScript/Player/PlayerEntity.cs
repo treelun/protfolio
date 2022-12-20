@@ -17,7 +17,7 @@ public class PlayerEntity : LivingEntity
     public float maxSta;
     public float maxMp;
     [Space]
-    [HideInInspector]
+    [SerializeField]
     public float playerAttackForce, playerAttackSpeed, playerMoveSpeed, _rotateSpeed, jumpForce,
         currentExp, requiredExp;
     [Space]

@@ -29,7 +29,7 @@ public class Weapon : MonoBehaviour, Iitem
             GameManager.Instance.mainPlayer.playerData.playerAttackForce += WeaponAttackForce;
             GameManager.Instance.mainPlayer.playerData.playerAttackSpeed += WeaponAttackSpeed;
             GameManager.Instance.mainPlayer.playerData.itemName = itemName;
-            Debug.Log("this is Weapon useItem");
+            //Debug.Log("this is Weapon useItem");
 
             gameObject.transform.SetParent(GameManager.Instance.mainPlayer.playerData.WeaponSlot.transform);
             this.GetComponent<RectTransform>().position = GameManager.Instance.mainPlayer.playerData.WeaponSlot.transform.position;
@@ -47,7 +47,7 @@ public class Weapon : MonoBehaviour, Iitem
             GameManager.Instance.mainPlayer.playerData.playerAttackForce -= WeaponAttackForce;
             GameManager.Instance.mainPlayer.playerData.playerAttackSpeed -= WeaponAttackSpeed;
             GameManager.Instance.mainPlayer.playerData.itemName = null;
-            Debug.Log("this is Weapon unuseItem");
+            //Debug.Log("this is Weapon unuseItem");
             gameObject.SetActive(false);
         }
     }
@@ -56,9 +56,9 @@ public class Weapon : MonoBehaviour, Iitem
     {
         if (other.transform.tag == "Enemy")
         {
-            other.GetComponent<LivingEntity>().Hit(GameManager.Instance.mainPlayer.playerData.playerAttackForce + WeaponAttackForce);
+            other.GetComponent<MonsterEntity>().Hit(GameManager.Instance.mainPlayer.playerData.playerAttackForce + WeaponAttackForce);
             Debug.Log(GameManager.Instance.mainPlayer.playerData.playerAttackForce + WeaponAttackForce + "의 데미지를 주었습니다.");
-            if (other.GetComponent<LivingEntity>().Hp <= float.Epsilon)
+            if (other.GetComponent<MonsterEntity>().Hp <= float.Epsilon)
             {
                 other.GetComponent<MonsterEntity>().state = LivingEntity.State.Death;
             }

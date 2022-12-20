@@ -8,11 +8,11 @@ public class Player : MonoBehaviour
     public PlayerEntity playerData;
     //ILivingEntity livingEntity;
     public GameObject InteractionText;
-    float delta;
 
     public Image dot;
     private void Update()
     {
+        Debug.Log(playerData.Mystate);
         //상태패턴을 이용하여 공격과 회피중 이동을 멈추고, 연속공격을 위해
         //Attack상태일때 클릭시 공격이 나가는 함수를 적용
         switch (playerData.Mystate)
@@ -94,7 +94,7 @@ public class Player : MonoBehaviour
         {
             //playerData.Hit(other.GetComponentInParent<MonsterEntity>().AttackForce);
             playerData.Hit(0.1f);
-            Debug.Log("Hit the Player");
+            //Debug.Log("Hit the Player");
         }
     }
 }

@@ -4,14 +4,59 @@ using UnityEngine;
 
 public class KnightZombie : MonsterEntity
 {
+    public GameObject HpPotion;
+    public GameObject MpPotion;
+    List<GameObject> HpPotionPrefab = new List<GameObject>();
+    List<GameObject> MpPotionPrefab = new List<GameObject>();
+    GameObject dropItem;
+
+    public void SetObject()
+    {
+        
+        for (int i = 0; i < 5; i++)
+        {
+            GameObject hpPotions = Instantiate(HpPotion,new Vector3(transform.position.x,1,transform.position.z),Quaternion.identity);
+            hpPotions.gameObject.SetActive(false);
+            hpPotions.gameObject.transform.SetParent(this.transform);
+            HpPotionPrefab.Add(hpPotions);
+            GameObject mpPotions = Instantiate(MpPotion, new Vector3(transform.position.x, 1, transform.position.z), Quaternion.identity);
+            mpPotions.gameObject.SetActive(false);
+            mpPotions.gameObject.transform.SetParent(this.transform);
+            MpPotionPrefab.Add(mpPotions);
+        }
+    }
+
+    public GameObject GetObject(int i)
+    {
+        int rand = Random.Range(0, 4);
+        Debug.Log(rand);
+        if (rand < 2)
+        {
+            dropItem = HpPotionPrefab[i];
+        }
+        else if (rand >= 2)
+        {
+            dropItem = MpPotionPrefab[i];
+        }
+        Debug.Log(dropItem);
+        return dropItem;
+
+    }
     private void Start()
     {
         state = State.Move;
+        SetObject();
     }
     private void Update()
     {
-        Debug.Log(state);
-        
+        if (Hp <= float.Epsilon)
+        {
+            for (int i = 0; i < Random.Range(0, 5); i++)
+            {
+                GetObject(i).SetActive(true);
+            }
+        }
+
     }
     //인식했을 때 반응(바로 공격할것인가? 쳐다보고 공격할 것인가)
 

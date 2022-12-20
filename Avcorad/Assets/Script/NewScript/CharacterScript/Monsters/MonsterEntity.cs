@@ -19,23 +19,20 @@ public class MonsterEntity : LivingEntity
                     break;
                 case State.Move:
                     StopCoroutine(StartTraking());
-                    //StopCoroutine(AttackType());
                     StartCoroutine(EnemyWalk());
                     break;
                 case State.Death:
+                    DropItemAndExp();
                     StopCoroutine(EnemyWalk());
                     StopCoroutine(StartTraking());
                     Death();
-
-                    DropItemAndExp();
                     target = null;
-                    AttackBox.enabled = false;
-                    capsuleCollider.enabled = false;
-                    playerCheckCollier.enabled = false;
+                    gameObject.layer = 18;
+                    playerCheckCollier.gameObject.layer = 18;
+                    AttackBox.gameObject.layer = 18;
                     break;
                 case State.Tracking:
                     StopCoroutine(EnemyWalk());
-                    //StopCoroutine(AttackType());
                     StartCoroutine(StartTraking());
                     break;
                 default:
@@ -57,15 +54,15 @@ public class MonsterEntity : LivingEntity
 
 
     public Transform target;
-
     public CapsuleCollider capsuleCollider;
     public SphereCollider playerCheckCollier;
     public BoxCollider AttackBox;
 
-    public ItemBox itembox;
-
     int turnType;
-
+    private void Awake()
+    {
+        GameManager.Instance.itembox.SetObject(new Vector3(transform.position.x, 1, transform.position.z));
+    }
 
     public override void Init()
     {
@@ -81,7 +78,7 @@ public class MonsterEntity : LivingEntity
         base.OnEnable();
         Init();
         
-        state = State.Death;
+        state = State.Move;
     }
 
     public override void Attack()
@@ -97,14 +94,22 @@ public class MonsterEntity : LivingEntity
     //먹으면 비활성화, position은 몬스터의 위치로)
     void DropItemAndExp()
     {
+        int random = Random.Range(0, 5);
         GameManager.Instance.mainPlayer.playerData.currentExp += EnemyExp;
-        for (int i = 0; i < itembox.GetListCount(); i++)
+        for (int i = 0; i < random; i++)
         {
-            itembox.GetObject(i).transform.position = transform.position;
-            itembox.GetObject(i).SetActive(true);
+            if (random < 3)
+            {
+                GameManager.Instance.itembox.GetHpPotion(i).transform.position = new Vector3(transform.position.x, 1, transform.position.z);
+                GameManager.Instance.itembox.GetHpPotion(i).SetActive(true);
+            }
+            else if(random >= 3)
+            {
+                GameManager.Instance.itembox.GetMpPotion(i).transform.position = new Vector3(transform.position.x, 1, transform.position.z);
+                GameManager.Instance.itembox.GetMpPotion(i).SetActive(true);
+            }
         }
 
-       
         //오브젝트 풀링으로 아이템 드롭 구현
     }
 

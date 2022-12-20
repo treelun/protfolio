@@ -6,32 +6,37 @@ public class ItemBox : MonoBehaviour
 {
     public GameObject HpPotion;
     public GameObject MpPotion;
-    List<GameObject> PotionPrefab = new List<GameObject>();
+    List<GameObject> HpPotionPrefab = new List<GameObject>();
+    List<GameObject> MpPotionPrefab = new List<GameObject>();
+    GameObject dropItem;
 
-    public void Awake()
+    public void SetObject(Vector3 spwanTransform)
     {
-        SetObject();
-    }
-
-    public void SetObject()
-    {
-        if(PotionPrefab.Count <= 0)
+        for (int i = 0; i < 5; i++)
         {
-            GameObject hpPotions = Instantiate(HpPotion);
-            PotionPrefab.Add(hpPotions);
-            GameObject mpPotions = Instantiate(MpPotion);
-            PotionPrefab.Add(mpPotions);
+            GameObject hpPotions = Instantiate(HpPotion, spwanTransform , Quaternion.identity);
+            hpPotions.gameObject.SetActive(false);
+            hpPotions.gameObject.transform.SetParent(this.transform);
+            HpPotionPrefab.Add(hpPotions);
+            GameObject mpPotions = Instantiate(MpPotion, spwanTransform, Quaternion.identity);
+            mpPotions.gameObject.SetActive(false);
+            mpPotions.gameObject.transform.SetParent(this.transform);
+            MpPotionPrefab.Add(mpPotions);
         }
     }
 
-    public GameObject GetObject(int i)
+    public GameObject GetHpPotion(int i)
     {
-        SetObject();
-        return PotionPrefab[i];
+        dropItem = HpPotionPrefab[i];
+       
+        return dropItem;
     }
 
-    public int GetListCount()
+    public GameObject GetMpPotion(int i)
     {
-        return PotionPrefab.Count;
+        dropItem = MpPotionPrefab[i];
+
+        return dropItem;
     }
+
 }

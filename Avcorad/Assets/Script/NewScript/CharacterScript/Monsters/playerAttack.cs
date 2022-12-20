@@ -7,13 +7,13 @@ public class playerAttack : MonoBehaviour
     MonsterEntity enemy;
     private void Start()
     {
-        enemy = FindObjectOfType<MonsterEntity>();
+        this.enemy = GetComponentInParent<MonsterEntity>();
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Player")
         {
-            enemy.state = LivingEntity.State.Attack;
+            this.enemy.state = LivingEntity.State.Attack;
         }
     }
 
@@ -21,7 +21,7 @@ public class playerAttack : MonoBehaviour
     {
         if (other.transform.tag == "Player")
         {
-            enemy.state = LivingEntity.State.Tracking;
+            this.enemy.state = LivingEntity.State.Tracking;
         }
     }
 }

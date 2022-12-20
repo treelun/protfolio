@@ -15,16 +15,15 @@ GameObject:
   - component: {fileID: 6807910543647227285}
   - component: {fileID: 8464008102762263747}
   - component: {fileID: 7463886741812406910}
-  - component: {fileID: 1337038017706793017}
-  - component: {fileID: 2715874484018593025}
   - component: {fileID: 7070183052134825561}
+  - component: {fileID: -1999068931282558269}
   m_Layer: 0
   m_Name: Spiral
   m_TagString: item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1632938587792973519
 RectTransform:
   m_ObjectHideFlags: 0
@@ -159,32 +158,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1337038017706793017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9084088688924724956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa8b889c04170354fa3b1421422230cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotateSpeed: 20
---- !u!114 &2715874484018593025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9084088688924724956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9525edc11a691e46a97501187560659, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Healing: 10
 --- !u!135 &7070183052134825561
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -198,3 +171,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.2092324
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &-1999068931282558269
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9084088688924724956}
+  serializedVersion: 2
+  m_Mass: 0.01
+  m_Drag: 1
+  m_AngularDrag: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

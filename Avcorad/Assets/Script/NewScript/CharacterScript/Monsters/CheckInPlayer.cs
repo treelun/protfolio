@@ -7,28 +7,29 @@ public class CheckInPlayer : MonoBehaviour
     MonsterEntity enemy;
     private void Start()
     {
-        enemy = FindObjectOfType<MonsterEntity>();
+        //enemy = FindObjectOfType<MonsterEntity>();
+        this.enemy = GetComponentInParent<MonsterEntity>();
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Player" &&
-            enemy.state != LivingEntity.State.Death)
+            this.enemy.state != LivingEntity.State.Death)
         {
-            enemy.target = other.transform;
-            enemy.state = LivingEntity.State.Tracking;
+            this.enemy.target = other.transform;
+            this.enemy.state = LivingEntity.State.Tracking;
         }
-        else if (enemy.state == LivingEntity.State.Death)
+        else if (this.enemy.state == LivingEntity.State.Death)
         {
-            enemy.target = null;
+            this.enemy.target = null;
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.transform.tag == "Player" &&
-            enemy.state != LivingEntity.State.Death)
+            this.enemy.state != LivingEntity.State.Death)
         {
-            enemy.target = null;
-            enemy.state = LivingEntity.State.Move;
+            this.enemy.target = null;
+            this.enemy.state = LivingEntity.State.Move;
         }
     }
 

@@ -14,12 +14,11 @@ public class Interaction : MonoBehaviour
             //NPC와 상호작용 대화창 열림 & 아이템 획득 인벤토리에 추가
             if (Input.GetKey(KeyCode.F))
             {
-                Debug.Log("상호작용");
                 GameManager.Instance.mainPlayer.playerData.Mystate = PlayerEntity.State.Interaction;    //아이템획득시 상호작용 상태로 변경
                 //item = other.gameObject.GetComponent<ItemInfo>();
                 if (other.TryGetComponent<Iitem>(out var item))
                 {
-                    Debug.Log(item.itemName);
+                    //Debug.Log(item.itemName);
                     GameManager.Instance.inventory.AcquireItem(item); //인벤토리에 추가
                     if (item.type == Iitem.Type.Weapon)
                     {

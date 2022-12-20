@@ -13,7 +13,7 @@ public class SparkSword : Weapon
         itemName = "Àü°Ý°Ë";
         isSetEquip = true;
         itemImage = GetComponent<Image>().sprite;
-        Debug.Log(WeaponAttackForce);
+        //Debug.Log(WeaponAttackForce);
     }
 
     public override void useItem()

@@ -9,13 +9,15 @@ public class SpawnPoint : MonoBehaviour
 
     [SerializeField] ItemBox itembox;
 
-
+    float delta;
     // Update is called once per frame
     void Update()
     {
-        if (enemy == null)
+        delta += Time.deltaTime;
+        if (delta > 3f)
         {
             CreateEnemy();
+            delta = 0;
         }
         
     }
@@ -25,12 +27,12 @@ public class SpawnPoint : MonoBehaviour
         enemy 
          = Instantiate(enemyPrefab, transform.position, transform.rotation);
 
-        if(!enemy.TryGetComponent<MonsterEntity>(out var monsterEntity))
+        if(!GameManager.Instance.itembox)
         {
             return;
         }
 
-        monsterEntity.itembox = this.itembox;
+        GameManager.Instance.itembox = this.itembox;
     }
 
 
