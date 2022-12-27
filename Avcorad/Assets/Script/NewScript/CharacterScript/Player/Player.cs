@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     public GameObject InteractionText;
 
     public Image dot;
+
+    float delta;
     private void Update()
     {
         Debug.Log(playerData.Mystate);
@@ -17,13 +19,13 @@ public class Player : MonoBehaviour
         //Attack상태일때 클릭시 공격이 나가는 함수를 적용
         switch (playerData.Mystate)
         {
-            case LivingEntity.State.Attack:
+            case PlayerEntity.State.Attack:
                 if (Input.GetMouseButtonDown(0) && playerData.Sta > 0 && playerData.curWeapon != null)
                 {
                     playerData.Attack();
                 }
                 break;
-            case LivingEntity.State.Move:
+            case PlayerEntity.State.Move:
                 playerData.Move();
                 playerData.RegenSta();
                 dot.enabled = true;
@@ -36,7 +38,7 @@ public class Player : MonoBehaviour
                 }
                 else if (Input.GetKey(KeyCode.LeftShift) && playerData.Sta > 0 && !playerData.isJump)
                 {
-                    playerData.Mystate = LivingEntity.State.Dodge;
+                    playerData.Mystate = PlayerEntity.State.Dodge;
                     playerData.dodge();
                 }
                 else if (Input.GetButtonDown("Jump") && playerData.Sta > 0)
@@ -44,18 +46,18 @@ public class Player : MonoBehaviour
                     playerData.Jump();
                 }
                 break;
-            case LivingEntity.State.Interaction:
+            case PlayerEntity.State.Interaction:
                 InteractionText.SetActive(false);
                 dot.enabled = false;
                 if (Input.GetKey(KeyCode.Escape))
                 {
-                    playerData.Mystate = LivingEntity.State.Move;
+                    playerData.Mystate = PlayerEntity.State.Move;
                 }
                 break;
-            case LivingEntity.State.Death:
+            case PlayerEntity.State.Death:
                 playerData.Death();
                 break;
-            case LivingEntity.State.UseUi:
+            case PlayerEntity.State.UseUi:
                 playerData.RegenSta();
                 dot.enabled = false;
                 //Time.timeScale = 0;
@@ -67,7 +69,7 @@ public class Player : MonoBehaviour
         }
         if (playerData.Hp <= float.Epsilon)
         {
-            playerData.Mystate = LivingEntity.State.Death;
+            playerData.Mystate = PlayerEntity.State.Death;
         }
         transform.Rotate(0f, Input.GetAxis("Mouse X") * playerData._rotateSpeed, 0f, Space.World);
     }
@@ -75,12 +77,12 @@ public class Player : MonoBehaviour
     {
         //attack(),Move(),dodge(),Jump(),F(interaction)상호작용키
         playerData.playerLevelup();
-/*        delta += Time.deltaTime;
+        delta += Time.deltaTime;
         if (delta > 1)
         {
             playerData.currentExp += 1000;
             delta = 0;
-        }*/
+        }
     }
 
     private void Init()

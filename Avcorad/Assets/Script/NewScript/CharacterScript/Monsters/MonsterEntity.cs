@@ -1,27 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MoreMountains.Feedbacks;
 
-public class MonsterEntity : LivingEntity
+public class MonsterEntity : MonoBehaviour, ILivingEntity
 {
-    State _state;
-    public State state
+    public enum EnemyState
     {
-        get { return _state; }
+        Move = 0, Attack, Death, Tracking
+    }
+    EnemyState _enemyState;
+
+    public EnemyState enemyState
+    {
+        get { return _enemyState; }
         set
         {
             switch (value)
             {
-                case State.Attack:
+                case EnemyState.Attack:
                     StopCoroutine(EnemyWalk());
                     StopCoroutine(StartTraking());
                     Attack();
                     break;
-                case State.Move:
-                    StopCoroutine(StartTraking());
+                case EnemyState.Move:
+
+                    Debug.Log("EnemyState : Move");
                     StartCoroutine(EnemyWalk());
+                    //Move();
                     break;
-                case State.Death:
+                case EnemyState.Death:
                     DropItemAndExp();
                     StopCoroutine(EnemyWalk());
                     StopCoroutine(StartTraking());
@@ -31,71 +39,81 @@ public class MonsterEntity : LivingEntity
                     playerCheckCollier.gameObject.layer = 18;
                     AttackBox.gameObject.layer = 18;
                     break;
-                case State.Tracking:
+                case EnemyState.Tracking:
+                    Debug.Log("트래킹 실행");
                     StopCoroutine(EnemyWalk());
                     StartCoroutine(StartTraking());
                     break;
                 default:
                     break;
             }
-            _state = value;
+            _enemyState = value;
         }
     }
 
-
-    [Header("Status")]
-    [SerializeField] private float _Damage;
-    [SerializeField] private float _Hp;
-    [SerializeField] private float _AttackSpeed;
-    [SerializeField] private float _Exp;
+    public enum EnemyType
+    {
+        Zombie, Alien
+    }
+    public EnemyType enemyType;
 
     protected GameObject dropObject;
 
-
+    public Animator animator;
 
     public Transform target;
-    public CapsuleCollider capsuleCollider;
+
     public SphereCollider playerCheckCollier;
     public BoxCollider AttackBox;
+    [SerializeField]
+    /// a feedback to be played when the cube lands
+    private MMFeedbacks Flicker;
+
+    public float Hp { get; set ; }
+    public float Sta { get ; set ; }
+    public float Mp { get ; set ; }
+    public float moveSpeed { get ; set ; }
+    public float AttackForce { get ; set ; }
+    public float AttackSpeed { get ; set ; }
+    public float EnemyExp { get; set; }
+    public bool isDead { get; set; }
 
     int turnType;
-    private void Awake()
+
+    private void Start()
     {
         GameManager.Instance.itembox.SetObject(new Vector3(transform.position.x, 1, transform.position.z));
     }
 
-    public override void Init()
+    public virtual void Init()
     {
-        base.Init();
-        AttackForce = _Damage;
-        AttackSpeed = _AttackSpeed;
-        Hp = _Hp;
-        EnemyExp = _Exp;
-        
+
     }
-    protected override void OnEnable()
+    public virtual void OnEnable()
     {
-        base.OnEnable();
-        Init();
-        
-        state = State.Move;
+
     }
 
-    public override void Attack()
+    public virtual void Attack()
     {
-        base.Attack();
+        if (enemyType == EnemyType.Zombie)
+        {
+            animator.SetBool("isAttack", true);
+            animator.SetBool("isAttack2", true);
+        }
+        else if (enemyType == EnemyType.Alien)
+        {
 
-        animator.SetBool("isAttack", true);
-        animator.SetBool("isAttack2", true);
-
+        }
     }
 
     //아이템, 경험치 drop(아이템드랍은 인터넷 참조 예상으로는 죽으면 > 비활성화된 아이템 프리펩 true로 바꾸고,
     //먹으면 비활성화, position은 몬스터의 위치로)
-    void DropItemAndExp()
+    public void DropItemAndExp()
     {
         int random = Random.Range(0, 5);
         GameManager.Instance.mainPlayer.playerData.currentExp += EnemyExp;
+        //아이템 드랍
         for (int i = 0; i < random; i++)
         {
             if (random < 3)
@@ -113,7 +131,7 @@ public class MonsterEntity : LivingEntity
         //오브젝트 풀링으로 아이템 드롭 구현
     }
 
-    IEnumerator EnemyWalk()
+    public IEnumerator EnemyWalk()
     {
         while (true)
         {
@@ -125,13 +143,15 @@ public class MonsterEntity : LivingEntity
             animator.SetBool("isWalk", true);
             yield return new WaitForSeconds(10f);
             turnType = Random.Range(0, 2);
-            animator.SetBool("isWalk", false);
+            
             if (turnType == 0)
             {
+                animator.SetBool("isWalk", false);
                 animator.SetBool("isTurn", true);
             }
             else if (turnType == 1)
             {
+                animator.SetBool("isWalk", false);
                 animator.SetBool("isTurn2", true);
             }
             yield return new WaitForSeconds(3f);
@@ -139,18 +159,18 @@ public class MonsterEntity : LivingEntity
     }
 
     //추적
-    IEnumerator StartTraking()
+    public IEnumerator StartTraking()
     {
         while (target != null)
         {
-            if (state == State.Tracking)
+            if (enemyState == EnemyState.Tracking)
             {
                 animator.SetBool("isAttack", false);
                 animator.SetBool("isAttack2", false);
                 animator.SetBool("isRun", true);
                 transform.LookAt(new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z));
             }
-            else if (state == State.Attack)
+            else if (enemyState == EnemyState.Attack)
             {
                 animator.SetBool("isRun", false);
             }
@@ -158,6 +178,7 @@ public class MonsterEntity : LivingEntity
         }
 
     }
+
 
     public void StartAttack()
     {
@@ -168,5 +189,28 @@ public class MonsterEntity : LivingEntity
         AttackBox.enabled = false;
     }
 
+    public void Hit(float _Damaged)
+    {
+        Hp -= _Damaged;
+        Flicker?.PlayFeedbacks();
+    }
 
+    public void Death()
+    {
+        Debug.Log("캐릭터 사망");
+        isDead = true;
+        animator.SetTrigger("Death");
+        StartCoroutine(Deathcharator());
+    }
+
+    public virtual void Move()
+    {
+        
+    }
+
+    IEnumerator Deathcharator()
+    {
+        yield return new WaitForSeconds(10f);
+        gameObject.SetActive(false);
+    }
 }

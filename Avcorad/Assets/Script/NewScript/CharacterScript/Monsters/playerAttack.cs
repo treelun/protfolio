@@ -13,7 +13,7 @@ public class playerAttack : MonoBehaviour
     {
         if (other.transform.tag == "Player")
         {
-            this.enemy.state = LivingEntity.State.Attack;
+            this.enemy.enemyState = MonsterEntity.EnemyState.Attack;
         }
     }
 
@@ -21,7 +21,7 @@ public class playerAttack : MonoBehaviour
     {
         if (other.transform.tag == "Player")
         {
-            this.enemy.state = LivingEntity.State.Tracking;
+            this.enemy.enemyState = MonsterEntity.EnemyState.Tracking;
         }
     }
 }

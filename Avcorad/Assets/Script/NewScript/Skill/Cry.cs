@@ -38,7 +38,7 @@ public class Cry : Skill
         
         if (!isUse)
         {
-            GameManager.Instance.mainPlayer.playerData.Mystate = LivingEntity.State.Attack;
+            GameManager.Instance.mainPlayer.playerData.Mystate = PlayerEntity.State.Attack;
             GameManager.Instance.mainPlayer.playerData.animator.SetTrigger("Buff");
             Debug.Log("버프사용!!");
             GameObject projectile = Instantiate(projectiles, spawnPosition.position, Quaternion.Euler(90, 0, 0), spawnPosition);

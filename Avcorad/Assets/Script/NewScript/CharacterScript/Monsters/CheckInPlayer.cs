@@ -13,12 +13,12 @@ public class CheckInPlayer : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Player" &&
-            this.enemy.state != LivingEntity.State.Death)
+            this.enemy.enemyState != MonsterEntity.EnemyState.Death)
         {
             this.enemy.target = other.transform;
-            this.enemy.state = LivingEntity.State.Tracking;
+            this.enemy.enemyState = MonsterEntity.EnemyState.Tracking;
         }
-        else if (this.enemy.state == LivingEntity.State.Death)
+        else if (this.enemy.enemyState == MonsterEntity.EnemyState.Death)
         {
             this.enemy.target = null;
         }
@@ -26,10 +26,10 @@ public class CheckInPlayer : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (other.transform.tag == "Player" &&
-            this.enemy.state != LivingEntity.State.Death)
+            this.enemy.enemyState != MonsterEntity.EnemyState.Death)
         {
             this.enemy.target = null;
-            this.enemy.state = LivingEntity.State.Move;
+            this.enemy.enemyState = MonsterEntity.EnemyState.Move;
         }
     }
 

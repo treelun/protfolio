@@ -14,10 +14,15 @@ public class SpawnPoint : MonoBehaviour
     void Update()
     {
         delta += Time.deltaTime;
-        if (delta > 3f)
+        if (delta > 5f)
         {
+            Debug.Log("zxcvastqwy");
             CreateEnemy();
             delta = 0;
+        }
+        else if (enemy != null)
+        {
+            return;
         }
         
     }

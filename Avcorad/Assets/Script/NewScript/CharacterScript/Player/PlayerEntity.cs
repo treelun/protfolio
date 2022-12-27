@@ -5,6 +5,12 @@ using MoreMountains.Feedbacks;
 
 public class PlayerEntity : LivingEntity
 {
+    public enum State
+    {
+        Move = 0, Attack, Dodge, Death, Interaction, UseUi,
+        Tracking
+    }
+    public State Mystate;
 
     public Weapon curWeapon { get; set; }
     public GameObject WeaponSlot;
@@ -16,6 +22,9 @@ public class PlayerEntity : LivingEntity
     public float maxHp; 
     public float maxSta;
     public float maxMp;
+    public float agi;
+    public float str;
+    public float Health;
     [Space]
     [SerializeField]
     public float playerAttackForce, playerAttackSpeed, playerMoveSpeed, _rotateSpeed, jumpForce,

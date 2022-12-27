@@ -5,10 +5,6 @@ using MoreMountains.Feedbacks;
 
 public class LivingEntity : MonoBehaviour, ILivingEntity
 {
-    public enum State { Move = 0, Attack, Dodge, Death, Interaction, UseUi,
-        Tracking}
-    public State Mystate;
-
     public Animator animator;
     protected Rigidbody rigid;
     public float Hp { get; set; }
@@ -16,12 +12,12 @@ public class LivingEntity : MonoBehaviour, ILivingEntity
 
     public float Mp { get; set; }
     public float moveSpeed { get; set; }
-    public float str { get; set; }
+/*    public float str { get; set; }
 
     public float agi { get; set; }
 
     public float Health { get; set; }
-
+*/
     public float rotateSpeed { get; set; }
     public float AttackForce { get; set; }
 

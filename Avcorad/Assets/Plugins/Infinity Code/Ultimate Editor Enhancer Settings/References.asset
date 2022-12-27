@@ -187,8 +187,3 @@ MonoBehaviour:
   _sceneHistory:
   - name: play
     path: Assets/Scenes/play.unity
-  - name: Archer Animations - Demo Scene
-    path: Assets/Resource/Kevin Iglesias/Archer Animations/Archer Animations - Demo
-      Scene.unity
-  - name: Villager Example Scene
-    path: Assets/Resource/Kevin Iglesias/Villager Animations/Villager Example Scene.unity

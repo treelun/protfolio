@@ -28,7 +28,7 @@ public class JumpAttack : Skill
         
         if (!isUse)
         {
-            GameManager.Instance.mainPlayer.playerData.Mystate = LivingEntity.State.Attack;
+            GameManager.Instance.mainPlayer.playerData.Mystate = PlayerEntity.State.Attack;
             GameManager.Instance.mainPlayer.playerData.animator.SetTrigger("JumpAttack");
             StartCoroutine(useSkillCoroutine());
             GameManager.Instance.mainPlayer.playerData.Mp -= needMp;

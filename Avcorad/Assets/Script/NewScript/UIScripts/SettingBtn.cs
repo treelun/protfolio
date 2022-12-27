@@ -7,7 +7,7 @@ public class SettingBtn : MonoBehaviour
     public void ContinueBtn()
     {
         Time.timeScale = 1f;
-        GameManager.Instance.mainPlayer.playerData.Mystate = LivingEntity.State.Move;
+        GameManager.Instance.mainPlayer.playerData.Mystate = PlayerEntity.State.Move;
         gameObject.SetActive(false);
     }
 

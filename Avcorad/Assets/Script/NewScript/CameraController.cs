@@ -31,7 +31,7 @@ public class CameraController : MonoBehaviour
             composer.m_TrackedObjectOffset.x = 0.5f;
             composer.m_TrackedObjectOffset.y = 1f;
         }
-        if (GameManager.Instance.mainPlayer.playerData.Mystate != LivingEntity.State.UseUi)
+        if (GameManager.Instance.mainPlayer.playerData.Mystate != PlayerEntity.State.UseUi)
         {
             CameraRotateX += Input.GetAxis("Mouse Y") * 0.05f;
             composer.m_ScreenY = CameraRotateX;

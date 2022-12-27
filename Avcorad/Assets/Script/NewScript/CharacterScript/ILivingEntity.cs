@@ -5,12 +5,12 @@ public interface ILivingEntity
     float Sta { get; set; }
     float Mp { get; set; }
     float moveSpeed { get; set; }
-
+/*
     float str { get; set; }
 
     float agi { get; set; }
     float Health { get; set; }
-
+*/
     float AttackForce { get; set; }
 
     float AttackSpeed { get; set; }

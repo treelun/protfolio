@@ -1547,7 +1547,7 @@ GameObject:
   - component: {fileID: 9223012426212273162}
   - component: {fileID: 1927703635118400708}
   - component: {fileID: 2974022296852030875}
-  - component: {fileID: 255565530953005006}
+  - component: {fileID: 5088228238249815860}
   m_Layer: 17
   m_Name: Solus_The_Knight 1
   m_TagString: Enemy
@@ -1562,7 +1562,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4445347438710539085}
-  m_LocalRotation: {x: -0, y: -0.9976197, z: -0, w: 0.06895607}
+  m_LocalRotation: {x: 0, y: -0.9976198, z: 0, w: 0.06895564}
   m_LocalPosition: {x: 126.64401, y: 0.6276684, z: 461.17432}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1804,7 +1804,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &255565530953005006
+--- !u!114 &5088228238249815860
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1813,18 +1813,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 4445347438710539085}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 352f740d71d1d5844bd31f44e6ef131b, type: 3}
+  m_Script: {fileID: 11500000, guid: 00eeabcf9d1289b4d910c7ec68084ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mystate: 0
   animator: {fileID: 3848391670166394014}
   Flicker: {fileID: 1358358311394871607}
+  enemyState: 0
   _Damage: 10
   _Hp: 50
   _AttackSpeed: 1
   _Exp: 10
   target: {fileID: 0}
-  capsuleCollider: {fileID: 2983139396099399722}
   playerCheckCollier: {fileID: 1663045345855335717}
   AttackBox: {fileID: 342820336078082416}
 --- !u!1 &4848901911416413509

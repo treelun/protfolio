@@ -69,7 +69,7 @@ public class NpcText : MonoBehaviour
                 else if (elfNpcsText[textIndex - 1].textState == TextState.No)
                 {
                     NpcTextBackGround.gameObject.SetActive(false);
-                    GameManager.Instance.mainPlayer.playerData.Mystate = LivingEntity.State.Move;
+                    GameManager.Instance.mainPlayer.playerData.Mystate = PlayerEntity.State.Move;
                     virtualCamera.m_Lens.FieldOfView = 60f;
                     Debug.Log("대화종료");
                     animator.SetTrigger("Idle");
