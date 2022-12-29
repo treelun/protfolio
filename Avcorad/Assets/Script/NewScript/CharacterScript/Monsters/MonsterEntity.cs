@@ -24,8 +24,8 @@ public class MonsterEntity : MonoBehaviour, ILivingEntity
                     Attack();
                     break;
                 case EnemyState.Move:
-
-                    Debug.Log("EnemyState : Move");
+                    animator.SetBool("isSideMove", false);
+                    StopCoroutine(StartTraking());
                     StartCoroutine(EnemyWalk());
                     //Move();
                     break;
@@ -79,19 +79,18 @@ public class MonsterEntity : MonoBehaviour, ILivingEntity
     public bool isDead { get; set; }
 
     int turnType;
+    int attackType;
+
+    float delta;
 
     private void Start()
     {
         GameManager.Instance.itembox.SetObject(new Vector3(transform.position.x, 1, transform.position.z));
     }
 
-    public virtual void Init()
+    private void Update()
     {
-
-    }
-    public virtual void OnEnable()
-    {
-
+        Debug.Log(enemyState);
     }
 
     public virtual void Attack()
@@ -103,7 +102,26 @@ public class MonsterEntity : MonoBehaviour, ILivingEntity
         }
         else if (enemyType == EnemyType.Alien)
         {
+            animator.SetBool("isSideMove", false);
+            animator.SetBool("isJumpAttack", false);
+            
+          
+            attackType = Random.Range(0, 2);
 
+            if (attackType == 0)
+            {
+                animator.SetBool("isAttack", true);
+                animator.SetBool("isAttack2", true);
+                animator.SetBool("isAttack3", false);
+            }
+            else if (attackType == 1)
+            {
+                animator.SetBool("isAttack", true);
+                animator.SetBool("isAttack2", false);
+                animator.SetBool("isAttack3", true);
+            }
+            
+            
         }
     }
 
@@ -133,26 +151,34 @@ public class MonsterEntity : MonoBehaviour, ILivingEntity
 
     public IEnumerator EnemyWalk()
     {
-        while (true)
+        while (target == null)
         {
+            Debug.Log("EnemyState : Move");
             animator.SetBool("isAttack", false);
             animator.SetBool("isAttack2", false);
             animator.SetBool("isRun", false);
             animator.SetBool("isTurn", false);
             animator.SetBool("isTurn2", false);
+            animator.SetBool("isSideMove", false);
+            animator.SetBool("isSideMove2", false);
             animator.SetBool("isWalk", true);
             yield return new WaitForSeconds(10f);
-            turnType = Random.Range(0, 2);
-            
-            if (turnType == 0)
+
+            delta += Time.deltaTime;
+            if (delta > 10f)
             {
-                animator.SetBool("isWalk", false);
-                animator.SetBool("isTurn", true);
-            }
-            else if (turnType == 1)
-            {
-                animator.SetBool("isWalk", false);
-                animator.SetBool("isTurn2", true);
+                turnType = Random.Range(0, 2);
+
+                if (turnType == 0)
+                {
+                    animator.SetBool("isTurn", true);
+                    animator.SetBool("isWalk", false);
+                }
+                else if (turnType == 1)
+                {
+                    animator.SetBool("isTurn2", true);
+                    animator.SetBool("isWalk", false);
+                }
             }
             yield return new WaitForSeconds(3f);
         }
@@ -163,12 +189,47 @@ public class MonsterEntity : MonoBehaviour, ILivingEntity
     {
         while (target != null)
         {
-            if (enemyState == EnemyState.Tracking)
+            if (enemyState == EnemyState.Tracking && enemyType == EnemyType.Zombie)
             {
                 animator.SetBool("isAttack", false);
                 animator.SetBool("isAttack2", false);
                 animator.SetBool("isRun", true);
                 transform.LookAt(new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z));
+            }
+            else if (enemyState == EnemyState.Tracking && enemyType == EnemyType.Alien)
+            {
+                animator.SetBool("isAttack", false);
+                animator.SetBool("isAttack2", false);
+                animator.SetBool("isAttack3", false);
+                Debug.Log("Alien State Traking");
+                animator.SetBool("isWalk", false);
+                transform.LookAt(new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z));
+                
+                delta += Time.deltaTime;
+                if (delta > 7f)
+                {
+                    turnType = Random.Range(0, 3);
+                    if (turnType == 0)
+                    {
+                        animator.SetBool("isSideMove2", false);
+                        animator.SetBool("isJumpAttack", false);
+                        animator.SetBool("isSideMove", true);
+                    }
+                    else if (turnType == 1)
+                    {
+                        animator.SetBool("isJumpAttack", false);
+                        animator.SetBool("isSideMove", false);
+                        animator.SetBool("isSideMove2", true);
+                    }
+                    else if (turnType == 2)
+                    {
+                        animator.SetBool("isSideMove", false);
+                        animator.SetBool("isSideMove2", false);
+                        animator.SetBool("isJumpAttack", true);
+                    }
+                    delta = 0;
+                }
+                
             }
             else if (enemyState == EnemyState.Attack)
             {
@@ -203,14 +264,26 @@ public class MonsterEntity : MonoBehaviour, ILivingEntity
         StartCoroutine(Deathcharator());
     }
 
-    public virtual void Move()
-    {
-        
-    }
 
     IEnumerator Deathcharator()
     {
         yield return new WaitForSeconds(10f);
         gameObject.SetActive(false);
     }
+
+    public virtual void Init()
+    {
+
+    }
+    public virtual void OnEnable()
+    {
+
+    }
+
+
+    public virtual void Move()
+    {
+
+    }
+
 }

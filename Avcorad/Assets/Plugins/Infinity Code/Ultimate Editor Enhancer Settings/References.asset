@@ -185,5 +185,20 @@ MonoBehaviour:
     alignWindowToBar: 1
     windowMode: 0
   _sceneHistory:
+  - name: MainMenu
+    path: Assets/Scenes/MainMenu.unity
   - name: play
     path: Assets/Scenes/play.unity
+  - name: LoadingScene
+    path: Assets/Scenes/LoadingScene.unity
+  - name: LoadinScene
+    path: Assets/Scenes/LoadinScene.unity
+  - name: Villager Example Scene
+    path: Assets/Resource/Kevin Iglesias/Villager Animations/Villager Example Scene.unity
+  - name: Melee Warrior - Demo Scene
+    path: Assets/Resource/Kevin Iglesias/Melee Warrior Animations/Melee Warrior -
+      Demo Scene.unity
+  - name: Basic Motions - Scene
+    path: Assets/Resource/Kevin Iglesias/Basic Motions/Basic Motions - Scene.unity
+  - name: etfx_missiles
+    path: Assets/Resource/Epic Toon FX/Demo/Scenes/etfx_missiles.unity

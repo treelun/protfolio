@@ -64,6 +64,10 @@ public class Weapon : MonoBehaviour, Iitem
             }
             
         }
+        else if (other.transform.tag != "Enemy")
+        {
+            return;
+        }
     }
 
 }

@@ -66,6 +66,14 @@ namespace EpicToonFX
                 }
 
                 Debug.Log("" + hit.transform.name);
+                if (hit.transform.tag == "Player")
+                {
+                    hit.transform.GetComponent<LivingEntity>().Hit(10f);
+                }
+                else if (hit.transform.tag =="Enemy")
+                {
+                    hit.transform.GetComponent<MonsterEntity>().Hit(10f);
+                }
                 Destroy(projectileParticle, 3f); // Removes particle effect after delay
                 Destroy(impactP, 3.5f); // Removes impact effect after delay
                 Destroy(gameObject); // Removes the projectile
