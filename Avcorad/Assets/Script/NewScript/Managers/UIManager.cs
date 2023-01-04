@@ -70,6 +70,10 @@ public class UIManager : MonoBehaviour
         ToggleKeyDownAction(_skillKey, _skillPopUp);
         ToggleKeyDownAction(_charInfoKey, _characterInfoPopup);
         ToggleKeyDownAction(_escapeKey, _pausePopup);
+        if (Input.GetKeyDown(_escapeKey))
+        {
+            Time.timeScale = 0;
+        }
     }
 
     void Init()
@@ -135,6 +139,7 @@ public class UIManager : MonoBehaviour
         {
             GameManager.Instance.mainPlayer.playerData.Mystate = PlayerEntity.State.UseUi;
         }
+        
     }
 
     /// <summary> 팝업을 닫고 링크드리스트에서 제거 </summary>

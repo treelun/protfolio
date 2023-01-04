@@ -6,13 +6,18 @@ public class ItemBox : MonoBehaviour
 {
     public GameObject HpPotion;
     public GameObject MpPotion;
+    public GameObject stoneSword;
+    public GameObject worldofSword;
+    public GameObject sparkSword;
+    public GameObject flameSword;
+    public GameObject steelSword;
     List<GameObject> HpPotionPrefab = new List<GameObject>();
     List<GameObject> MpPotionPrefab = new List<GameObject>();
     GameObject dropItem;
 
     public void SetObject(Vector3 spwanTransform)
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 100; i++)
         {
             GameObject hpPotions = Instantiate(HpPotion, spwanTransform , Quaternion.identity);
             hpPotions.gameObject.SetActive(false);
@@ -36,6 +41,32 @@ public class ItemBox : MonoBehaviour
     {
         dropItem = MpPotionPrefab[i];
 
+        return dropItem;
+    }
+
+    public GameObject Getweapon(Vector3 spwanTransform)
+    {
+        int rand = Random.Range(0, 101);
+        if (rand < 50)
+        {
+            dropItem = Instantiate(stoneSword, spwanTransform, Quaternion.identity);
+        }
+        else if (50 <= rand && rand < 70)
+        {
+            dropItem = Instantiate(steelSword, spwanTransform, Quaternion.identity);
+        }
+        else if (70 <= rand && rand < 80)
+        {
+            dropItem = Instantiate(flameSword, spwanTransform, Quaternion.identity);
+        }
+        else if (80 <= rand && rand < 97)
+        {
+            dropItem = Instantiate(sparkSword, spwanTransform, Quaternion.identity);
+        }
+        else if (97 <= rand && rand < 100)
+        {
+            dropItem = Instantiate(worldofSword, spwanTransform, Quaternion.identity);
+        }
         return dropItem;
     }
 

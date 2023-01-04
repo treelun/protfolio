@@ -10,7 +10,6 @@ public class KnightZombie : MonsterEntity
     [SerializeField] private float _AttackSpeed;
     [SerializeField] private float _Exp;
 
-
     public override void Init()
     {
         base.Init();

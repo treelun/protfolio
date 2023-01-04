@@ -185,10 +185,16 @@ MonoBehaviour:
     alignWindowToBar: 1
     windowMode: 0
   _sceneHistory:
-  - name: MainMenu
-    path: Assets/Scenes/MainMenu.unity
   - name: play
     path: Assets/Scenes/play.unity
+  - name: EndingScene
+    path: Assets/Scenes/EndingScene.unity
+  - name: MainMenu
+    path: Assets/Scenes/MainMenu.unity
+  - name: test scene
+    path: Assets/EasyRoads3D scenes/test scene.unity
+  - name: OpeningScene
+    path: Assets/Scenes/OpeningScene.unity
   - name: LoadingScene
     path: Assets/Scenes/LoadingScene.unity
   - name: LoadinScene

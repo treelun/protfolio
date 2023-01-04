@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
                 dot.enabled = true;
                 //Cursor.visible = false;
                 //Cursor.lockState = CursorLockMode.Locked;
-                //Time.timeScale = 1f;
+                Time.timeScale = 1f;
                 if (Input.GetMouseButtonDown(0) && playerData.curWeapon != null && playerData.Sta > 0 && !playerData.isJump)
                 {
                     playerData.Attack();
@@ -60,7 +60,6 @@ public class Player : MonoBehaviour
             case PlayerEntity.State.UseUi:
                 playerData.RegenSta();
                 dot.enabled = false;
-                //Time.timeScale = 0;
                 //Cursor.visible = true;
                 //Cursor.lockState = CursorLockMode.Confined;
                 break;

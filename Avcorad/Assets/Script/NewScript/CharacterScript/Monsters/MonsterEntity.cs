@@ -82,6 +82,7 @@ public class MonsterEntity : MonoBehaviour, ILivingEntity
     int attackType;
 
     float delta;
+    float movedelta;
 
     private void Start()
     {
@@ -129,21 +130,23 @@ public class MonsterEntity : MonoBehaviour, ILivingEntity
     //먹으면 비활성화, position은 몬스터의 위치로)
     public void DropItemAndExp()
     {
-        int random = Random.Range(0, 5);
+        int random = Random.Range(0, 1001);
         GameManager.Instance.mainPlayer.playerData.currentExp += EnemyExp;
         //아이템 드랍
-        for (int i = 0; i < random; i++)
+        int potionrand = Random.Range(0, 101);
+        if (random < 600)
         {
-            if (random < 3)
-            {
-                GameManager.Instance.itembox.GetHpPotion(i).transform.position = new Vector3(transform.position.x, 1, transform.position.z);
-                GameManager.Instance.itembox.GetHpPotion(i).SetActive(true);
-            }
-            else if(random >= 3)
-            {
-                GameManager.Instance.itembox.GetMpPotion(i).transform.position = new Vector3(transform.position.x, 1, transform.position.z);
-                GameManager.Instance.itembox.GetMpPotion(i).SetActive(true);
-            }
+            GameManager.Instance.itembox.GetHpPotion(potionrand).transform.position = new Vector3(transform.position.x, 1, transform.position.z);
+            GameManager.Instance.itembox.GetHpPotion(potionrand).SetActive(true);
+        }
+        else if (600 <= random && random < 950)
+        {
+            GameManager.Instance.itembox.GetMpPotion(potionrand).transform.position = new Vector3(transform.position.x, 1, transform.position.z);
+            GameManager.Instance.itembox.GetMpPotion(potionrand).SetActive(true);
+        }
+        else if (950 <= random && random < 1000)
+        {
+            GameManager.Instance.itembox.Getweapon(new Vector3(transform.position.x, 0.5f, transform.position.z)).SetActive(true);
         }
 
         //오브젝트 풀링으로 아이템 드롭 구현
@@ -164,22 +167,21 @@ public class MonsterEntity : MonoBehaviour, ILivingEntity
             animator.SetBool("isWalk", true);
             yield return new WaitForSeconds(10f);
 
-            delta += Time.deltaTime;
-            if (delta > 10f)
-            {
-                turnType = Random.Range(0, 2);
+            
+            turnType = Random.Range(0, 2);
 
-                if (turnType == 0)
-                {
-                    animator.SetBool("isTurn", true);
-                    animator.SetBool("isWalk", false);
-                }
-                else if (turnType == 1)
-                {
-                    animator.SetBool("isTurn2", true);
-                    animator.SetBool("isWalk", false);
-                }
+            if (turnType == 0)
+            {
+                animator.SetBool("isTurn", true);
+                animator.SetBool("isWalk", false);
             }
+            else if (turnType == 1)
+            {
+                animator.SetBool("isTurn2", true);
+                animator.SetBool("isWalk", false);
+            }
+                
+            
             yield return new WaitForSeconds(3f);
         }
     }

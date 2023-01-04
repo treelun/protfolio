@@ -13,7 +13,7 @@ public class SettingBtn : MonoBehaviour
 
     public void BackMain()
     {
-        //메인화면으로 이동
+        LodingSceneContoller.LoadScene("MainMenu");
     }
 
     public void ExitGame()

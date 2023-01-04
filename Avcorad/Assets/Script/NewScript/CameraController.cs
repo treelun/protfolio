@@ -36,5 +36,9 @@ public class CameraController : MonoBehaviour
             CameraRotateX += Input.GetAxis("Mouse Y") * 0.05f;
             composer.m_ScreenY = CameraRotateX;
         }
+        else
+        {
+            return;
+        }
     }
 }
