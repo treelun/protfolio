@@ -63,6 +63,9 @@ public class Player : MonoBehaviour
                 //Cursor.visible = true;
                 //Cursor.lockState = CursorLockMode.Confined;
                 break;
+            case PlayerEntity.State.Hit:
+                playerData.animator.SetTrigger("hit");
+                break;
             default:
                 break;
         }
@@ -93,9 +96,10 @@ public class Player : MonoBehaviour
     {
         if (other.transform.tag == "EnemyAttackBox")
         {
-            //playerData.Hit(other.GetComponentInParent<MonsterEntity>().AttackForce);
-            playerData.Hit(0.1f);
+            playerData.Hit(other.GetComponentInParent<MonsterEntity>().AttackForce);
+            //playerData.Hit(0.1f);
             //Debug.Log("Hit the Player");
+            playerData.Mystate = PlayerEntity.State.Hit;
         }
     }
 }

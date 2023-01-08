@@ -9,7 +9,7 @@ public class PlayerEntity : LivingEntity
     public enum State
     {
         Move = 0, Attack, Dodge, Death, Interaction, UseUi,
-        Tracking
+        Tracking, Hit
     }
     public State Mystate;
 
