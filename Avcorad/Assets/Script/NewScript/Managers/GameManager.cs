@@ -43,4 +43,5 @@ public class GameManager : MonoBehaviour
     public SkillList skillList;
     public QuickSlot quickSlot;
     public ItemBox itembox;
+    public MonsterEntity monsterEntity;
 }

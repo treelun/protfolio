@@ -1,14 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MoreMountains.Feedbacks;
 
 public class AlienWoman : MonsterEntity
 {
-    [Header("Status")]
-    [SerializeField] private float _Damage;
-    [SerializeField] private float _Hp;
-    [SerializeField] private float _AttackSpeed;
-    [SerializeField] private float _Exp;
 
     RaycastHit hit;
 
@@ -20,12 +16,21 @@ public class AlienWoman : MonsterEntity
     public float speed = 1000;
 
     float delta2;
-    private void Update()
+
+    [SerializeField]
+    /// a feedback to be played when the cube lands
+    private MMFeedbacks LandingFeedbacks;
+
+    public override void Update()
     {
+        base.Update();
+
         if (enemyState == EnemyState.Tracking)
         {
             useSkill();
         }
+
+ 
     }
     public void useSkill()
     {
@@ -45,18 +50,10 @@ public class AlienWoman : MonsterEntity
         }
     }
 
-    public override void Init()
+    public void JumpAttackEnd()
     {
-        base.Init();
-        AttackForce = _Damage;
-        AttackSpeed = _AttackSpeed;
-        Hp = _Hp;
-        EnemyExp = _Exp;
+        LandingFeedbacks?.PlayFeedbacks();
     }
-    public override void OnEnable()
-    {
-        base.OnEnable();
-        Init();
-        enemyState = EnemyState.Move;
-    }
+
+    
 }

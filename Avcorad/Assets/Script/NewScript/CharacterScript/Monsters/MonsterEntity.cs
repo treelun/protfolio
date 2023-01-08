@@ -1,16 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using MoreMountains.Feedbacks;
+using UnityEngine.UI;
 
-public class MonsterEntity : MonoBehaviour, ILivingEntity
+public class MonsterEntity : LivingEntity
 {
     public enum EnemyState
     {
-        Move = 0, Attack, Death, Tracking
+        Move = 0, Attack, Death, Tracking, Hit
     }
     EnemyState _enemyState;
-
+    
     public EnemyState enemyState
     {
         get { return _enemyState; }
@@ -44,6 +43,14 @@ public class MonsterEntity : MonoBehaviour, ILivingEntity
                     StopCoroutine(EnemyWalk());
                     StartCoroutine(StartTraking());
                     break;
+                case EnemyState.Hit:
+                    if (enemyType == EnemyType.Zombie)
+                    {
+                        AttackBox.enabled = false;
+                        animator.SetTrigger("Hit");
+                    }
+                    
+                    break;
                 default:
                     break;
             }
@@ -59,42 +66,50 @@ public class MonsterEntity : MonoBehaviour, ILivingEntity
 
     protected GameObject dropObject;
 
-    public Animator animator;
 
     public Transform target;
 
     public SphereCollider playerCheckCollier;
     public BoxCollider AttackBox;
-    [SerializeField]
-    /// a feedback to be played when the cube lands
-    private MMFeedbacks Flicker;
+    public GameObject hpBarPrefab;
+    GameObject hpBar;
 
-    public float Hp { get; set ; }
-    public float Sta { get ; set ; }
-    public float Mp { get ; set ; }
-    public float moveSpeed { get ; set ; }
-    public float AttackForce { get ; set ; }
-    public float AttackSpeed { get ; set ; }
-    public float EnemyExp { get; set; }
-    public bool isDead { get; set; }
+    public Vector3 hpBarOffset = new Vector3(-0.5f, 2.4f, 0);
+
+    public Canvas enemyHpBarCanvas;
+    public Slider enemyHpbarSlider;
+
+    public float maxHp;
+    public float maxSta;
+    public float maxMp;
+    public float _AttackForce;
+    public float _Exp;
+
 
     int turnType;
     int attackType;
 
     float delta;
-    float movedelta;
 
     private void Start()
     {
         GameManager.Instance.itembox.SetObject(new Vector3(transform.position.x, 1, transform.position.z));
+        SetHpbar();
     }
-
-    private void Update()
+    public virtual void Update()
     {
-        Debug.Log(enemyState);
+        Debug.Log(Hp);
+        if (target == null)
+        {
+            hpBar.SetActive(false);
+        }
+        else if (target != null)
+        {
+            hpBar.SetActive(true);
+        }
     }
 
-    public virtual void Attack()
+    public override void Attack()
     {
         if (enemyType == EnemyType.Zombie)
         {
@@ -252,40 +267,36 @@ public class MonsterEntity : MonoBehaviour, ILivingEntity
         AttackBox.enabled = false;
     }
 
-    public void Hit(float _Damaged)
+    void SetHpbar()
     {
-        Hp -= _Damaged;
-        Flicker?.PlayFeedbacks();
+        enemyHpBarCanvas = GameObject.Find("EnemyHpbarCanvas").GetComponent<Canvas>();
+        hpBar = Instantiate(hpBarPrefab, enemyHpBarCanvas.transform);
+        
+        var _hpbar = hpBar.GetComponent<EnemyHpbarPosition>();
+        
+        _hpbar.enemy = this.gameObject.transform;
+        _hpbar.offset = hpBarOffset;
     }
 
-    public void Death()
+    public override void OnEnable()
     {
-        Debug.Log("Ä³¸¯ÅÍ »ç¸Á");
-        isDead = true;
-        animator.SetTrigger("Death");
-        StartCoroutine(Deathcharator());
+        base.OnEnable();
+        Init();
+        enemyState = EnemyState.Move;
     }
 
-
-    IEnumerator Deathcharator()
+    public override void Init()
     {
-        yield return new WaitForSeconds(10f);
-        gameObject.SetActive(false);
+        base.Init();
+        AttackForce = _AttackForce;
+        Hp = maxHp;
+        EnemyExp = _Exp;
     }
 
-    public virtual void Init()
+    public override void Death()
     {
-
-    }
-    public virtual void OnEnable()
-    {
-
-    }
-
-
-    public virtual void Move()
-    {
-
+        base.Death();
+        hpBar.SetActive(false);
     }
 
 }

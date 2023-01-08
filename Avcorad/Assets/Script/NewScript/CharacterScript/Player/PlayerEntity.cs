@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.Feedbacks;
+using Cinemachine;
 
 public class PlayerEntity : LivingEntity
 {
@@ -47,6 +48,8 @@ public class PlayerEntity : LivingEntity
     /// a feedback to be played when the cube lands
     private MMFeedbacks LandingFeedbacks;
 
+
+
     public void LevelUp()
     {
         levelupPoint = 5;
@@ -63,6 +66,8 @@ public class PlayerEntity : LivingEntity
         AttackForce = playerAttackForce;
         AttackSpeed = playerAttackSpeed;
     }
+
+
 
     public void SetEquipAttackEntity(Weapon _curWeapon) {
         //무기 이름 바꾸기
@@ -168,7 +173,7 @@ public class PlayerEntity : LivingEntity
     }
 
     //캐릭터가 활성화 될때 값들을 설정해줌
-    protected override void OnEnable()
+    public override void OnEnable()
     {
         base.OnEnable();
         //최대체력,최대스태미너를 현재체력과 스태미너로 설정

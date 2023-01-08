@@ -510,8 +510,8 @@ MonoBehaviour:
   BoundRenderer: {fileID: 7568411842232906703}
   Mode: 0
   PropertyName: _Tint
-  FlickerDuration: 0.01
-  FlickerOctave: 0.1
+  FlickerDuration: 0.3
+  FlickerOctave: 0.3
   FlickerColor: {r: 1, g: 0.078431375, b: 0.078431375, a: 1}
   MaterialIndexes: 
   UseMaterialPropertyBlocks: 0
@@ -1818,14 +1818,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 3848391670166394014}
   Flicker: {fileID: 1358358311394871607}
-  enemyState: 0
-  _Damage: 10
-  _Hp: 50
-  _AttackSpeed: 1
-  _Exp: 10
+  enemyType: 0
   target: {fileID: 0}
   playerCheckCollier: {fileID: 1663045345855335717}
   AttackBox: {fileID: 342820336078082416}
+  hpBarPrefab: {fileID: 2962350460175473187, guid: b767311b274999543a14c98bf81fa87d,
+    type: 3}
+  hpBarOffset: {x: 0, y: 1.8, z: 0}
+  enemyHpBarCanvas: {fileID: 0}
+  enemyHpbarSlider: {fileID: 2962350460175473185, guid: b767311b274999543a14c98bf81fa87d,
+    type: 3}
+  maxHp: 200
+  maxSta: 0
+  maxMp: 0
+  _AttackForce: 10
+  _Exp: 10
 --- !u!1 &4848901911416413509
 GameObject:
   m_ObjectHideFlags: 0

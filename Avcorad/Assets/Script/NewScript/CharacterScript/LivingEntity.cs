@@ -44,7 +44,7 @@ public class LivingEntity : MonoBehaviour, ILivingEntity
         //공격하는 함수 virtual을 사용하여 상속받는 클래스에서 재정의
     }
 
-    public void Death()
+    public virtual void Death()
     {
        
         Debug.Log("캐릭터 사망");
@@ -71,7 +71,7 @@ public class LivingEntity : MonoBehaviour, ILivingEntity
     }
 
     //캐릭터가 생성(활성화)될때 가지고 있을 값
-    protected virtual void OnEnable()
+    public virtual void OnEnable()
     {
         isDead = false;
     }

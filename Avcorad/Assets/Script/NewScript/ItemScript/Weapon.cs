@@ -58,6 +58,7 @@ public class Weapon : MonoBehaviour, Iitem
         {
             other.GetComponent<MonsterEntity>().Hit(GameManager.Instance.mainPlayer.playerData.playerAttackForce + WeaponAttackForce);
             Debug.Log(GameManager.Instance.mainPlayer.playerData.playerAttackForce + WeaponAttackForce + "의 데미지를 주었습니다.");
+            other.GetComponent<MonsterEntity>().enemyState = MonsterEntity.EnemyState.Hit;
             if (other.GetComponent<MonsterEntity>().Hp <= float.Epsilon)
             {
                 other.GetComponent<MonsterEntity>().enemyState = MonsterEntity.EnemyState.Death;
