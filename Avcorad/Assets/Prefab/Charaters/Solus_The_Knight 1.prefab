@@ -525,7 +525,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8136091503870220809}
   - component: {fileID: 342820336078082416}
-  m_Layer: 17
+  m_Layer: 19
   m_Name: AttackBox
   m_TagString: EnemyAttackBox
   m_Icon: {fileID: 0}
@@ -558,7 +558,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5, z: 0.8}
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
   m_Center: {x: 0, y: 1, z: 0.5}
 --- !u!1 &1735325914110628940
 GameObject:
@@ -1635,9 +1635,10 @@ AudioSource:
   m_GameObject: {fileID: 4445347438710539085}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3165942800488051908, guid: 7e984f512e89b60468e829489e8883e3,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 7e98ea9b57d14444b800259462a90bb4, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 0.175
   m_Pitch: 1
   Loop: 1
@@ -1822,17 +1823,23 @@ MonoBehaviour:
   target: {fileID: 0}
   playerCheckCollier: {fileID: 1663045345855335717}
   AttackBox: {fileID: 342820336078082416}
+  capsuleCollider: {fileID: 2983139396099399722}
   hpBarPrefab: {fileID: 2962350460175473187, guid: b767311b274999543a14c98bf81fa87d,
     type: 3}
   hpBarOffset: {x: 0, y: 1.8, z: 0}
   enemyHpBarCanvas: {fileID: 0}
   enemyHpbarSlider: {fileID: 2962350460175473185, guid: b767311b274999543a14c98bf81fa87d,
     type: 3}
-  maxHp: 200
+  maxHp: 100
   maxSta: 0
   maxMp: 0
   _AttackForce: 10
-  _Exp: 10
+  _Exp: 50
+  audioSource: {fileID: 9223012426212273162}
+  idleSound: {fileID: 8300000, guid: 1d4d7468097d5e54d829fdf534a39ec4, type: 3}
+  attackSound: {fileID: 8300000, guid: dc2e281be293917409da86787c0fcba5, type: 3}
+  deathSound: {fileID: 8300000, guid: 83d4e38abaa4e624bad4fe8cfb7af75e, type: 3}
+  hitSound: {fileID: 8300000, guid: b50cf82f2b0182645a650ecaabcd427b, type: 3}
 --- !u!1 &4848901911416413509
 GameObject:
   m_ObjectHideFlags: 0

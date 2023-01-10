@@ -9,18 +9,18 @@ public class SpawnPoint : MonoBehaviour
 
     [SerializeField] ItemBox itembox;
 
-    float delta;
+    private void Start()
+    {
+        CreateEnemy();
+    }
     // Update is called once per frame
     void Update()
     {
-        delta += Time.deltaTime;
-        if (enemy == null)
+        if (enemy.activeSelf == false)
         {
-            Debug.Log("zxcvastqwy");
-            CreateEnemy();
-            delta = 0;
+            StartCoroutine(CreateEnemyCoroutine());
         }
-        else if (enemy != null)
+        else
         {
             return;
         }
@@ -39,6 +39,10 @@ public class SpawnPoint : MonoBehaviour
 
         GameManager.Instance.itembox = this.itembox;
     }
-
+    IEnumerator CreateEnemyCoroutine()
+    {
+        yield return new WaitForSeconds(5f);
+        enemy.SetActive(true);
+    }
 
 }

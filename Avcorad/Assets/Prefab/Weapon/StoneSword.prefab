@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1708519543146699725}
   - component: {fileID: 1093500928}
   - component: {fileID: 1090520607}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: StoneSword
   m_TagString: item
   m_Icon: {fileID: 0}

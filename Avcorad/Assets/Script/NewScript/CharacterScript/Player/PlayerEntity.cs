@@ -48,7 +48,10 @@ public class PlayerEntity : LivingEntity
     /// a feedback to be played when the cube lands
     private MMFeedbacks LandingFeedbacks;
 
+    public AudioSource audioSource;
 
+    public AudioClip dodgeSound;
+    public AudioClip attackSound;
 
     public void LevelUp()
     {
@@ -122,6 +125,7 @@ public class PlayerEntity : LivingEntity
         animator.SetTrigger("ComboAttack");
         animator.SetFloat("SetAttackSpeed", playerAttackSpeed);
         Mystate = State.Attack;
+
     }
 
     public override void Hit(float _AttackForce)
@@ -129,12 +133,19 @@ public class PlayerEntity : LivingEntity
         //쳐맞음
         base.Hit(_AttackForce);
         //맞았을때의 피격 이펙트(애니메이션이나 반짝임)
+        if (Mystate != PlayerEntity.State.Attack)
+        {
+            animator.SetTrigger("hit");
+        }
+        
     }
     public void dodge()
     {
         animator.SetTrigger("dodge");
         animator.SetFloat("MoveSpeed", playerMoveSpeed / 6);
         Sta -= 10f;
+        audioSource.clip = dodgeSound;
+        audioSource.Play();
     }
     public void Jump()
     {
@@ -161,6 +172,8 @@ public class PlayerEntity : LivingEntity
         transform.position += movement * moveSpeed * Time.deltaTime;
 
         animator.SetFloat("MoveSpeed", playerMoveSpeed / 6);
+
+        transform.Rotate(0f, Input.GetAxis("Mouse X") * _rotateSpeed, 0f, Space.World);
         //방향에따른 이동 애니메이션 재생을위해
         if (deltaX != 0)
         {
@@ -208,8 +221,9 @@ public class PlayerEntity : LivingEntity
     {
         Mystate = State.Attack;
         //공격시작시 이펙트와 콜라이더활성화
-        
-        //Sta -= 15f;
+        audioSource.clip = attackSound;
+        audioSource.Play();
+        Sta -= 5f;
     }
     public void StateEnd()
     {
@@ -258,5 +272,9 @@ public class PlayerEntity : LivingEntity
     public void JumpAttackEnd()
     {
         LandingFeedbacks?.PlayFeedbacks();
+    }
+    public void HitEnd()
+    {
+        Mystate = State.Move;
     }
 }

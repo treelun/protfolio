@@ -227,7 +227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1713460247}
   - component: {fileID: 745154793}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: AttackBox
   m_TagString: EnemyAttackBox
   m_Icon: {fileID: 0}
@@ -493,6 +493,7 @@ GameObject:
   - component: {fileID: 5436423845449803542}
   - component: {fileID: 385194164}
   - component: {fileID: 8669292696773096738}
+  - component: {fileID: 2640226980547001119}
   m_Layer: 17
   m_Name: AlienWoman
   m_TagString: Enemy
@@ -594,6 +595,7 @@ MonoBehaviour:
   target: {fileID: 0}
   playerCheckCollier: {fileID: 487390645}
   AttackBox: {fileID: 745154793}
+  capsuleCollider: {fileID: 5436423845449803542}
   hpBarPrefab: {fileID: 2962350460175473187, guid: b767311b274999543a14c98bf81fa87d,
     type: 3}
   hpBarOffset: {x: -0.5, y: 3, z: 0}
@@ -605,11 +607,113 @@ MonoBehaviour:
   maxMp: 0
   _AttackForce: 20
   _Exp: 100
+  audioSource: {fileID: 2640226980547001119}
+  idleSound: {fileID: 8300000, guid: 3c2b92708ef0bc841ae34b7d3958f6c7, type: 3}
+  attackSound: {fileID: 8300000, guid: b2bb0ad03c98c6f44ab9854a1b5b2a96, type: 3}
+  deathSound: {fileID: 8300000, guid: 65239fc5389769d4c94dfdfd5516c7e2, type: 3}
+  hitSound: {fileID: 8300000, guid: d5300533331143248840f0f5e511d7e5, type: 3}
   projectiles: {fileID: 128572, guid: 8d0c9a653397a1f4a8b98539b80b7160, type: 3}
   spawnPosition: {fileID: 1796386413}
   rayPosition: {fileID: 1762740703375572497}
   speed: 700
   LandingFeedbacks: {fileID: 4941666091515900875}
+--- !u!82 &2640226980547001119
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818375794864784120}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -3165942800488051908, guid: 7e984f512e89b60468e829489e8883e3,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 25
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1307013988007826194
 GameObject:
   m_ObjectHideFlags: 0

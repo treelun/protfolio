@@ -15,13 +15,13 @@ GameObject:
   - component: {fileID: 8159456281271233244}
   - component: {fileID: 1315245535}
   - component: {fileID: 6305418406527422446}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WorldOfSword
   m_TagString: item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6627318697155705454
 RectTransform:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ public class NpcText : MonoBehaviour
     AudioSource audioSource;
     public AudioSource startAudio;
 
-    int textIndex = 0;
+    public int textIndex = 0;
 
     private Vector3 targetTransform;
 
@@ -44,11 +44,7 @@ public class NpcText : MonoBehaviour
         textIndex = _num;
         animator.SetTrigger("Talk");
         NextText();
-        virtualCamera.m_Lens.FieldOfView = 40f;
         virtualCamera.LookAt = this.transform;
-        CinemachineComposer composer = virtualCamera.GetCinemachineComponent<CinemachineComposer>();
-        composer.m_TrackedObjectOffset.x = 0f;
-        composer.m_TrackedObjectOffset.y = 1.5f;
         audioSource.Play();
     }
     public void NextText()
@@ -70,7 +66,6 @@ public class NpcText : MonoBehaviour
                 {
                     NpcTextBackGround.gameObject.SetActive(false);
                     GameManager.Instance.mainPlayer.playerData.Mystate = PlayerEntity.State.Move;
-                    virtualCamera.m_Lens.FieldOfView = 60f;
                     Debug.Log("대화종료");
                     animator.SetTrigger("Idle");
                     virtualCamera.LookAt = null;

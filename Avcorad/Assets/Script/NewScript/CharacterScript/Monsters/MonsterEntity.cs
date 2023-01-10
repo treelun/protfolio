@@ -18,6 +18,7 @@ public class MonsterEntity : LivingEntity
             switch (value)
             {
                 case EnemyState.Attack:
+                    AttackBox.gameObject.layer = 19;
                     StopCoroutine(EnemyWalk());
                     StopCoroutine(StartTraking());
                     Attack();
@@ -29,16 +30,22 @@ public class MonsterEntity : LivingEntity
                     //Move();
                     break;
                 case EnemyState.Death:
+                    capsuleCollider.enabled = false;
+                    target = null;
+                    AttackBox.gameObject.layer = 18;
                     DropItemAndExp();
                     StopCoroutine(EnemyWalk());
                     StopCoroutine(StartTraking());
                     Death();
-                    target = null;
-                    gameObject.layer = 18;
-                    playerCheckCollier.gameObject.layer = 18;
-                    AttackBox.gameObject.layer = 18;
+
+
+                    if (enemyType == EnemyType.Alien)
+                    {
+                        StartCoroutine(BossDeath());
+                    }
                     break;
                 case EnemyState.Tracking:
+                    gameObject.layer = 17;
                     Debug.Log("트래킹 실행");
                     StopCoroutine(EnemyWalk());
                     StartCoroutine(StartTraking());
@@ -71,6 +78,7 @@ public class MonsterEntity : LivingEntity
 
     public SphereCollider playerCheckCollier;
     public BoxCollider AttackBox;
+    public CapsuleCollider capsuleCollider;
     public GameObject hpBarPrefab;
     GameObject hpBar;
 
@@ -91,6 +99,14 @@ public class MonsterEntity : LivingEntity
 
     float delta;
 
+
+    public AudioSource audioSource;
+
+    public AudioClip idleSound;
+    public AudioClip attackSound;
+    public AudioClip deathSound;
+    public AudioClip hitSound;
+
     private void Start()
     {
         GameManager.Instance.itembox.SetObject(new Vector3(transform.position.x, 1, transform.position.z));
@@ -98,7 +114,6 @@ public class MonsterEntity : LivingEntity
     }
     public virtual void Update()
     {
-        Debug.Log(Hp);
         if (target == null)
         {
             hpBar.SetActive(false);
@@ -107,6 +122,7 @@ public class MonsterEntity : LivingEntity
         {
             hpBar.SetActive(true);
         }
+
     }
 
     public override void Attack()
@@ -139,6 +155,7 @@ public class MonsterEntity : LivingEntity
             
             
         }
+
     }
 
     //아이템, 경험치 drop(아이템드랍은 인터넷 참조 예상으로는 죽으면 > 비활성화된 아이템 프리펩 true로 바꾸고,
@@ -199,6 +216,8 @@ public class MonsterEntity : LivingEntity
             
             yield return new WaitForSeconds(3f);
         }
+        audioSource.clip = idleSound;
+        audioSource.Play();
     }
 
     //추적
@@ -261,6 +280,8 @@ public class MonsterEntity : LivingEntity
     public void StartAttack()
     {
         AttackBox.enabled = true;
+        audioSource.clip = attackSound;
+        audioSource.Play();
     }
     public void EndAttack()
     {
@@ -282,6 +303,7 @@ public class MonsterEntity : LivingEntity
     {
         base.OnEnable();
         Init();
+        capsuleCollider.enabled = true;
         enemyState = EnemyState.Move;
     }
 
@@ -297,6 +319,20 @@ public class MonsterEntity : LivingEntity
     {
         base.Death();
         hpBar.SetActive(false);
+
+        audioSource.clip = deathSound;
+        audioSource.Play();
+    }
+    public override void Hit(float _AttackForce)
+    {
+        base.Hit(_AttackForce);
+        audioSource.clip = hitSound;
+        audioSource.Play();
     }
 
+    IEnumerator BossDeath()
+    {
+        yield return new WaitForSeconds(5f);
+        LodingSceneContoller.LoadScene("EndingScene");
+    }
 }

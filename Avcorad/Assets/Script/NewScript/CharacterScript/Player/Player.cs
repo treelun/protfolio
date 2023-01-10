@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
 
     public Image dot;
 
+
     float delta;
     private void Update()
     {
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour
         switch (playerData.Mystate)
         {
             case PlayerEntity.State.Attack:
+                transform.Rotate(0f, Input.GetAxis("Mouse X") * playerData._rotateSpeed, 0f, Space.World);
                 if (Input.GetMouseButtonDown(0) && playerData.Sta > 0 && playerData.curWeapon != null)
                 {
                     playerData.Attack();
@@ -29,8 +31,8 @@ public class Player : MonoBehaviour
                 playerData.Move();
                 playerData.RegenSta();
                 dot.enabled = true;
-                //Cursor.visible = false;
-                //Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
                 Time.timeScale = 1f;
                 if (Input.GetMouseButtonDown(0) && playerData.curWeapon != null && playerData.Sta > 0 && !playerData.isJump)
                 {
@@ -60,11 +62,10 @@ public class Player : MonoBehaviour
             case PlayerEntity.State.UseUi:
                 playerData.RegenSta();
                 dot.enabled = false;
-                //Cursor.visible = true;
-                //Cursor.lockState = CursorLockMode.Confined;
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.Confined;
                 break;
             case PlayerEntity.State.Hit:
-                playerData.animator.SetTrigger("hit");
                 break;
             default:
                 break;
@@ -73,18 +74,11 @@ public class Player : MonoBehaviour
         {
             playerData.Mystate = PlayerEntity.State.Death;
         }
-        transform.Rotate(0f, Input.GetAxis("Mouse X") * playerData._rotateSpeed, 0f, Space.World);
+        
     }
     private void FixedUpdate()
     {
-        //attack(),Move(),dodge(),Jump(),F(interaction)상호작용키
         playerData.playerLevelup();
-        delta += Time.deltaTime;
-        if (delta > 1)
-        {
-            playerData.currentExp += 1000;
-            delta = 0;
-        }
     }
 
     private void Init()
@@ -99,7 +93,10 @@ public class Player : MonoBehaviour
             playerData.Hit(other.GetComponentInParent<MonsterEntity>().AttackForce);
             //playerData.Hit(0.1f);
             //Debug.Log("Hit the Player");
-            playerData.Mystate = PlayerEntity.State.Hit;
+            if (playerData.Mystate != PlayerEntity.State.Attack)
+            {
+                playerData.Mystate = PlayerEntity.State.Hit;
+            }
         }
     }
 }

@@ -5,13 +5,13 @@ using UnityEngine;
 public class PlayerSpawn : MonoBehaviour
 {
     [SerializeField] GameObject playerPrefab;
-    GameObject PlayerMove;
+    GameObject player;
 
 
     // Update is called once per frame
     void Update()
     {
-        if (PlayerMove == null)
+        if (player == null)
         {
             CreateEnemy();
         }
@@ -20,7 +20,7 @@ public class PlayerSpawn : MonoBehaviour
 
     void CreateEnemy()
     {
-        PlayerMove
+        player
          = Instantiate(playerPrefab, transform.position, transform.rotation);
     }
 }

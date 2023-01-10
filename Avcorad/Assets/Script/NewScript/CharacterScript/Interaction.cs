@@ -5,7 +5,7 @@ using UnityEngine;
 public class Interaction : MonoBehaviour
 {
 
-
+    int textcount;
     private void OnTriggerStay(Collider other)
     {
         if (other.transform.tag == "NPC" || other.tag == "item")
@@ -30,7 +30,7 @@ public class Interaction : MonoBehaviour
                 else if (other.transform.tag == "NPC")
                 {
                     other.GetComponent<NpcText>().NpcTextBackGround.gameObject.SetActive(true);
-                    other.GetComponent<NpcText>().ShowText(0);
+                    other.GetComponent<NpcText>().ShowText(textcount);
                 }
 
             }

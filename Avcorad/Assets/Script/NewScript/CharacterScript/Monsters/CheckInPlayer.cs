@@ -18,10 +18,6 @@ public class CheckInPlayer : MonoBehaviour
             this.enemy.target = other.transform;
             this.enemy.enemyState = MonsterEntity.EnemyState.Tracking;
         }
-        else if (this.enemy.enemyState == MonsterEntity.EnemyState.Death)
-        {
-            this.enemy.target = null;
-        }
     }
     private void OnTriggerExit(Collider other)
     {

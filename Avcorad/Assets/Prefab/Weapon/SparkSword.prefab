@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8137645180319641641}
   - component: {fileID: 569388863}
   - component: {fileID: 5759619165659362616}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SparkSword
   m_TagString: item
   m_Icon: {fileID: 0}

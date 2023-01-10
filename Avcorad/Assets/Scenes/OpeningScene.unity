@@ -7206,7 +7206,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 313001799}
-  m_LocalRotation: {x: -0.00003157091, y: 0.9997708, z: -0.021356793, w: -0.0014779221}
+  m_LocalRotation: {x: -0.000031570955, y: 0.9997708, z: -0.021356786, w: -0.0014779248}
   m_LocalPosition: {x: 113.45, y: 5.07, z: 354.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8866,7 +8866,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1354976767}
-  m_LocalRotation: {x: -0.05268628, y: 0.9312396, z: -0.32811096, w: -0.14953342}
+  m_LocalRotation: {x: -0.061969023, y: 0.92070115, z: -0.3488938, w: -0.16353099}
   m_LocalPosition: {x: 124.74, y: 4.6, z: 354.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8903,8 +8903,8 @@ PlayableDirector:
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: b2b3cd1abbe121448827235a4a48892d, type: 2}
   m_InitialState: 1
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 1
+  m_WrapMode: 1
+  m_DirectorUpdateMode: 2
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: 5177270986296906122, guid: b2b3cd1abbe121448827235a4a48892d, type: 2}
@@ -8919,6 +8919,10 @@ PlayableDirector:
     value: {fileID: 798456865}
   - key: {fileID: -4701501337416494400, guid: b2b3cd1abbe121448827235a4a48892d, type: 2}
     value: {fileID: 323882608}
+  - key: {fileID: 7516181717551415591, guid: b2b3cd1abbe121448827235a4a48892d, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -3472801288122396892, guid: b2b3cd1abbe121448827235a4a48892d, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References:
     - 647804db3baed0a47ac869f9d7356097: {fileID: 313001800}
@@ -8932,7 +8936,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1368975424}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 120.7, y: 0, z: 348.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9644,6 +9648,52 @@ MonoBehaviour:
   perpDirRotated: {x: 0.99925673, y: 0, z: -0.03854974}
   markerStartUVY: 0
   customPoints: []
+--- !u!1 &2013335187
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2013335188}
+  - component: {fileID: 2013335189}
+  m_Layer: 0
+  m_Name: SceneControl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2013335188
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013335187}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 174.4, y: 1.39, z: 361.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2013335189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013335187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 137dd28ee6047844498abb96d96fb50e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playableDirector: {fileID: 1368975425}
+  timeline: {fileID: 11400000, guid: b2b3cd1abbe121448827235a4a48892d, type: 2}
 --- !u!1 &2033400841
 GameObject:
   m_ObjectHideFlags: 0
@@ -10501,7 +10551,13 @@ Animator:
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'mixamorig:RightFoot'\n\tTransform 'mixamorig:LeftLeg'\n\tTransform
+    'mixamorig:LeftHand'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform 'mixamorig:Spine1'\n\tTransform
+    'mixamorig:Spine2'\n\tTransform 'mixamorig:LeftHandPinky3'\n\tTransform 'mixamorig:LeftHandThumb1'\n\tTransform
+    'mixamorig:RightHandPinky3'\n\tTransform 'mixamorig:LeftHandRing2'\n\tand more
+    ..."
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -10540,6 +10596,9 @@ MonoBehaviour:
   isJump: 0
   JumpFeedbacks: {fileID: 0}
   LandingFeedbacks: {fileID: 0}
+  audioSource: {fileID: 0}
+  dodgeSound: {fileID: 0}
+  attackSound: {fileID: 0}
 --- !u!4 &1477951997823379800
 Transform:
   m_ObjectHideFlags: 0

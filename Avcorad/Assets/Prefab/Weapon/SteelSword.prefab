@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6695777602775471899}
   - component: {fileID: 1546288576}
   - component: {fileID: 1546288577}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SteelSword
   m_TagString: item
   m_Icon: {fileID: 0}
