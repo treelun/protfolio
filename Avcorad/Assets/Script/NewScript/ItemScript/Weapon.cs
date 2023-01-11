@@ -16,6 +16,8 @@ public class Weapon : MonoBehaviour, Iitem
 
     public CapsuleCollider capsulecollider;
 
+    public TrailRenderer trailRenderer;
+
     public virtual void Init()
     {
         type = Iitem.Type.Weapon;

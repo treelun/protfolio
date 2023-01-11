@@ -224,6 +224,7 @@ public class PlayerEntity : LivingEntity
         audioSource.clip = attackSound;
         audioSource.Play();
         Sta -= 5f;
+        
     }
     public void StateEnd()
     {
@@ -240,10 +241,12 @@ public class PlayerEntity : LivingEntity
     public void AttackCollider()
     {
         curWeapon.capsulecollider.enabled = true;
+        curWeapon.trailRenderer.enabled = true;
     }
     public void EndCollider()
     {
         curWeapon.capsulecollider.enabled = false;
+        curWeapon.trailRenderer.enabled = false;
     }
 
     public void DodgeStart()
