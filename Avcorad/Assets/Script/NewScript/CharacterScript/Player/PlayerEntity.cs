@@ -137,7 +137,13 @@ public class PlayerEntity : LivingEntity
         {
             animator.SetTrigger("hit");
         }
-        
+        if (Hp <= float.Epsilon)
+        {
+            Mystate = PlayerEntity.State.Death;
+            Death();
+            tag = "EnemyDeath";
+        }
+
     }
     public void dodge()
     {

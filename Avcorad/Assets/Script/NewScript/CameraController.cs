@@ -58,13 +58,12 @@ public class CameraController : MonoBehaviour
 
         if(enemy != null)
         {
-            float kkk = Vector3.Distance(rayPosition.position, enemy.position);
-            if (kkk >= 10f)
+            float distance = Vector3.Distance(rayPosition.position, enemy.position);
+            if (distance >= 10f)
             {
                 virtualCamera.LookAt = FindObjectOfType<Player>().transform;
             }
         }
-        
     }
 
 }

@@ -57,7 +57,6 @@ public class Player : MonoBehaviour
                 }
                 break;
             case PlayerEntity.State.Death:
-                playerData.Death();
                 break;
             case PlayerEntity.State.UseUi:
                 playerData.RegenSta();
@@ -74,7 +73,7 @@ public class Player : MonoBehaviour
         {
             playerData.Mystate = PlayerEntity.State.Death;
         }
-        
+
     }
     private void FixedUpdate()
     {
@@ -86,17 +85,5 @@ public class Player : MonoBehaviour
         //정보변경, 무었을 변경할까?...음....
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.transform.tag == "EnemyAttackBox")
-        {
-            playerData.Hit(other.GetComponentInParent<MonsterEntity>().AttackForce);
-            //playerData.Hit(0.1f);
-            //Debug.Log("Hit the Player");
-            if (playerData.Mystate != PlayerEntity.State.Attack)
-            {
-                playerData.Mystate = PlayerEntity.State.Hit;
-            }
-        }
-    }
+
 }

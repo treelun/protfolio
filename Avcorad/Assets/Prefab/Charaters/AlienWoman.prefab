@@ -227,6 +227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1713460247}
   - component: {fileID: 745154793}
+  - component: {fileID: 4230960147593770092}
   m_Layer: 19
   m_Name: AttackBox
   m_TagString: EnemyAttackBox
@@ -262,6 +263,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.025, y: 0.025, z: 0.025}
   m_Center: {x: 0, y: 0.025, z: 0.015}
+--- !u!114 &4230960147593770092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713460246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 701d77f9337e263429148023c0077018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1796386412
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,6 +507,7 @@ GameObject:
   - component: {fileID: 385194164}
   - component: {fileID: 8669292696773096738}
   - component: {fileID: 2640226980547001119}
+  - component: {fileID: 3958485743259407126}
   m_Layer: 17
   m_Name: AlienWoman
   m_TagString: Enemy
@@ -714,6 +728,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &3958485743259407126
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818375794864784120}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02, y: 0.02, z: 0.02}
+  m_Center: {x: 0, y: 0.01, z: 0}
 --- !u!1 &1307013988007826194
 GameObject:
   m_ObjectHideFlags: 0

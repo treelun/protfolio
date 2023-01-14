@@ -7206,7 +7206,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 313001799}
-  m_LocalRotation: {x: -0.000031570955, y: 0.9997708, z: -0.021356786, w: -0.0014779248}
+  m_LocalRotation: {x: -0.005362951, y: 0.96456736, z: -0.2630482, w: -0.019665321}
   m_LocalPosition: {x: 113.45, y: 5.07, z: 354.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8866,7 +8866,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1354976767}
-  m_LocalRotation: {x: -0.061969023, y: 0.92070115, z: -0.3488938, w: -0.16353099}
+  m_LocalRotation: {x: 0.11800218, y: -0.59928906, z: 0.08989483, w: 0.78666836}
   m_LocalPosition: {x: 124.74, y: 4.6, z: 354.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8903,18 +8903,14 @@ PlayableDirector:
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: b2b3cd1abbe121448827235a4a48892d, type: 2}
   m_InitialState: 1
-  m_WrapMode: 1
+  m_WrapMode: 0
   m_DirectorUpdateMode: 2
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: 5177270986296906122, guid: b2b3cd1abbe121448827235a4a48892d, type: 2}
     value: {fileID: 807682035}
-  - key: {fileID: -6480137431361421270, guid: b2b3cd1abbe121448827235a4a48892d, type: 2}
-    value: {fileID: 1322732723997511254}
   - key: {fileID: 7904803764084645800, guid: b2b3cd1abbe121448827235a4a48892d, type: 2}
     value: {fileID: 2033400846}
-  - key: {fileID: -5994005316355275296, guid: b2b3cd1abbe121448827235a4a48892d, type: 2}
-    value: {fileID: 1322732723997511254}
   - key: {fileID: 6304660064195654291, guid: b2b3cd1abbe121448827235a4a48892d, type: 2}
     value: {fileID: 798456865}
   - key: {fileID: -4701501337416494400, guid: b2b3cd1abbe121448827235a4a48892d, type: 2}
@@ -8923,6 +8919,10 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: -3472801288122396892, guid: b2b3cd1abbe121448827235a4a48892d, type: 2}
     value: {fileID: 0}
+  - key: {fileID: 8952643204725338088, guid: b2b3cd1abbe121448827235a4a48892d, type: 2}
+    value: {fileID: 1322732723997511254}
+  - key: {fileID: -8066142236037372348, guid: b2b3cd1abbe121448827235a4a48892d, type: 2}
+    value: {fileID: 1322732723997511254}
   m_ExposedReferences:
     m_References:
     - 647804db3baed0a47ac869f9d7356097: {fileID: 313001800}
@@ -10790,7 +10790,7 @@ Transform:
   - {fileID: 1154383045025438377}
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 189, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -0.000004829673, z: 0}
 --- !u!4 &1650986174822800643
 Transform:
   m_ObjectHideFlags: 0

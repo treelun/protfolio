@@ -6,7 +6,7 @@ public class StoneSword : Weapon
     public override void Init()
     {
         base.Init();
-        WeaponAttackForce = 10;
+        WeaponAttackForce = 40;
         WeaponAttackSpeed = 0.8f;
         itemName = "µ¹°Ë";
         isSetEquip = true;

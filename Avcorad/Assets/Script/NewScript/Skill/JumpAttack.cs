@@ -20,7 +20,7 @@ public class JumpAttack : Skill
         SkillDamage = 40f;
         needMp = 10f;
         coolTime = 1f;
-        needLevel = 5;
+        needLevel = 1;
     }
 
     public override void useSkill()

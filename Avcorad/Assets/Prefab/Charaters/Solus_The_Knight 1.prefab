@@ -525,6 +525,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8136091503870220809}
   - component: {fileID: 342820336078082416}
+  - component: {fileID: 8006478426193221372}
   m_Layer: 19
   m_Name: AttackBox
   m_TagString: EnemyAttackBox
@@ -560,6 +561,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5, z: 0.5}
   m_Center: {x: 0, y: 1, z: 0.5}
+--- !u!114 &8006478426193221372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641506621184355053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 701d77f9337e263429148023c0077018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1735325914110628940
 GameObject:
   m_ObjectHideFlags: 0
@@ -1834,7 +1847,7 @@ MonoBehaviour:
   maxSta: 0
   maxMp: 0
   _AttackForce: 10
-  _Exp: 50
+  _Exp: 100
   audioSource: {fileID: 9223012426212273162}
   idleSound: {fileID: 8300000, guid: 1d4d7468097d5e54d829fdf534a39ec4, type: 3}
   attackSound: {fileID: 8300000, guid: dc2e281be293917409da86787c0fcba5, type: 3}

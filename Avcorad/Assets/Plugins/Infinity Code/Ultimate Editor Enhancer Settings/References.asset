@@ -187,10 +187,16 @@ MonoBehaviour:
   _sceneHistory:
   - name: play
     path: Assets/Scenes/play.unity
-  - name: EndingScene
-    path: Assets/Scenes/EndingScene.unity
+  - name: FeelBounce
+    path: Assets/Feel/FeelDemos/Bounce/FeelBounce.unity
+  - name: FeelBlob
+    path: Assets/Feel/FeelDemos/Blob/FeelBlob.unity
+  - name: FeelBarbarians
+    path: Assets/Feel/FeelDemos/Barbarians/FeelBarbarians.unity
   - name: MainMenu
     path: Assets/Scenes/MainMenu.unity
+  - name: EndingScene
+    path: Assets/Scenes/EndingScene.unity
   - name: test scene
     path: Assets/EasyRoads3D scenes/test scene.unity
   - name: OpeningScene

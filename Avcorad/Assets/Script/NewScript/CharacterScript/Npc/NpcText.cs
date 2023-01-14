@@ -68,7 +68,7 @@ public class NpcText : MonoBehaviour
                     GameManager.Instance.mainPlayer.playerData.Mystate = PlayerEntity.State.Move;
                     Debug.Log("대화종료");
                     animator.SetTrigger("Idle");
-                    virtualCamera.LookAt = null;
+                    virtualCamera.LookAt = GameManager.Instance.mainPlayer.playerData.transform;
                 }
             }
         }

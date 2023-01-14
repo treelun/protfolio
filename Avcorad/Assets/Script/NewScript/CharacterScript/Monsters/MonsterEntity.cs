@@ -32,7 +32,7 @@ public class MonsterEntity : LivingEntity
                 case EnemyState.Death:
                     capsuleCollider.enabled = false;
                     target = null;
-                    AttackBox.gameObject.layer = 18;
+                    AttackBox.enabled = false;
                     DropItemAndExp();
                     StopCoroutine(EnemyWalk());
                     StopCoroutine(StartTraking());
@@ -305,6 +305,7 @@ public class MonsterEntity : LivingEntity
         Init();
         capsuleCollider.enabled = true;
         enemyState = EnemyState.Move;
+        
     }
 
     public override void Init()
