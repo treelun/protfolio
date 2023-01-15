@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using MoreMountains.Feedbacks;
 
 public class MonsterEntity : LivingEntity
 {
@@ -106,6 +107,12 @@ public class MonsterEntity : LivingEntity
     public AudioClip attackSound;
     public AudioClip deathSound;
     public AudioClip hitSound;
+
+    [SerializeField]
+    /// a feedback to be played when the cube lands
+    private MMFeedbacks cameraShake;
+
+    public ParticleSystem bloodExplosion;
 
     private void Start()
     {
@@ -329,6 +336,8 @@ public class MonsterEntity : LivingEntity
         base.Hit(_AttackForce);
         audioSource.clip = hitSound;
         audioSource.Play();
+        cameraShake?.PlayFeedbacks();
+        bloodExplosion.Play();
     }
 
     IEnumerator BossDeath()

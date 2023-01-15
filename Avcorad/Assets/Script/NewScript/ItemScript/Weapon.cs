@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using MoreMountains.Feedbacks;
 
 public class Weapon : MonoBehaviour, Iitem
 {
@@ -61,19 +61,27 @@ public class Weapon : MonoBehaviour, Iitem
             if (other.GetComponent<MonsterEntity>().enemyState != MonsterEntity.EnemyState.Death)
             {
                 other.GetComponent<MonsterEntity>().Hit(GameManager.Instance.mainPlayer.playerData.playerAttackForce + WeaponAttackForce);
-                Debug.Log(GameManager.Instance.mainPlayer.playerData.playerAttackForce + WeaponAttackForce + "의 데미지를 주었습니다.");
+                //freezeFrame?.PlayFeedbacks();
                 other.GetComponent<MonsterEntity>().enemyState = MonsterEntity.EnemyState.Hit;
             }
             if (other.GetComponent<MonsterEntity>().Hp <= float.Epsilon)
             {
                 other.GetComponent<MonsterEntity>().enemyState = MonsterEntity.EnemyState.Death;
             }
-            
+            StartCoroutine(Timedelay());
         }
         else if (other.transform.tag != "Enemy")
         {
             return;
         }
+    }
+
+    IEnumerator Timedelay()
+    {
+        Debug.Log("Timedelay Start");
+        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(0.01f);
+        Time.timeScale = 1f;
     }
 
 }

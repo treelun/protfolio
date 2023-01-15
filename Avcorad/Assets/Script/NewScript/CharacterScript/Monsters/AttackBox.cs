@@ -14,7 +14,8 @@ public class AttackBox : MonoBehaviour
     {
         if (other.transform.tag == "Player")
         {
-            other.GetComponent<PlayerEntity>().Hit(monsterEntity.AttackForce);
+            //other.GetComponent<PlayerEntity>().Hit(monsterEntity.AttackForce);
+            other.GetComponent<PlayerEntity>().Hit(0.1f);
         }
         else if (other.transform.tag == "EnemyDeath")
         {

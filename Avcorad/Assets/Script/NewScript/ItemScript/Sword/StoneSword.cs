@@ -6,8 +6,8 @@ public class StoneSword : Weapon
     public override void Init()
     {
         base.Init();
-        WeaponAttackForce = 40;
-        WeaponAttackSpeed = 0.8f;
+        WeaponAttackForce = 10;
+        WeaponAttackSpeed = 1.2f;
         itemName = "µ¹°Ë";
         isSetEquip = true;
         itemImage = GetComponent<Image>().sprite;

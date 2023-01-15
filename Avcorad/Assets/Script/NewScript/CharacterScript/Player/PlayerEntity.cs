@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.Feedbacks;
-using Cinemachine;
+using UnityEngine.UI;
 
 public class PlayerEntity : LivingEntity
 {
@@ -52,6 +52,8 @@ public class PlayerEntity : LivingEntity
 
     public AudioClip dodgeSound;
     public AudioClip attackSound;
+
+    public Image bloodScreen;
 
     public void LevelUp()
     {
@@ -125,7 +127,6 @@ public class PlayerEntity : LivingEntity
         animator.SetTrigger("ComboAttack");
         animator.SetFloat("SetAttackSpeed", playerAttackSpeed);
         Mystate = State.Attack;
-
     }
 
     public override void Hit(float _AttackForce)
@@ -133,6 +134,7 @@ public class PlayerEntity : LivingEntity
         //쳐맞음
         base.Hit(_AttackForce);
         //맞았을때의 피격 이펙트(애니메이션이나 반짝임)
+        StartCoroutine(HitEffectOnOff());
         if (Mystate != PlayerEntity.State.Attack)
         {
             animator.SetTrigger("hit");
@@ -285,5 +287,12 @@ public class PlayerEntity : LivingEntity
     public void HitEnd()
     {
         Mystate = State.Move;
+    }
+
+    IEnumerator HitEffectOnOff()
+    {
+        bloodScreen.color = new Color(1, 0, 0, Random.Range(0.2f, 0.3f));
+        yield return new WaitForSeconds(0.1f);
+        bloodScreen.color = Color.clear;
     }
 }
