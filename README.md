@@ -12,12 +12,12 @@
  
 
 ## 🎮Project 소개
-다크소울 느낌의 액션 RPG를 지향
+액션 RPG
 
 
 ## 🕔개발기간
 2022.11.14 ~ 2023.01.15
-
+![스케쥴](https://user-images.githubusercontent.com/109446729/213032074-a9a8b88b-fbd5-423c-a8dc-4077ea6a98af.jpg)
 
 ## 🏋️‍♀️구현 기능
 이동, 공격, 스킬, 인벤토리, 락온, 퀵슬롯, 몬스터
@@ -60,7 +60,9 @@ animation에 event를 통해 공격이 들어가는 collider를 활성화 비활
 
 연속공격은 Sub - StateMachine을 통해 해결하였습니다.
 
-![Honeycam 2023-01-18 07-53-52](https://user-images.githubusercontent.com/109446729/213030074-845c06c8-dec7-405d-8ff3-e7caa4fcf25f.gif)![Honeycam 2023-01-18 07-54-20](https://user-images.githubusercontent.com/109446729/213030112-664da3f6-ff29-4cbf-b6e0-d2d280af59fd.gif)
+![Honeycam 2023-01-18 07-53-52](https://user-images.githubusercontent.com/109446729/213030074-845c06c8-dec7-405d-8ff3-e7caa4fcf25f.gif)
+
+![Honeycam 2023-01-18 07-54-20](https://user-images.githubusercontent.com/109446729/213030112-664da3f6-ff29-4cbf-b6e0-d2d280af59fd.gif)
 
 
 
@@ -74,9 +76,15 @@ animation에 event를 통해 공격이 들어가는 collider를 활성화 비활
 
 퀵슬롯에 등록된 스킬의 data를 가져 오는것이 가장 큰 문제였습니다. 
 
-처음엔 ScriptableObject를 사용하여 구현 하였었으나 data를 가져 오는것이 저에게는 너무 복잡해지는 부분이 있어 
+처음엔 ScriptableObject를 사용하여 구현 하였었으나 data를 가져 오는것이 
+
+코드를 보았을 때 헷갈리는 부분이 있어
 
 스킬을 list에 담고 리스트에 있는 스킬과 슬롯에 있는 스킬이 같으면 사용을 하게 구현하였습니다.
+
+그러나 ScriptableObject를 사용한것과 지금 구현한것도 똑같이 코드가 깨끗하지 못해
+
+지저분합니다. 유튜브를 보고 참고하여 수정하였으나 개발력의 한계로 타협을 보았습니다.
 
 
 + 인벤토리 
@@ -108,9 +116,9 @@ animation에 event를 통해 공격이 들어가는 collider를 활성화 비활
 
 특정키, 현재에서는 G키를 입력하면 ray를 쏴서 시네머신 가상카메라의 LookAt을 설정하도록 구현하였습니다. 
 
-문제점은 카메라는 고정되어 있고, 타겟을 보고있기때문에 시점이 불편한 점입니다.
+문제점은 카메라는 캐릭터의 뒤에 고정되어 있고, 타겟을 보고있기때문에 시점이 불편한 점입니다.
 
-우선은 기간내 프로젝트의 완성이기에 추후에 완성도를 높일 계획입니다.
+시네머신의 softzone, deadzone을 활용하면 해결이 가능할 것으로 보고있습니다.
 
 
 + 퀵슬롯 
@@ -151,7 +159,7 @@ Timeline을 이용하여 제작하였습니다.
 
 재생이 안되는것은 Timeline의 timascale이 GameTime으로 되어있어 
 
-UncaledGameTime으로 변경해 주니 재생은 되지만 플레이어 캐릭터의 위치는 변하지 않았습니다...
+UncaledGameTime으로 변경해 주니 재생은 되지만 플레이어 캐릭터의 위치는 변하지 않았습니다.
 
 이문제는 유니티의 버그인것인지 rigidbody 컴포넌트를 제거하니 잘 실행이 되었습니다.
 
@@ -183,7 +191,6 @@ UncaledGameTime으로 변경해 주니 재생은 되지만 플레이어 캐릭�
 
 작업 막바지에 적용하려 하다보니 적용하지 못하였습니다.
 
-추후에 작업을 더 하게된다면, 추가해 볼 예정입니다.
 
 
 ## 🖥️플레이영상
