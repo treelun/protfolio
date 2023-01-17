@@ -36,9 +36,9 @@ public class LightingStrike : Skill
     public override void useSkill()
     {
         
-        if (Physics.Raycast(rayPosition.position, rayPosition.forward, out hit, 100f) && !isUse) //Finds the point where you click with the mouse
+        if (Physics.SphereCast(rayPosition.position,5f, rayPosition.forward, out hit, 100f) && !isUse) //Finds the point where you click with the mouse
         {
-            if (hit.transform.tag != "Ground")
+            if (hit.transform.tag == "Enemy")
             {
                 GameManager.Instance.mainPlayer.playerData.animator.SetTrigger("Casting");
                 Debug.Log("라이트닝 스트라이크 발사!!");

@@ -11,8 +11,6 @@ public class CameraController : MonoBehaviour
     CinemachineVirtualCamera virtualCamera;
     CinemachineComposer composer;
 
-    public Transform rayPosition;
-
     public Slider enemyHpbarSlider;
 
     RaycastHit hit;
@@ -38,7 +36,7 @@ public class CameraController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
-            if (Physics.Raycast(rayPosition.position, rayPosition.forward, out hit, 50f))
+            if (Physics.Raycast(transform.position, transform.forward, out hit, 50f))
             {
                 if (hit.transform.tag == "Enemy")
                 {
@@ -48,7 +46,7 @@ public class CameraController : MonoBehaviour
                 if (enemy == null)
                     return;
 
-                float distance = Vector3.Distance(rayPosition.position, enemy.position);
+                float distance = Vector3.Distance(transform.position, enemy.position);
                 if (distance < 10f)
                 {
                     virtualCamera.LookAt = enemy.transform;
@@ -58,7 +56,7 @@ public class CameraController : MonoBehaviour
 
         if(enemy != null)
         {
-            float distance = Vector3.Distance(rayPosition.position, enemy.position);
+            float distance = Vector3.Distance(transform.position, enemy.position);
             if (distance >= 10f)
             {
                 virtualCamera.LookAt = FindObjectOfType<Player>().transform;

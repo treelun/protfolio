@@ -18,6 +18,11 @@ public class Firebolt : Skill
         Init();
     }
 
+    private void Update()
+    {
+        Debug.DrawRay(rayPosition.position, rayPosition.forward * 50f, Color.blue);
+    }
+
     public override void Init()
     {
         base.Init();
@@ -30,12 +35,12 @@ public class Firebolt : Skill
     public override void useSkill()
     {
         
-        if (Physics.Raycast(rayPosition.position, rayPosition.forward, out hit, 50f) && !isUse) //Finds the point where you click with the mouse
+        if (Physics.SphereCast(rayPosition.position,5f, rayPosition.forward, out hit, 30f) && !isUse) //Finds the point where you click with the mouse
         {
-            if (hit.transform.tag != "Ground")
+            if (hit.transform.tag == "Enemy")
             {
                 GameManager.Instance.mainPlayer.playerData.animator.SetTrigger("Casting");
-                Debug.Log("파이어볼트 발사!!");
+                Debug.Log(hit);
                 GameObject projectile = Instantiate(projectiles, spawnPosition.position, Quaternion.identity) as GameObject; //Spawns the selected projectile
                 projectile.transform.LookAt(hit.point); //Sets the projectiles rotation to look at the point clicked
                 projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * speed); //Set the speed of the projectile by applying force to the rigidbody

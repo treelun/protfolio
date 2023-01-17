@@ -260,12 +260,12 @@ public class PlayerEntity : LivingEntity
     public void DodgeStart()
     {
         //Mystate = State.Dodge;
-        gameObject.layer = 7;
+        gameObject.tag = "Untagged";
     }
     public void DodgeEnd()
     {
         Mystate = State.Move;
-        gameObject.layer = 6;
+        gameObject.tag = "Player";
     }
 
     public void RegenSta()

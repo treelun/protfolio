@@ -78,6 +78,9 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         playerData.playerLevelup();
+
+
+        playerData.currentExp = playerData.currentExp + 100;
     }
 
     private void Init()

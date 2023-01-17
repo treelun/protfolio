@@ -345,4 +345,5 @@ public class MonsterEntity : LivingEntity
         yield return new WaitForSeconds(5f);
         LodingSceneContoller.LoadScene("EndingScene");
     }
+
 }
