@@ -186,9 +186,6 @@ UncaledGameTime으로 변경해 주니 재생은 되지만 플레이어 캐릭�
 추후에 작업을 더 하게된다면, 추가해 볼 예정입니다.
 
 
-![Honeycam 2023-01-02 07-47-10](https://user-images.githubusercontent.com/109446729/212476898-26e30cfa-557a-42af-b992-14f501a66ab4.gif)
-
-
 ## 🖥️플레이영상
 https://drive.google.com/file/d/1a_fFPcb_qXOAQSEekPZVmvnnMyru6we2/view?usp=sharing
 
