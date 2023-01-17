@@ -28,7 +28,8 @@
 
 ### 캐릭터 구현
 
-![opening](https://user-images.githubusercontent.com/109446729/212476935-d7977fcf-5e62-4ab6-9939-2a560a82e098.gif)
+![Honeycam 2023-01-18 07-53-27](https://user-images.githubusercontent.com/109446729/213030048-d493d520-6ef5-4469-8c8f-4531867c2136.gif)
+
 + 이동 
 
 GetAxis를 사용하여 플레이어의 이동을 구현하였습니다.
@@ -59,7 +60,8 @@ animation에 event를 통해 공격이 들어가는 collider를 활성화 비활
 
 연속공격은 Sub - StateMachine을 통해 해결하였습니다.
 
-![01](https://user-images.githubusercontent.com/109446729/212476746-43f45193-455b-4fb1-9b7e-1f31ef77d9ee.gif)![02](https://user-images.githubusercontent.com/109446729/212476818-e984f1d2-d282-4489-b8aa-bb7a814cab8e.gif)
+![Honeycam 2023-01-18 07-53-52](https://user-images.githubusercontent.com/109446729/213030074-845c06c8-dec7-405d-8ff3-e7caa4fcf25f.gif)![Honeycam 2023-01-18 07-54-20](https://user-images.githubusercontent.com/109446729/213030112-664da3f6-ff29-4cbf-b6e0-d2d280af59fd.gif)
+
 
 
 + 스킬 
