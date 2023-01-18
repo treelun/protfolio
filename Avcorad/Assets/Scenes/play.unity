@@ -61343,6 +61343,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHpbarSlider: {fileID: 2962350460175473185, guid: b767311b274999543a14c98bf81fa87d,
     type: 3}
+  rayPoint: {fileID: 1154383043707924608}
 --- !u!114 &2662964979488131558
 MonoBehaviour:
   m_ObjectHideFlags: 0

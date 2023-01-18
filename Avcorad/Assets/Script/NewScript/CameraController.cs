@@ -16,6 +16,8 @@ public class CameraController : MonoBehaviour
     RaycastHit hit;
 
     Transform enemy;
+
+    public Transform rayPoint;
     private void Start()
     {
         virtualCamera = GetComponent<CinemachineVirtualCamera>();
@@ -36,7 +38,7 @@ public class CameraController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
-            if (Physics.Raycast(transform.position, transform.forward, out hit, 50f))
+            if (Physics.SphereCast(rayPoint.position,5f, rayPoint.forward, out hit, 50f))
             {
                 if (hit.transform.tag == "Enemy")
                 {
@@ -46,7 +48,7 @@ public class CameraController : MonoBehaviour
                 if (enemy == null)
                     return;
 
-                float distance = Vector3.Distance(transform.position, enemy.position);
+                float distance = Vector3.Distance(rayPoint.position, enemy.position);
                 if (distance < 10f)
                 {
                     virtualCamera.LookAt = enemy.transform;
@@ -56,7 +58,7 @@ public class CameraController : MonoBehaviour
 
         if(enemy != null)
         {
-            float distance = Vector3.Distance(transform.position, enemy.position);
+            float distance = Vector3.Distance(rayPoint.position, enemy.position);
             if (distance >= 10f)
             {
                 virtualCamera.LookAt = FindObjectOfType<Player>().transform;

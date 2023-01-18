@@ -80,7 +80,7 @@ public class Player : MonoBehaviour
         playerData.playerLevelup();
 
 
-        playerData.currentExp = playerData.currentExp + 100;
+        playerData.currentExp++;
     }
 
     private void Init()
