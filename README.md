@@ -237,7 +237,7 @@ UncaledGameTime으로 변경해 주니 재생은 되지만 플레이어 캐릭�
 
 
 ## 🖥️플레이영상
-https://drive.google.com/file/d/1a_fFPcb_qXOAQSEekPZVmvnnMyru6we2/view?usp=sharing
+[https://drive.google.com/file/d/1a_fFPcb_qXOAQSEekPZVmvnnMyru6we2/view?usp=sharing](https://drive.google.com/file/d/1IbsaG23GmW0ywrSYP1MEA5TodaNJma63/view?usp=sharing)
 
 
 ## 📖개발중 느낀점
