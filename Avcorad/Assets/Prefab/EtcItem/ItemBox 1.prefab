@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &477176855312617024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 477176855312617055}
+  - component: {fileID: 477176855312617054}
+  m_Layer: 0
+  m_Name: ItemBox 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &477176855312617055
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477176855312617024}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 126.05316, y: -46.401337, z: 395.62637}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &477176855312617054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477176855312617024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5491534c8b681d24ca30313146c8b52c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HpPotion: {fileID: 9149994786285424102, guid: d911cb6af77cd7e42ab6dde263bbd639,
+    type: 3}
+  MpPotion: {fileID: 9084088688924724956, guid: 4926574ba94c8d6488faaa74cf35b1b3,
+    type: 3}
+  stoneSword: {fileID: 9024422072617152751, guid: aa21cdbd1b013ea42b40997545b95ad8,
+    type: 3}
+  worldofSword: {fileID: 2470728721773255756, guid: 0d19c97bedf815048be900a8c8b4701f,
+    type: 3}
+  sparkSword: {fileID: 5373915207126968690, guid: baee6e48202305d489ed0ee91ea599d4,
+    type: 3}
+  flameSword: {fileID: 8281943479268463196, guid: 904f21ccb7e86e847800d4c4d84d0043,
+    type: 3}
+  steelSword: {fileID: 1244705470252996964, guid: 209b6aa19ec29644fb74b7f9a145429f,
+    type: 3}

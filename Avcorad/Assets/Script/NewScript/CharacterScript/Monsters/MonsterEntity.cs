@@ -25,7 +25,11 @@ public class MonsterEntity : LivingEntity
                     Attack();
                     break;
                 case EnemyState.Move:
-                    animator.SetBool("isSideMove", false);
+                    if (enemyType == EnemyType.Alien)
+                    {
+                        animator.SetBool("isSideMove", false);
+                    }
+                    
                     StopCoroutine(StartTraking());
                     StartCoroutine(EnemyWalk());
                     //Move();
@@ -114,9 +118,12 @@ public class MonsterEntity : LivingEntity
 
     public ParticleSystem bloodExplosion;
 
+    [SerializeField]
+    private ItemBox itemBox;
+
     private void Start()
     {
-        GameManager.Instance.itembox.SetObject(new Vector3(transform.position.x, 1, transform.position.z));
+        itemBox.SetObject(new Vector3(transform.position.x, 1, transform.position.z));
         SetHpbar();
     }
     public virtual void Update()
@@ -175,17 +182,17 @@ public class MonsterEntity : LivingEntity
         int potionrand = Random.Range(0, 101);
         if (random < 600)
         {
-            GameManager.Instance.itembox.GetHpPotion(potionrand).transform.position = new Vector3(transform.position.x, 1, transform.position.z);
-            GameManager.Instance.itembox.GetHpPotion(potionrand).SetActive(true);
+            itemBox.GetHpPotion(potionrand).transform.position = new Vector3(transform.position.x, 1, transform.position.z);
+            itemBox.GetHpPotion(potionrand).SetActive(true);
         }
         else if (600 <= random && random < 950)
         {
-            GameManager.Instance.itembox.GetMpPotion(potionrand).transform.position = new Vector3(transform.position.x, 1, transform.position.z);
-            GameManager.Instance.itembox.GetMpPotion(potionrand).SetActive(true);
+            itemBox.GetMpPotion(potionrand).transform.position = new Vector3(transform.position.x, 1, transform.position.z);
+            itemBox.GetMpPotion(potionrand).SetActive(true);
         }
         else if (950 <= random && random < 1000)
         {
-            GameManager.Instance.itembox.Getweapon(new Vector3(transform.position.x, 0.5f, transform.position.z)).SetActive(true);
+            itemBox.Getweapon(new Vector3(transform.position.x, 0.5f, transform.position.z)).SetActive(true);
         }
 
         //오브젝트 풀링으로 아이템 드롭 구현
@@ -195,14 +202,18 @@ public class MonsterEntity : LivingEntity
     {
         while (target == null)
         {
-            Debug.Log("EnemyState : Move");
             animator.SetBool("isAttack", false);
             animator.SetBool("isAttack2", false);
             animator.SetBool("isRun", false);
             animator.SetBool("isTurn", false);
             animator.SetBool("isTurn2", false);
-            animator.SetBool("isSideMove", false);
-            animator.SetBool("isSideMove2", false);
+
+            if (enemyType== EnemyType.Alien)
+            {
+                animator.SetBool("isSideMove", false);
+                animator.SetBool("isSideMove2", false);
+            }
+
             animator.SetBool("isWalk", true);
             yield return new WaitForSeconds(10f);
 

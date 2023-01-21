@@ -49,7 +49,7 @@ public class CameraController : MonoBehaviour
                     return;
 
                 float distance = Vector3.Distance(rayPoint.position, enemy.position);
-                if (distance < 10f)
+                if (distance < 20f)
                 {
                     virtualCamera.LookAt = enemy.transform;
                 }
@@ -59,7 +59,7 @@ public class CameraController : MonoBehaviour
         if(enemy != null)
         {
             float distance = Vector3.Distance(rayPoint.position, enemy.position);
-            if (distance >= 10f)
+            if (distance >= 20f)
             {
                 virtualCamera.LookAt = FindObjectOfType<Player>().transform;
             }

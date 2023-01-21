@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2023881692452993595}
   - component: {fileID: 6816612797509793835}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Boulder03
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +26,8 @@ Transform:
   m_GameObject: {fileID: 3048123815084509224}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3772177947197434110}
   - {fileID: 4816677354366363009}
@@ -67,7 +68,7 @@ GameObject:
   - component: {fileID: 4816677354366363009}
   - component: {fileID: 3101212762761506806}
   - component: {fileID: 994924008938456873}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Boulder03_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,6 +85,7 @@ Transform:
   m_LocalRotation: {x: 0.00000006657903, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2023881692452993595}
   m_RootOrder: 1
@@ -107,10 +109,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -135,6 +139,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &7348896799219179320
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,8 +151,8 @@ GameObject:
   - component: {fileID: 3772177947197434110}
   - component: {fileID: 3207846162448156027}
   - component: {fileID: 1980871923684134643}
-  - component: {fileID: 1511336212171613700}
-  m_Layer: 0
+  - component: {fileID: 9034394723826021955}
+  m_Layer: 12
   m_Name: Boulder03_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,6 +169,7 @@ Transform:
   m_LocalRotation: {x: 0.00000006657903, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2023881692452993595}
   m_RootOrder: 0
@@ -187,10 +193,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -215,8 +223,9 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &1511336212171613700
-MeshCollider:
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &9034394723826021955
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -225,7 +234,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 840325795063722961, guid: 70d24e7129e37fb4db3deed89f0f8617, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 2.3395405, y: 1.5659504, z: 1.9390131}
+  m_Center: {x: 0.011304915, y: 0.7885504, z: 0.0049219728}

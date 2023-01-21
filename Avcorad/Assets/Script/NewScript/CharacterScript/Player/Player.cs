@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     float delta;
     private void Update()
     {
-        Debug.Log(playerData.Mystate);
         //상태패턴을 이용하여 공격과 회피중 이동을 멈추고, 연속공격을 위해
         //Attack상태일때 클릭시 공격이 나가는 함수를 적용
         switch (playerData.Mystate)
@@ -78,9 +77,6 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         playerData.playerLevelup();
-
-
-        playerData.currentExp++;
     }
 
     private void Init()

@@ -8,15 +8,13 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: OakTreeBroken01
-  m_Shader: {fileID: 4800000, guid: d9d09221179189a449fe37a0ddad2931, type: 3}
+  m_Shader: {fileID: 4800000, guid: 0f4122b9a743b744abe2fb6a0a88868b, type: 3}
   m_ValidKeywords:
-  - _BASEWINDCHANNEL_B
-  - _LAYERCHANNEL_G
-  - _VERTEXCOLORCHANNEL_RGBA
+  - EFFECT_BUMP
+  - EFFECT_HUE_VARIATION
   m_InvalidKeywords:
-  - _BLENDNORMALS_ON
-  - _DEPOSITCHANNEL_R
-  - _NORMALMAP
+  - BACKFACE_NORMAL_MODE_MIRROR
+  - _WINDQUALITY_FASTEST
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -54,9 +52,17 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DetailTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 0.5, y: 0.1}
+        m_Offset: {x: 0, y: 0}
+    - _ExtraTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _LayerMask:
         m_Texture: {fileID: 2800000, guid: e1f9e4b4f78e10041804ffee938870e2, type: 3}
@@ -82,19 +88,44 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SubsurfaceTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - BACKFACE_NORMAL_MODE: 1
+    - EFFECT_BILLBOARD: 0
+    - EFFECT_EXTRA_TEX: 1
     - _2ndNormalPower: 1
+    - _AO: 2.4
+    - _AlphaClipThreshold: 0.33
     - _AlphaCutoff: 0.5
+    - _BaseLight: 0.35
     - _BaseWindChannel: 2
+    - _BillboardKwToggle: 0
+    - _BillboardShadowFade: 0.5
     - _BlendNormals: 1
     - _BumpScale: 1
     - _Contrast: 100
     - _Contrast2: 0
+    - _Cull: 2
     - _Cutoff: 0.5
     - _DepositChannel: 0
     - _DepositContrast: 1
@@ -115,6 +146,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _HueVariationKwToggle: 1
     - _InvertMask: 0
     - _LayerChannel: 1
     - _LayerContrast: 0
@@ -127,24 +159,36 @@ Material:
     - _Metallic: 0
     - _MetallicPower: 0.5
     - _Mode: 0
+    - _NormalMapKwToggle: 1
     - _NormalPower: 1
+    - _Occlusion: 7.5
     - _OcclusionPower: 0.939
     - _OcclusionStrength: 1
+    - _OldHueVarBehavior: 0
     - _Parallax: 0.02
     - _PosContrast: 10
     - _Position: 6.2
+    - _QueueControl: 0
+    - _QueueOffset: 0
     - _SeeVertexColor: 0
     - _SeeVertexColor1: 0
+    - _ShadowStrength: 1
     - _SmoothnessPower: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
+    - _SquashAmount: 1
     - _SrcBlend: 1
+    - _SubsurfaceIndirect: 0.25
+    - _SubsurfaceKwToggle: 0
     - _Tiling: 0.5
+    - _TranslucencyViewDependency: 0.7
     - _TrunkWindAmplitude: 0.5
     - _TrunkWindPower: 1
+    - _TwoSided: 2
     - _UVSec: 0
     - _UseVertexColor: 0
     - _VertexColorChannel: 0
+    - _WINDQUALITY: 4
     - _WindAmplitude: 1
     - _WindBurstsPower: 10
     - _WindBurstsScale: 1
@@ -155,6 +199,7 @@ Material:
     - _WindPosContrast: 6.5
     - _WindPosition: 6
     - _WindPower: 0.01
+    - _WindQuality: 1
     - _WindSpeed: 1
     - _WindTrunkContrast: 0
     - _WindTrunkPosition: 0
@@ -164,4 +209,23 @@ Material:
     - _2ndColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _HueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
+    - _HueVariationColor: {r: 1, g: 0.5, b: 0, a: 0.2}
+    - _SubsurfaceColor: {r: 1, g: 1, b: 1, a: 1}
+    - _TranslucencyColor: {r: 0.73, g: 0.85, b: 0.40999997, a: 1}
+    - _TreeInstanceColor: {r: 1, g: 1, b: 1, a: 1}
+    - _TreeInstanceScale: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+--- !u!114 &3985813222327186901
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5

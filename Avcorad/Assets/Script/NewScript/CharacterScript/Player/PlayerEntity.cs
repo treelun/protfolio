@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.Feedbacks;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerEntity : LivingEntity
 {
@@ -193,6 +194,13 @@ public class PlayerEntity : LivingEntity
         }
     }
 
+    public override void Death()
+    {
+        base.Death();
+        StartCoroutine(PlayerDeath());
+        
+    }
+
     //캐릭터가 활성화 될때 값들을 설정해줌
     public override void OnEnable()
     {
@@ -294,5 +302,11 @@ public class PlayerEntity : LivingEntity
         bloodScreen.color = new Color(1, 0, 0, Random.Range(0.2f, 0.3f));
         yield return new WaitForSeconds(0.1f);
         bloodScreen.color = Color.clear;
+    }
+
+    IEnumerator PlayerDeath()
+    {
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene("Play");
     }
 }

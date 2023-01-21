@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 599e6c38a2109244a80de10e2f812a44,
+    type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -8680,6 +8681,10 @@ MonoBehaviour:
   isJump: 0
   JumpFeedbacks: {fileID: 0}
   LandingFeedbacks: {fileID: 0}
+  audioSource: {fileID: 0}
+  dodgeSound: {fileID: 0}
+  attackSound: {fileID: 0}
+  bloodScreen: {fileID: 0}
 --- !u!114 &1182527903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10408,6 +10413,10 @@ MonoBehaviour:
   isJump: 0
   JumpFeedbacks: {fileID: 0}
   LandingFeedbacks: {fileID: 0}
+  audioSource: {fileID: 0}
+  dodgeSound: {fileID: 0}
+  attackSound: {fileID: 0}
+  bloodScreen: {fileID: 0}
 --- !u!114 &1391462221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11103,8 +11112,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1517918071}
-  m_LocalRotation: {x: 0.3205635, y: 0.4650996, z: -0.18542242, w: 0.8040771}
-  m_LocalPosition: {x: 481.69, y: 6.06, z: 584.12}
+  m_LocalRotation: {x: 0.009114922, y: 0.950803, z: -0.028102903, w: 0.30838433}
+  m_LocalPosition: {x: 470.58, y: 1.41, z: 581.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20584,6 +20593,10 @@ MonoBehaviour:
   isJump: 0
   JumpFeedbacks: {fileID: 0}
   LandingFeedbacks: {fileID: 0}
+  audioSource: {fileID: 0}
+  dodgeSound: {fileID: 0}
+  attackSound: {fileID: 0}
+  bloodScreen: {fileID: 0}
 --- !u!95 &7202823923205858481
 Animator:
   serializedVersion: 4

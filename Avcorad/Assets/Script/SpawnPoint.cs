@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour
 {
-    [SerializeField] GameObject enemyPrefab;
+    public GameObject enemyPrefab;
     GameObject enemy;
 
-    [SerializeField] ItemBox itembox;
+    float delta;
 
     private void Start()
     {
@@ -16,6 +16,7 @@ public class SpawnPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (enemy.activeSelf == false)
         {
             StartCoroutine(CreateEnemyCoroutine());
@@ -24,20 +25,19 @@ public class SpawnPoint : MonoBehaviour
         {
             return;
         }
-        
+
     }
 
-    void CreateEnemy()
+    public GameObject CreateEnemy()
     {
-        enemy 
-         = Instantiate(enemyPrefab, transform.position, transform.rotation);
-
-        if(!GameManager.Instance.itembox)
+        if (enemyPrefab != null)
         {
-            return;
+            enemy = Instantiate(enemyPrefab, transform.position, transform.rotation);
+            return enemy;
         }
 
-        GameManager.Instance.itembox = this.itembox;
+        return null;
+
     }
     IEnumerator CreateEnemyCoroutine()
     {

@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 5011527783140478180}
   - component: {fileID: 8224521120416121665}
   - component: {fileID: 6181095019429574539}
-  - component: {fileID: -7700253220181843111}
-  m_Layer: 0
+  - component: {fileID: 4426515935935851911}
+  m_Layer: 12
   m_Name: Cliff03g
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &-7700253220181843111
-MeshCollider:
+--- !u!65 &4426515935935851911
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,7 +94,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -7001657145310084453, guid: 1de2bff64e54872448f9fb5ca0b56cb9, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 15.343801, y: 10.874494, z: 16.48117}
+  m_Center: {x: -0.0000047683716, y: -0.00000023841858, z: 0}
